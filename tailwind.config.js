@@ -22,6 +22,9 @@ module.exports = {
           550: '#E78B09'
         }
       },
+      boxShadow: {
+        blocks: '8px 8px'
+      },
       screens: {
         xs: '375px'
       }
