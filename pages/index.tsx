@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/header'
+import Window from '../components/window'
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,8 @@ const Home: NextPage = () => {
         <title>Purdue Hackers</title>
       </Head>
       <Header />
+      <hr className="border-2 border-amber-400 border-dashed" />
+      <Window />
     </div>
   )
 }
