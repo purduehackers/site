@@ -58,8 +58,8 @@ const Email = () => (
           <p>I mean, that would be life-changing, wouldn’t it?</p>
         </div>
         <br />
-        <p>Regards,</p>
-        <p>💛⚡️ The Purdue Hackers community</p>
+        <p className="text-mxs">Regards,</p>
+        <p className="text-mxs">💛⚡️ The Purdue Hackers community</p>
       </div>
     </div>
   </div>
