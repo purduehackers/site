@@ -29,9 +29,9 @@ module.exports = {
         xs: '375px'
       },
       fontSize: {
-        mxs: '.85rem'
+        mxs: '.9rem'
       }
     }
   },
-  plugins: []
+  plugins: [require('tailwind-scrollbar')]
 }

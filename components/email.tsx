@@ -1,5 +1,5 @@
 const Email = () => (
-  <div className="bg-sky-300">
+  <div className="bg-teal-300">
     <div className="mt-8 border-2 border-black w-11/12 sm:w-1/2 mx-auto mb-8">
       <div className="border-b-2 border-black flex flex-row px-1 bg-gray-300">
         <p className="pr-1 border-r-2 border-black">x</p>
@@ -8,7 +8,7 @@ const Email = () => (
         <div className="grow" />
         <div />
       </div>
-      <div className="bg-white p-2">
+      <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
         <p className="font-bold">
           from:{' '}
           <span className="font-normal">
@@ -22,7 +22,7 @@ const Email = () => (
           subject: <span className="font-normal">an invitation</span>
         </p>
         <br />
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4 text-mxs">
           <p>
             Building and shipping a technical project that you’re proud of is
             among the most validating and rewarding things you can do as a young
