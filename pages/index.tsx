@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/header'
-import Window from '../components/window'
+import Email from '../components/email'
 
 const Home: NextPage = () => {
   return (
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <hr className="border-2 border-black border-dashed bg-amber-100" />
-      <Window />
+      <Email />
     </div>
   )
 }
