@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       <Header />
       <hr className="border-2 border-black border-dashed bg-amber-100" />
       <Email />
-      <hr className="border-2 border-black border-dashed bg-amber-100" />
+      <hr className="border-2 border-black border-dashed bg-amber-200" />
       <Community />
       <Workshops />
       <HackNight />
