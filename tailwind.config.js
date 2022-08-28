@@ -20,6 +20,9 @@ module.exports = {
         amber: {
           450: '#F8AF18',
           550: '#E78B09'
+        },
+        gray: {
+          discord: '#37393e'
         }
       },
       boxShadow: {

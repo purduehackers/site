@@ -2,6 +2,9 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/header'
 import Email from '../components/email'
+import Community from '../components/community'
+import Workshops from '../components/workshops'
+import HackNight from '../components/hack-night'
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +25,10 @@ const Home: NextPage = () => {
       <Header />
       <hr className="border-2 border-black border-dashed bg-amber-100" />
       <Email />
+      <hr className="border-2 border-black border-dashed bg-amber-100" />
+      <Community />
+      <Workshops />
+      <HackNight />
     </div>
   )
 }
