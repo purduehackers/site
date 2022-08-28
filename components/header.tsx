@@ -8,8 +8,8 @@ const Header = () => (
     <div className="w-10/12 sm:w-1/2 mx-auto">
       <div className="shadow-blocks shadow-gray-800 border-4 bg-white border-black p-4 rounded-sm">
         <p className="text-lg sm:text-xl font-bold">
-          A community of students who collaborate, learn, and build kick-ass
-          technical projects 💛⚡️
+          💛⚡️ A community of students who collaborate, learn, and build
+          kick-ass technical projects
         </p>
       </div>
     </div>
