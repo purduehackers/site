@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <title>Purdue Hackers</title>
       </Head>
       <Header />
-      <hr className="border-2 border-black border-dashed" />
+      <hr className="border-2 border-black border-dashed bg-amber-100" />
       <Window />
     </div>
   )
