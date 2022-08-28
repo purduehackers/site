@@ -32,17 +32,19 @@ const Email = () => (
           </p>
           <p>
             College is the best time in your life to wildly experiment and build
-            all the creative projects you’ve ever wanted to build. But actually
-            doing it is soooooooooo hard. Before you can ship something you feel
-            proud of, you have to find something you’d enjoy building, feels
-            unique, and allows you to learn new things, but not too many new
-            things, otherwise you’ll give up. Then, you have to find the time
-            and motivation to actually build the thing—and you have to do this
-            outside of your classes, which are already highly time-consuming and
-            energy-draining, and often in spite of trying to build a social
-            life. As students, we’re constantly being pulled in every
-            direction—so it’s no surprise most students don’t bother, & graduate
-            never having made something they’re proud of.
+            cool, creative projects. But actually doing it is soooooooooo hard.
+            Before you can ship something you feel proud of, you have to find
+            something you’d enjoy building, feels unique, and allows you to
+            learn new things, but not too many new things, otherwise you’ll give
+            up. Then, you have to find the time and motivation to actually build
+            the thing—and you have to do this outside of your classes, which are
+            already highly time-consuming and energy-draining, and also outside
+            of constant social obligations.
+          </p>
+          <p>
+            As students, we’re constantly being pulled in every direction—so
+            it’s no surprise most students simply don’t bother, & graduate never
+            having made something they’re proud of.
           </p>
           <p>
             If only there were a community full of friendly, weird, creative, &
