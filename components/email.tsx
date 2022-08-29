@@ -32,8 +32,8 @@ const Email = () => (
             of, you have to find something you’d enjoy building, feels unique,
             and allows you to learn new things, but not too many new things,
             otherwise you’ll give up. Then, you have to find the time and
-            motivation to actually build the thing—and you have to do this while
-            being pulled in every direction by academic and social oligations.
+            motivation to actually build the thing—all while being pulled in
+            every direction by academic and social oligations.
           </p>
           <p>
             It’s no surprise most students simply don’t bother, & graduate never
