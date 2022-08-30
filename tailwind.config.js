@@ -32,7 +32,8 @@ module.exports = {
         xs: '375px'
       },
       fontSize: {
-        mxs: '.9rem'
+        mxs: '.9rem',
+        '15xl': '15rem'
       }
     }
   },

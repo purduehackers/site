@@ -6,6 +6,8 @@ import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 
+import TestCommunity from '../components/test-community'
+
 const Home: NextPage = () => {
   return (
     <div className="min-h-screen overflow-hidden flex flex-col">
@@ -26,7 +28,8 @@ const Home: NextPage = () => {
       <hr className="border-2 border-black border-dashed bg-amber-100" />
       <Email />
       <hr className="border-2 border-black border-dashed bg-amber-200" />
-      <Community />
+      {/* <Community /> */}
+      <TestCommunity />
       <Workshops />
       <HackNight />
     </div>
