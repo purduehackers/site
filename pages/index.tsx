@@ -28,8 +28,7 @@ const Home: NextPage = () => {
       <hr className="border-2 border-black border-dashed bg-amber-100" />
       <Email />
       <hr className="border-2 border-black border-dashed bg-amber-200" />
-      {/* <Community /> */}
-      <TestCommunity />
+      <Community />
       <Workshops />
       <HackNight />
     </div>
