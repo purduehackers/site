@@ -10,14 +10,15 @@ const JoinUs = () => (
                     width={200}
                     height={200}/>
             </div>
-            <div className="relative top-10">
+            <div className="relative -top-10 right-0 w-screen
+                    flex flex-row justify-end">
                 <Image
                     src = "/img/dino.svg" 
                     alt="Sad Plant!"
                     width={200}
                     height={200}/>
             </div>
-            <div className="relative top-10">
+            <div className="relative -top-10">
                 <Image
                     src = "/img/floatCat.svg" 
                     alt="Sad Plant!"
@@ -25,7 +26,7 @@ const JoinUs = () => (
                     height={200}/>
             </div>
         </div>
-        <div className="flex flex-col items-center p-6 sm:p-6">
+        <div className="flex flex-col items-center pt-8">
             <h2 className="text-6xl text-center sm:text-6xl 
                 w-1/3 leading-loose">
                 Ready to find your people?
