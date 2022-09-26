@@ -8,7 +8,8 @@ module.exports = {
     fontFamily: {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
-      mono: '"IBM Plex Mono"'
+      mono: '"IBM Plex Mono"',
+      pixel: '"Press Start 2P"'
     },
     extend: {
       colors: {
