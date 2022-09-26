@@ -32,11 +32,15 @@ const JoinUs = () => (
             </h2>
             <div className="flex flex-col md:flex-row p-6 sm:p-12 w-2/3
                     justify-between max-w-3xl md: min-w-fit mt-5">
-                <button className="border-solid border-black border-4 relative
-                        px-2 py-2 w-48 h-24 min-w-fit rounded-3xl font-bold font-mono
-                        text-sm shadow-dark-y-md hover:shadow-none hover:top-2">
-                    Sign Up for Events
-                </button>
+                <a href="https://events.purduehackers.com/"
+                    rel="noopener noreferrer"
+                    target="_blank">
+                    <button className="border-solid border-black border-4 relative
+                            px-2 py-2 w-48 h-24 min-w-fit rounded-3xl font-bold font-mono
+                            text-sm shadow-dark-y-md hover:shadow-none hover:top-2">
+                        Sign Up for Events
+                    </button>
+                </a>
                 <a href="https://discord.gg/EXX7baDYS5"
                     rel="noopener noreferrer"
                     target="_blank">
