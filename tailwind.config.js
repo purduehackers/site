@@ -28,7 +28,7 @@ module.exports = {
       },
       boxShadow: {
         blocks: '8px 8px',
-        'dark-y-md': '0px 8px'
+        'footer-btn': '0px 8px'
       },
       screens: {
         xs: '375px'

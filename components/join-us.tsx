@@ -27,27 +27,24 @@ const JoinUs = () => (
             </div>
         </div>
         <div className="flex flex-col items-center pt-8">
-            <h2 className="text-6xl text-center sm:text-6xl 
-                w-1/3 leading-loose">
+            <h2 className="text-center text-5xl sm:text-6xl
+                    md:text-7xl w-3/5 sm:w-1/2 xl:w-5/12 leading-loose">
                 Ready to find your people?
             </h2>
-            <div className="flex flex-col md:flex-row p-6 sm:p-12 w-2/3
-                    justify-between max-w-3xl md: min-w-fit mt-5">
+            <div className="flex flex-col justify-between items-center 
+                    md:flex-row p-6 sm:p-12 h-64 sm:h-72 md:h-fit mb-16 sm:mb-5
+                    w-2/3 lg:w-1/2 max-w-3xl min-w-fit md:mt-5">
                 <a href="https://events.purduehackers.com/"
                     rel="noopener noreferrer"
                     target="_blank">
-                    <button className="border-solid border-black border-4 relative
-                            px-2 py-2 w-48 h-24 min-w-fit rounded-3xl font-bold font-mono
-                            text-sm shadow-dark-y-md hover:shadow-none hover:top-2">
-                        Sign Up for Events
+                    <button className="footer-btn">
+                        Browse Events
                     </button>
                 </a>
                 <a href="https://discord.gg/EXX7baDYS5"
                     rel="noopener noreferrer"
                     target="_blank">
-                    <button className="border-solid border-black border-4 relative
-                            px-2 py-2 w-48 h-24 min-w-fit rounded-3xl font-bold font-mono
-                            text-sm shadow-dark-y-md hover:shadow-none hover:top-2">
+                    <button className="footer-btn">
                         Join Discord
                     </button>
                 </a>

@@ -15,3 +15,11 @@
     background: #fcd34d;
   }
 }
+
+@layer components {
+  .footer-btn {
+    @apply border-solid border-black border-4 relative
+      px-2 py-2  w-48 h-20 min-w-fit rounded-3xl font-bold font-mono
+      text-sm shadow-footer-btn hover:shadow-none hover:top-2;
+  }
+}
