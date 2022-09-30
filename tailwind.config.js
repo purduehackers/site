@@ -36,6 +36,9 @@ module.exports = {
       fontSize: {
         mxs: '.9rem',
         '15xl': '15rem'
+      },
+      top: {
+        '100vw': '100vw'
       }
     }
   },
