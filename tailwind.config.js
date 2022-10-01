@@ -39,6 +39,15 @@ module.exports = {
       },
       top: {
         '100vw': '100vw'
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '50%' },
+          '100%': { opacity: '100%' }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in .5s ease-in-out',
       }
     }
   },

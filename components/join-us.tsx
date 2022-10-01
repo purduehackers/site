@@ -31,7 +31,7 @@ function JoinUs() {
                 </div>
             </div>
             <div className="flex flex-col items-center pt-8">
-                <h2 className="text-center text-5xl sm:text-6xl
+                <h2 className="text-center text-5xl sm:text-6xl 
                         md:text-7xl w-3/5 sm:w-1/2 xl:w-5/12 leading-loose">
                     Ready to find your people?
                 </h2>
@@ -58,17 +58,19 @@ function JoinUs() {
                     {!water && 
                         <Image
                             className="active:scale-95 transition-transform"
-                            src = "/img/sadPlant.svg" 
+                            src = "/img/sadPlantB1.svg" 
                             alt="Sad Plant!"
-                            width={200}
-                            height={200}/>}
+                            width={165}
+                            height={165}/>}
                     {water && 
-                        <Image
+                        <div className="relative -top-4 animate-fade-in">
+                            <Image
                             className="active:scale-95 transition-transform"
-                            src = "/img/dino.svg" 
+                            src = "/img/sadPlantB2.svg" 
                             alt="Sad Plant!"
                             width={200}
-                            height={200}/>}
+                            height={200}/>
+                        </div>}
                     <div className="font-pixel text-xs text-center 
                             mt-3 animate-bounce">
                         Click to Water
