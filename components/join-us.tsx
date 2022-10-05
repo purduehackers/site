@@ -68,16 +68,7 @@ function JoinUs() {
           className="relative -top-10 cursor-pointer"
           onClick={() => setWater(true)}
         >
-          {!water && (
-            <Image
-              className="active:scale-95 transition-transform"
-              src="/img/sadPlantB1.svg"
-              alt="Sad Plant!"
-              width={165}
-              height={165}
-            />
-          )}
-          {water && (
+          {water ? (
             <div className="relative -top-4 animate-fade-in">
               <Image
                 className="active:scale-95 transition-transform"
@@ -87,6 +78,14 @@ function JoinUs() {
                 height={200}
               />
             </div>
+          ) : (
+            <Image
+              className="active:scale-95 transition-transform"
+              src="/img/sadPlantB1.svg"
+              alt="Sad Plant!"
+              width={165}
+              height={165}
+            />
           )}
           <div
             className={`font-pixel text-xs text-center 
