@@ -89,8 +89,8 @@ function JoinUs() {
             </div>
           )}
           <div
-            className="font-pixel text-xs text-center 
-                            mt-3 animate-bounce"
+            className={`font-pixel text-xs text-center 
+                            mt-3 animate-bounce ${water ? 'hidden' : ''}`}
           >
             Click to Water
           </div>
