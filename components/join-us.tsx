@@ -32,7 +32,7 @@ function JoinUs() {
             </div>
             <div className="flex flex-col items-center pt-8">
                 <h2 className="text-center text-5xl sm:text-6xl 
-                        md:text-7xl w-3/5 sm:w-1/2 xl:w-5/12 leading-loose">
+                        md:text-7xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-5/12 leading-loose">
                     Ready to find your people?
                 </h2>
                 <div className="flex flex-col justify-between items-center 
