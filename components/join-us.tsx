@@ -35,15 +35,17 @@ function JoinUs() {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center pt-8">
-        <h2
-          className="text-center text-5xl sm:text-6xl 
-                        md:text-7xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-5/12 leading-loose"
-        >
-          Ready to find your people?
-        </h2>
+      <div className="flex flex-col items-center justify-center sm:pt-8">
+        <div className="backdrop-blur-md border-y-4 border-amber-400 sm:border-none sm:backdrop-blur-none p-4 flex flex-col items-center z-10 backdrop-blur-md">
+          <h2
+            className="text-center font-bold text-5xl sm:text-6xl 
+                        md:text-7xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug sm:leading-loose"
+          >
+            Ready to find your people?
+          </h2>
+        </div>
         <div
-          className="flex flex-col justify-between items-center 
+          className="flex flex-col justify-center gap-x-2 items-center 
                         md:flex-row p-6 sm:p-12 h-64 sm:h-72 md:h-fit mb-16 sm:mb-5
                         w-2/3 lg:w-1/2 max-w-3xl min-w-fit md:mt-5"
         >
