@@ -8,7 +8,7 @@ module.exports = {
     fontFamily: {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
-      mono: '"IBM Plex Mono"',
+      mono: '"Space Mono"',
       pixel: '"Press Start 2P"'
     },
     extend: {
@@ -47,7 +47,7 @@ module.exports = {
         }
       },
       animation: {
-        'fade-in': 'fade-in .5s ease-in-out',
+        'fade-in': 'fade-in .5s ease-in-out'
       }
     }
   },
