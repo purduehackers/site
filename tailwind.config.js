@@ -8,7 +8,8 @@ module.exports = {
     fontFamily: {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
-      mono: '"IBM Plex Mono"'
+      mono: '"Space Mono"',
+      pixel: '"Press Start 2P"'
     },
     extend: {
       colors: {
@@ -26,7 +27,8 @@ module.exports = {
         }
       },
       boxShadow: {
-        blocks: '8px 8px'
+        blocks: '8px 8px',
+        'footer-btn': '0px 8px'
       },
       screens: {
         xs: '375px'
@@ -34,6 +36,18 @@ module.exports = {
       fontSize: {
         mxs: '.9rem',
         '15xl': '15rem'
+      },
+      top: {
+        '100vw': '100vw'
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '50%' },
+          '100%': { opacity: '100%' }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in .5s ease-in-out'
       }
     }
   },

@@ -5,6 +5,7 @@ import Email from '../components/email'
 import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
+import JoinUs from '../components/join-us'
 
 import TestCommunity from '../components/test-community'
 
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
       <Community />
       <Workshops />
       <HackNight />
+      <JoinUs />
     </div>
   )
 }
