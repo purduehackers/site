@@ -10,7 +10,7 @@ function JoinUs() {
         <div className="relative top-10">
           <Image
             src="/img/thisGuy.svg"
-            alt="Sad Plant!"
+            alt="This Guy!"
             width={200}
             height={200}
           />
@@ -19,17 +19,12 @@ function JoinUs() {
           className="relative -top-10 right-0 w-screen
                         flex flex-row justify-end"
         >
-          <Image
-            src="/img/dino.svg"
-            alt="Sad Plant!"
-            width={200}
-            height={200}
-          />
+          <Image src="/img/dino.svg" alt="Dino!" width={200} height={200} />
         </div>
         <div className="relative -top-10">
           <Image
             src="/img/floatCat.svg"
-            alt="Sad Plant!"
+            alt="Float Cat!"
             width={200}
             height={200}
           />
@@ -73,7 +68,7 @@ function JoinUs() {
               <Image
                 className="active:scale-95 transition-transform"
                 src="/img/sadPlantB2.svg"
-                alt="Sad Plant!"
+                alt="Sad Plant (watered)!"
                 width={200}
                 height={200}
               />
