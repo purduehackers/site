@@ -40,8 +40,8 @@ function JoinUs() {
           </h2>
         </div>
         <div
-          className="flex flex-col justify-center gap-x-4 gap-y-6 items-center 
-                        md:flex-row p-6 sm:p-12 h-64 sm:h-72 md:h-fit mb-16 sm:mb-5
+          className="flex flex-row justify-center gap-x-4 gap-y-6 items-center 
+                        p-6 sm:p-12 sm:h-72 md:h-fit mb-16 sm:mb-5
                         w-2/3 lg:w-1/2 max-w-3xl min-w-fit md:mt-5"
         >
           <a
@@ -49,14 +49,14 @@ function JoinUs() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <button className="footer-btn">Browse Events</button>
+            <button className="footer-btn bg-amber-300">Browse Events</button>
           </a>
           <a
             href="https://discord.gg/EXX7baDYS5"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <button className="footer-btn">Join Discord</button>
+            <button className="footer-btn bg-amber-300">Join Discord</button>
           </a>
         </div>
         <div
