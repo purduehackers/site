@@ -52,7 +52,7 @@ function JoinUs() {
             <button className="footer-btn bg-amber-300">Browse Events</button>
           </a>
           <a
-            href="https://discord.gg/EXX7baDYS5"
+            href="https://puhack.horse/discord-site-refer"
             rel="noopener noreferrer"
             target="_blank"
           >
