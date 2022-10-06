@@ -34,7 +34,7 @@ function JoinUs() {
         <div className="backdrop-blur-md border-y-4 border-black sm:border-none sm:backdrop-blur-none p-4 flex flex-col items-center z-10 backdrop-blur-md">
           <h2
             className="text-center font-bold text-5xl sm:text-6xl 
-                        md:text-7xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug sm:leading-loose"
+                        md:text-8xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug"
           >
             Ready to find your people?
           </h2>
