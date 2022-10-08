@@ -52,7 +52,7 @@ const HackNight = () => (
       </Draggable>
       <Draggable>
         <div className="border-solid border-white border-2 cursor-pointer
-            w-2/5 h-64 rounded-xl font-bold font-mono bg-black">
+            w-2/5 h-64 rounded-xl font-bold font-mono bg-black z-5">
           <div className="w-full bg-gray-300 rounded-t-lg px-2
               border-black border-solid border-b-4 flex justify-between items-center">
             <div><FontAwesomeIcon icon={faWindows} size="1x" /> wackhacker@hacknight:~$</div>
@@ -97,6 +97,21 @@ const HackNight = () => (
             Potato poatatotoo
           </p>
           <div className="hack-btn text-white border-white">Sign Up</div>
+        </div>
+      </Draggable>
+      <Draggable>
+        <div className="w-fit h-fit border-solid border-white border-4
+            rounded-xl font-mono font-bold cursor-pointer">
+          <div className="w-full bg-gray-300 rounded-t-lg px-2 text-xs
+              border-black border-solid border-b-4 flex justify-between items-center">
+            <div>blobfish.temp</div>
+          </div>
+          <Image
+            src="/img/blob.png"
+            alt="temporary blobfiss"
+            width={110}
+            height={110}
+          />
         </div>
       </Draggable>
     </div>
