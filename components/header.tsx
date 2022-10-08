@@ -3,13 +3,9 @@ import { useState, useEffect, useContext } from 'react';
 
 import { DraggableContext, DraggableInterface } from '../context/DraggableContext';
 
-interface Size {
-  width: number;
-  height: number;
-}
-
 const Header = () => {
   const { draggable, setDraggable } = useContext(DraggableContext)
+  // console.log(draggable)
 
   return (
     <div className="flex flex-col items-center justify-center py-12 lg:py-0 lg:h-screen bg-amber-100 gap-y-4">

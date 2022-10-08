@@ -39,10 +39,18 @@ const Home: NextPage = () => {
       setDraggable(false)
     }
   }
+  
+  useEffect((): any => {
+    if (window.innerWidth > 1200) {
+      setDraggable(true)
+    }
+    else {
+      setDraggable(false)
+    }
+  }, []);
 
   useEffect((): any => {
     window.addEventListener('resize', resizeHandler)
-
     return () => {
       window.removeEventListener('resize', resizeHandler)
     }
