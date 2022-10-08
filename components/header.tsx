@@ -1,5 +1,7 @@
 import Draggable from 'react-draggable';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { DraggableContext, DraggableInterface } from '../context/DraggableContext';
 
 interface Size {
   width: number;
@@ -7,38 +9,7 @@ interface Size {
 }
 
 const Header = () => {
-  const [windowSize, setWindowSize] = useState<Size>({
-    width: 0,
-    height: 0
-  })
-  const [draggable, setDraggable] = useState<boolean>(false)
-
-  const resizeHandler = () => {
-    console.log(draggable)
-    console.log(windowSize.width)
-    console.log(window.innerWidth)
-
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight
-    })
-
-    if (windowSize.width > 1200) {
-      setDraggable(true)
-    }
-    else {
-      setDraggable(false)
-    }
-  }
-
-  useEffect((): any => {
-    window.addEventListener('resize', resizeHandler)
-
-    return () => {
-      window.removeEventListener('resize', resizeHandler)
-    }
-  });
-
+  const { draggable, setDraggable } = useContext(DraggableContext)
 
   return (
     <div className="flex flex-col items-center justify-center py-12 lg:py-0 lg:h-screen bg-amber-100 gap-y-4">
