@@ -34,9 +34,10 @@ const HackNight = () => (
             <div className="border-solid border-black border-2 p-8 rounded-xl">
               <h2 className="font-bold text-3xl mb-4">The Night is Nigh 🌙</h2>
               <p className="text-mxs">
-                Do you feel burdened by the weight of your ever-increasing responsibilities? 
-                Do you ever want to escape from reality, to a plane of existence far away
-                from the endless monotony of daily life? Then come to Hack Night!
+                Do you ever feel burdened by the weight of your ever-increasing responsibilities? 
+                Do you want to escape from reality, to a plane of existence far away
+                from the endless monotony of daily life? Well, you can't. But you know 
+                what you can do? Come to Hack Night!
               </p><br/>
               <p className="text-mxs">
                 Hack night is uninterrupted time for you to work on personal projects of 
