@@ -1,25 +1,37 @@
 import Draggable from 'react-draggable';
+import { useState, useEffect, useContext } from 'react';
 
-const Header = () => (
-  <div className="py-12 lg:py-0 lg:h-screen bg-amber-100 flex flex-col justify-center items-center gap-y-4">
-    <Draggable>
-      <div className="shadow-blocks shadow-gray-800 border-4 bg-amber-400 border-black p-6 rounded-sm w-10/12 lg:w-auto">
-        <h1 className="text-center font-bold text-6xl sm:text-8xl lg:text-9xl">
-          Purdue Hackers
-        </h1>
-      </div>
-    </Draggable>
-    <Draggable>
-      <div className="w-10/12 sm:w-1/2 mx-auto">
-        <div className="shadow-blocks shadow-gray-800 border-4 bg-white border-black p-4 rounded-sm">
-          <p className="text-lg sm:text-xl font-bold">
-            💛⚡️ a community of students who collaborate, learn, and build
-            kick-ass technical projects
-          </p>
+import { DraggableContext, DraggableInterface } from '../context/DraggableContext';
+
+interface Size {
+  width: number;
+  height: number;
+}
+
+const Header = () => {
+  const { draggable, setDraggable } = useContext(DraggableContext)
+
+  return (
+    <div className="flex flex-col items-center justify-center py-12 lg:py-0 lg:h-screen bg-amber-100 gap-y-4">
+      <Draggable disabled={!draggable}>
+        <div className="w-10/12 p-6 border-4 border-black rounded-sm shadow-blocks shadow-gray-800 bg-amber-400 lg:w-auto">
+          <h1 className="text-6xl font-bold text-center sm:text-8xl lg:text-9xl">
+            Purdue Hackers
+          </h1>
         </div>
-      </div>
-    </Draggable>
-  </div>
-)
+      </Draggable>
+      <Draggable disabled={!draggable}>
+        <div className="w-10/12 mx-auto sm:w-1/2">
+          <div className="p-4 bg-white border-4 border-black rounded-sm shadow-blocks shadow-gray-800">
+            <p className="text-lg font-bold sm:text-xl">
+              💛⚡️ a community of students who collaborate, learn, and build
+              kick-ass technical projects
+            </p>
+          </div>
+        </div>
+      </Draggable>
+    </div>
+  )
+}
 
 export default Header
