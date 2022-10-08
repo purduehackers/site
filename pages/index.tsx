@@ -71,6 +71,7 @@ const Home: NextPage = () => {
         <Community />
         <Workshops />
         <HackNight />
+        <JoinUs />
       </div>
     </DraggableContext.Provider>
     
