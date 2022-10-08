@@ -1,4 +1,5 @@
 import Draggable from "react-draggable"
+import Image from 'next/image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faLeftLong, faRightLong, faEllipsis} from '@fortawesome/free-solid-svg-icons'
@@ -9,8 +10,8 @@ const HackNight = () => (
     <div className="p-6 sm:p-12">
       <h1 className="text-5xl sm:text-9xl font-bold text-white">3. Hack Night</h1>
       <Draggable>
-        <div className="border-solid border-black border-2 cursor-pointer
-            w-full sm:w-1/2 rounded-xl bg-white relative top-0 right-0">
+        <div className="border-solid border-black border-2 cursor-pointer z-10
+            w-full md:w-2/3 lg:w-1/2 rounded-xl bg-white relative top-0 right-0">
           <div className="w-full bg-gray-300 rounded-t-lg px-2 text-black font-mono font-bold
               border-black border-solid border-b-2 flex justify-between items-center">
             <div><FontAwesomeIcon icon={faWindows} size="1x" /> Window</div>
@@ -33,14 +34,17 @@ const HackNight = () => (
             <div className="border-solid border-black border-2 p-8 rounded-xl">
               <h2 className="font-bold text-3xl mb-4">The Night is Nigh 🌙</h2>
               <p className="text-mxs">
-              Do you feel burdened by the weight of your ever-increasing responsibilities? 
-              Do you ever want to escape from reality, from the endless monotony of daily life?
-              Hack night is uninterrupted time for you to work on personal projects of 
-              all kinds—anything from a little hack that you ship by the end of the night, 
-              to part of a larger project. What you work on is up to you, but organizers will
-              be there to provide technical & brainstorming help. There's only one rule: no 
-              working on homework. It's friday night, plus you have the rest of the week to work 
-              on your homework! This is time to work on something that excites you—let's make magic happen ✨💫
+                Do you feel burdened by the weight of your ever-increasing responsibilities? 
+                Do you ever want to escape from reality, to a plane of existence far away
+                from the endless monotony of daily life? Then come to Hack Night!
+              </p><br/>
+              <p className="text-mxs">
+                Hack night is uninterrupted time for you to work on personal projects of 
+                all kinds—anything from a little hack that you ship by the end of the night, 
+                to part of a larger project. What you work on is up to you, but organizers will
+                be there to provide technical & brainstorming help. There's only one rule: no 
+                working on homework. It's friday night, plus you have the rest of the week to work 
+                on your homework! This is time to work on something that excites you—let's make magic happen ✨💫
               </p>
             </div>
           </div>
@@ -64,6 +68,22 @@ const HackNight = () => (
             <p>Copying files from '/etc/skel' ...</p>
             <p>Is this information correct? [Y/n]</p>
           </div>
+        </div>
+      </Draggable>
+      <Draggable>
+        <div className="border-solid border-white border-2 cursor-pointer
+            w-fit h-fit rounded-xl font-bold font-mono bg-black">
+          <div className="w-full bg-gray-300 rounded-t-lg px-2
+              border-black border-solid border-b-4 flex justify-between items-center">
+            <div><FontAwesomeIcon icon={faWindows} size="1x" /> awesomeness.png</div>
+            <FontAwesomeIcon icon={faXmark} size="1x" />
+          </div>
+          <Image
+            src="/img/hackNight.png"
+            alt="Hack Night!"
+            width={400}
+            height={300}
+          />
         </div>
       </Draggable>
       <Draggable>
