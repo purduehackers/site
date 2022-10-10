@@ -137,6 +137,16 @@ const HackNight = () => {
               />
             </div>
           </Draggable>
+          <Draggable>
+            <div className="cursor-pointer">
+              <Image
+                src="/img/keyboard3.png"
+                alt="Keyboard"
+                width={400}
+                height={300}
+              />
+            </div>
+          </Draggable>
         </div>
       </div>
     </div>
