@@ -6,6 +6,8 @@ import { DraggableContext, DraggableInterface } from "../context/DraggableContex
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPaperPlane, faPencil, faCircle } from '@fortawesome/free-solid-svg-icons'
 
+import { emails } from '../utils/data';
+
 const Email = () => {
   const { draggable, setDraggable } = useContext(DraggableContext);
 
@@ -28,25 +30,23 @@ const Email = () => {
         <div className="flex flex-col flex-col-reverse md:flex-row md:flex-row-reverse justify-between w-full">
           <div className="border-4 border-black flex flex-col bg-white
                 w-11/12 sm:w-7/12 md:w-64 h-96 shadow-email shadow-gray-900/70">
-            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8 hover:bg-gray-100 cursor-pointer">
-                  <h4>an invitation</h4>
-            </div>
-            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8">
-                  <h4>***IMPORTANT!***</h4>
-            </div>
-            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8">
-                  <h4>Salmonella...</h4>
-            </div>
-            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8">
-                  <h4>waaawaawaaawwwawawa</h4>
-            </div>
+            {emails.map((email, i) => {
+              return (
+                <div 
+                    className="border-b-2 border-black flex flex-col bg-white w-full p-4 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => i}>
+                  <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
+                  <h4>{email.subject}</h4>
+                </div>
+              );
+            })}
           </div>
           <Draggable
               disabled={!draggable}
               handle=".handle">
             <div className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] shadow-email shadow-gray-900/30 mr-8">
               <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
-                <p className="px-2 border-r-2 border-black bg-red-400">x</p>
+                <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500">x</p>
                 <div className="grow" />
                 <p>email</p>
                 <div className="grow" />
