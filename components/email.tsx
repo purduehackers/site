@@ -13,7 +13,7 @@ const Email = () => {
     <div className="bg-teal-500 min-h-screen p-24 pb-48">
       <div className="flex flex-col w-full lg:w-4/5 mx-auto ">
         <div className="border-2 border-black flex justify-between items-center bg-white
-              w-full h-12 px-8 mb-8 shadow-email">
+              w-full h-12 px-8 mb-8 shadow-email shadow-gray-900/70">
           <div className="w-12 flex justify-between text-[8px] text-amber-400">
             <FontAwesomeIcon icon={faCircle}/>
             <FontAwesomeIcon icon={faCircle}/>
@@ -27,8 +27,8 @@ const Email = () => {
         </div>
         <div className="flex flex-col flex-col-reverse md:flex-row md:flex-row-reverse justify-between w-full">
           <div className="border-4 border-black flex flex-col bg-white
-                w-11/12 sm:w-7/12 md:w-64 h-96 shadow-email">
-            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8">
+                w-11/12 sm:w-7/12 md:w-64 h-96 shadow-email shadow-gray-900/70">
+            <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8 hover:bg-gray-100 cursor-pointer">
                   <h4>an invitation</h4>
             </div>
             <div className="border-b-2 border-black flex flex-col bg-white w-full h-12 p-8">
@@ -44,7 +44,7 @@ const Email = () => {
           <Draggable
               disabled={!draggable}
               handle=".handle">
-            <div className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] shadow-email mr-8">
+            <div className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] shadow-email shadow-gray-900/30 mr-8">
               <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                 <p className="px-2 border-r-2 border-black bg-red-400">x</p>
                 <div className="grow" />
