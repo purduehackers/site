@@ -21,5 +21,9 @@
     @apply border-solid border-black border-4 relative
       px-2 py-2 w-40 sm:w-48 h-20 min-w-fit rounded-3xl font-bold font-mono
       text-xl shadow-footer-btn hover:shadow-none hover:top-2 bg-white;
+  }, 
+  .inbox-email {
+    @apply border-2 border-black flex flex-col bg-white
+      w-11/12 sm:w-1/6 md:w-64 h-12 p-8;
   }
 }
