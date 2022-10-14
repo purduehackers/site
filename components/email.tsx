@@ -5,6 +5,7 @@ import { DraggableContext, DraggableInterface } from "../context/DraggableContex
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPaperPlane, faPencil, faCircle, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { emails } from '../utils/data';
 
@@ -42,6 +43,7 @@ const Email = () => {
                 <div 
                     className={`border-b-2 border-black flex flex-col bg-white w-full p-4 overflow-y-hidden
                       hover:bg-gray-100 cursor-pointer ${!read[i] && "border-r-0 border-r-amber-300"}`}
+                    key={i}
                     onClick={() => {
                       let newOpen = open;
                       newOpen[i] = true;
