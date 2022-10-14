@@ -1,18 +1,22 @@
 export const emails = [
     {
         subject: 'an invitation',
-        author: 'zap@█████'
+        author: 'Purdue Hackers',
+        email: 'zap@█████',
     },
     {
         subject: '***IMPORTANT!!!***',
-        author: 'YOUR_BOSS@iamimportant.co'
+        author: 'Your Boss',
+        email: 'YOUR_BOSS@iamimportant.co'
     },
     {
         subject: 'Salmonella...',
-        author: 'ooooh@thatsnotgood.com'
+        author: 'Bill Nye the Science Guy',
+        email: 'ooooh@thatsnotgood.com'
     },
     {
         subject: 'waaawaawawawaawaa',
-        author: 'yay@whales.bio'
+        author: 'The Pope',
+        email: 'yay@whales.bio'
     },
 ];

@@ -4,12 +4,19 @@ import { useState, useEffect, useContext } from "react";
 import { DraggableContext, DraggableInterface } from "../context/DraggableContext";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPaperPlane, faPencil, faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPaperPlane, faPencil, faCircle, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
 
 import { emails } from '../utils/data';
 
 const Email = () => {
   const { draggable, setDraggable } = useContext(DraggableContext);
+
+  const [open, setOpen] = useState([true, false, false, false]);
+  const [read, setRead] = useState([true, false, false, false]);
+
+  useEffect(() => {
+    setOpen(open);
+  });
 
   return (
     <div className="bg-teal-500 min-h-screen p-24 pb-48">
@@ -34,9 +41,19 @@ const Email = () => {
               return (
                 <div 
                     className="border-b-2 border-black flex flex-col bg-white w-full p-4 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => i}>
-                  <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
-                  <h4>{email.subject}</h4>
+                    onClick={() => {
+                      let newOpen = open;
+                      newOpen[i] = true;
+                      setOpen(newOpen => [...newOpen]);
+                    }}>
+                  <div className="flex justify-between">
+                    <div>
+                      <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
+                      <h4 className={`${!open[i] && "font-bold"}`}>{email.subject}</h4>
+                    </div>
+                    {!open[i] && <FontAwesomeIcon icon={faEnvelope}/>}
+                    {open[i] && <FontAwesomeIcon icon={faEnvelopeOpen}/>}
+                  </div>
                 </div>
               );
             })}
