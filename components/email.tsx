@@ -45,14 +45,22 @@ const Email = () => {
                       let newOpen = open;
                       newOpen[i] = true;
                       setOpen(newOpen => [...newOpen]);
+
+                      let newRead = read;
+                      newRead[i] = true;
+                      setOpen(newRead => [...newRead]);
                     }}>
                   <div className="flex justify-between">
-                    <div>
-                      <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
-                      <h4 className={`${!open[i] && "font-bold"}`}>{email.subject}</h4>
+                    <div className="flex">
+                      {!read[i] && <div className="bg-blue-400 w-2 h-full rounded mr-4"></div>}
+                      <div>
+                        <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
+                        <h4 className={`${!open[i] && "font-bold"}`}>{email.subject}</h4>
+                      </div>
                     </div>
-                    {!open[i] && <FontAwesomeIcon icon={faEnvelope}/>}
-                    {open[i] && <FontAwesomeIcon icon={faEnvelopeOpen}/>}
+                    {false && <FontAwesomeIcon icon={faCircle} className="text-blue-400 text-[10px]"/>}
+                    {(!open[i] && read[i]) && <FontAwesomeIcon icon={faEnvelope} className="text-black"/>}
+                    {open[i] && <FontAwesomeIcon icon={faEnvelopeOpen} className="text-gray-300"/>}
                   </div>
                 </div>
               );
