@@ -10,7 +10,7 @@ export const emails = [
         email: 'YOUR_BOSS@iamimportant.co'
     },
     {
-        subject: 'Salmonella...',
+        subject: 'Salmonella.',
         author: 'Bill Nye the Science Guy',
         email: 'ooooh@thatsnotgood.com'
     },
@@ -19,4 +19,9 @@ export const emails = [
         author: 'The Pope',
         email: 'yay@whales.bio'
     },
+    {
+        subject: 'Get a Free Avocado',
+        author: 'McDonald\'s',
+        email: 'mcdonalds@gmail.com'
+    }
 ];
