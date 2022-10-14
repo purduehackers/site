@@ -36,7 +36,7 @@ const Email = () => {
           </div>
         </div>
         <div className="flex flex-col flex-col-reverse md:flex-row md:flex-row-reverse justify-between w-full">
-          <div className="overflow-scroll scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200
+          <div className="overflow-scroll scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 min-w-fit
                 border-4 border-black flex flex-col bg-white w-11/12 sm:w-7/12 md:w-64 h-[30rem] shadow-email shadow-gray-900/70">
             {emails.map((email, i) => {
               return (
@@ -70,6 +70,40 @@ const Email = () => {
               );
             })}
           </div>
+          {emails.map((email, i) => {
+            if (i != 0 && open[i]) return (
+              <Draggable
+                  disabled={!draggable}
+                  handle=".handle">
+                <div className={`border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] mr-8 
+                    shadow-email shadow-gray-900/30 h-fit absolute z-${i}0`}>
+                  <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                    <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                      onClick={() => {
+                        let newOpen = open;
+                        newOpen[i] = false;
+                        setOpen(newOpen => [...newOpen]);
+                      }}>x</p>
+                    <div className="grow" />
+                    <p>email</p>
+                    <div className="grow" />
+                  </div>
+                  <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                    <p className="font-bold">
+                      from: <span className="font-normal">{email.email}</span>
+                    </p>
+                    <p className="font-bold">
+                      subject: <span className="font-normal">{email.subject}</span>
+                    </p>
+                    <br />
+                    <div className="flex flex-col gap-y-4 text-mxs">
+                      <p dangerouslySetInnerHTML={{__html: email.content}}></p>
+                    </div>
+                  </div>
+                </div>
+              </Draggable>
+            );
+          })}
           {open[0] && 
             <Draggable
                 disabled={!draggable}
