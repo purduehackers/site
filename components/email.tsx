@@ -15,9 +15,8 @@ const Email = () => {
   const [open, setOpen] = useState([true, false, false, false, false, false]);
   const [read, setRead] = useState([true, false, false, false, false, false]);
 
-  useEffect(() => {
-    setOpen(open);
-  });
+  const [password, setPassword] = useState("");
+  const [showPW, setShowPW] = useState(false);
 
   return (
     <div className="bg-teal-500 min-h-screen p-24">
@@ -30,11 +29,40 @@ const Email = () => {
             <FontAwesomeIcon icon={faCircle}/>
           </div>
           <div className="w-24 flex justify-between text-2xl">
-            <FontAwesomeIcon icon={faEnvelope}/>
-            <FontAwesomeIcon icon={faPaperPlane}/>
-            <FontAwesomeIcon icon={faPencil}/>
+            <FontAwesomeIcon icon={faEnvelope} 
+              className="text-gray-300"
+              onClick={() => setShowPW(true)}/>
+            <FontAwesomeIcon icon={faPaperPlane} 
+              className="cursor-pointer hover:text-amber-300"
+              onClick={() => setShowPW(true)}/>
+            <FontAwesomeIcon icon={faPencil} 
+              className="cursor-pointer hover:text-amber-300"
+              onClick={() => setShowPW(true)}/>
           </div>
         </div>
+        {showPW &&
+          <Draggable
+              disabled={!draggable}
+              handle=".handle"
+              defaultPosition={{x: 250, y: 60 }}>
+            <div className="border-2 border-black w-5/12 sm:w-96 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100]">
+              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
+                <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                  onClick={() => setShowPW(false)}>x</p>
+                <div className="grow" />
+                <p className="text-white">password</p>
+                <div className="grow" />
+              </div>
+              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
+                <input className="bg-black w-3/5 py-1 text-center"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)} />
+              </div>
+            </div>
+          </Draggable>
+        }
         <div className="flex flex-col flex-col-reverse md:flex-row md:flex-row-reverse justify-between w-full">
           <div className="overflow-scroll scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 min-w-fit
                 border-4 border-black flex flex-col bg-white w-11/12 sm:w-7/12 md:w-64 h-[32rem] shadow-email shadow-gray-900/70">
@@ -70,41 +98,6 @@ const Email = () => {
               );
             })}
           </div>
-          {emails.map((email, i) => {
-            if (i != 0 && open[i]) return (
-              <Draggable
-                  disabled={!draggable}
-                  handle=".handle"
-                  defaultPosition={{x: -100 - 40 * i, y: 10 + 18 * i}}>
-                <div className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
-                    shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}>
-                  <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
-                    <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
-                      onClick={() => {
-                        let newOpen = open;
-                        newOpen[i] = false;
-                        setOpen(newOpen => [...newOpen]);
-                      }}>x</p>
-                    <div className="grow" />
-                    <p>email</p>
-                    <div className="grow" />
-                  </div>
-                  <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
-                    <p className="font-bold">
-                      from: <span className="font-normal">{email.email}</span>
-                    </p>
-                    <p className="font-bold">
-                      subject: <span className="font-normal">{email.subject}</span>
-                    </p>
-                    <br />
-                    <div className="flex flex-col gap-y-4 text-mxs overflow-x-hidden">
-                      <p dangerouslySetInnerHTML={{__html: email.content}}></p>
-                    </div>
-                  </div>
-                </div>
-              </Draggable>
-            );
-          })}
           {open[0] && 
             <Draggable
                 disabled={!draggable}
@@ -173,6 +166,41 @@ const Email = () => {
               </div>
             </Draggable>
           }
+          {emails.map((email, i) => {
+            if (i != 0 && open[i]) return (
+              <Draggable
+                  disabled={!draggable}
+                  handle=".handle"
+                  defaultPosition={{x: -100 - 40 * i, y: 10 + 18 * i}}>
+                <div className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
+                    shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}>
+                  <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                    <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                      onClick={() => {
+                        let newOpen = open;
+                        newOpen[i] = false;
+                        setOpen(newOpen => [...newOpen]);
+                      }}>x</p>
+                    <div className="grow" />
+                    <p>email</p>
+                    <div className="grow" />
+                  </div>
+                  <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                    <p className="font-bold">
+                      from: <span className="font-normal">{email.email}</span>
+                    </p>
+                    <p className="font-bold">
+                      subject: <span className="font-normal">{email.subject}</span>
+                    </p>
+                    <br />
+                    <div className="flex flex-col gap-y-4 text-mxs overflow-x-hidden">
+                      <p dangerouslySetInnerHTML={{__html: email.content}}></p>
+                    </div>
+                  </div>
+                </div>
+              </Draggable>
+            );
+          })}
         </div>
       </div>
     </div>
