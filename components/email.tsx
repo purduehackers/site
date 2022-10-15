@@ -75,7 +75,7 @@ const Email = () => {
               <Draggable
                   disabled={!draggable}
                   handle=".handle"
-                  defaultPosition={{x:20, y:20}}>
+                  defaultPosition={{x: -100 - 40 * i, y: 10 + 18 * i}}>
                 <div className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}>
                   <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
@@ -97,7 +97,7 @@ const Email = () => {
                       subject: <span className="font-normal">{email.subject}</span>
                     </p>
                     <br />
-                    <div className="flex flex-col gap-y-4 text-mxs">
+                    <div className="flex flex-col gap-y-4 text-mxs overflow-x-hidden">
                       <p dangerouslySetInnerHTML={{__html: email.content}}></p>
                     </div>
                   </div>

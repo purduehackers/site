@@ -12,14 +12,27 @@ export const emails = [
         content: 'You\'re fired.',
     },
     {
-        subject: `Salmonella.`,
-        author: 'Bill Nye the Science Guy',
-        email: 'ooooh@thatsnotgood.com',
-        content: '',
+        subject: `Hello There.`,
+        author: 'unknown',
+        email: 'bill@science.com',
+        content: `<div class="font-sans">
+        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
+        ───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
+        ──█───▀─▐▌──▐▌─▀▀──▐█──────▀─▐──▐▌─█▀
+        ─▐▌──────▀▄▄▀──────▐█▄▄─────▀▄▄▀──▐▌
+        ─█────────────────────▀█─────────█
+        ▐█─────────────────────█▌─────────█
+        ▐█─────────────────────█▌─────────█
+        ─█───────────────█▄───▄█─────────█
+        ─▐▌───────────────▀███▀───────────▐▌
+        ──█──────────▀▄───────────▄▀─────█
+        ───█───────────▀▄▄▄▄▄▄▄▄▄▀──────█<br/>
+        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
+        <div/>`,
     },
     {
         subject: 'waaawaawawawaawaa',
-        author: 'The Pope',
+        author: 'whalelover426',
         email: 'yay@whales.bio',
         content: `waaawaaw awawaa waawawawaaawaawaw awaawa <br/> awawawaaawaawaw awaawaawawa
                     waaaw aawawawaawaawaw awaaa waaw<br/><br/> 
