@@ -56,8 +56,8 @@ const Email = () => {
                   <div className="flex justify-between">
                     <div className="flex items-center">
                       {!read[i] && <div className="bg-blue-400 w-2 h-2 rounded ml-1 mr-4"></div>}
-                      {open[i] && <FontAwesomeIcon icon={faEnvelopeOpen} className="text-amber-300 mr-4"/>}
-                      {(!open[i] && read[i]) && <FontAwesomeIcon icon={faEnvelope} className="text-gray-300 mr-4"/>}
+                      {open[i] && <FontAwesomeIcon icon={faEnvelopeOpen} className="text-gray-300 mr-4"/>}
+                      {(!open[i] && read[i]) && <FontAwesomeIcon icon={faEnvelope} className="text-amber-300 mr-4"/>}
                       <div>
                         <p className="text-xs text-gray-400 font font-sans">{email.author}</p>
                         <h4 className={`${!read[i] && "font-medium text-black-400"}`}>{email.subject}</h4>
@@ -76,7 +76,7 @@ const Email = () => {
                   disabled={!draggable}
                   handle=".handle"
                   defaultPosition={{x:20, y:20}}>
-                <div className={`border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem]
+                <div className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}>
                   <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                     <p className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
@@ -89,7 +89,7 @@ const Email = () => {
                     <p>email</p>
                     <div className="grow" />
                   </div>
-                  <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-96 scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                  <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
                     <p className="font-bold">
                       from: <span className="font-normal">{email.email}</span>
                     </p>

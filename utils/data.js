@@ -9,7 +9,7 @@ export const emails = [
         subject: '***IMPORTANT!!!***',
         author: 'Your Boss',
         email: 'YOUR_BOSS@iamimportant.co',
-        content: '',
+        content: 'You\'re fired.',
     },
     {
         subject: `Salmonella.`,
