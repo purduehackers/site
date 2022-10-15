@@ -14,7 +14,7 @@ export const emails = [
     {
         subject: `Hello There.`,
         author: 'unknown',
-        email: 'bill@science.com',
+        email: 'urmom@gmail.com',
         content: `<div class="font-sans">
         ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
         ───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
