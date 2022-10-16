@@ -1,10 +1,7 @@
 import Draggable from 'react-draggable'
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 
-import {
-  DraggableContext,
-  DraggableInterface
-} from '../context/DraggableContext'
+import { DraggableContext } from '../context/DraggableContext'
 
 import Image from 'next/future/image'
 
@@ -18,7 +15,7 @@ import {
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
 const HackNight = () => {
-  const { draggable, setDraggable } = useContext(DraggableContext)
+  const { draggable } = useContext(DraggableContext)
 
   return (
     <div className="bg-gray-dark min-h-screen">
@@ -26,15 +23,11 @@ const HackNight = () => {
         <h1 className="text-5xl sm:text-9xl font-bold text-white">
           3. Hack Night
         </h1>
-        <div className="flex flex-col items-center">
-          <Draggable
-            disabled={!draggable}
-            handle=".handle"
-            defaultPosition={{ x: 180, y: 60 }}
-          >
+        <div className="flex flex-col items-center mt-8">
+          <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-black border-2 z-10
-                w-full md:w-2/3 lg:w-1/2 rounded-xl bg-white relative top-0 right-0"
+                w-full md:w-2/3 lg:w-1/2 rounded-xl bg-white relative right sm:top-12 sm:left-44"
             >
               <div
                 className="handle w-full bg-gray-300 rounded-t-lg px-2 text-black font-mono font-bold
@@ -60,8 +53,8 @@ const HackNight = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-6 m-0">
-                <div className="border-solid border-black border-2 p-8 rounded-xl">
+              <div className="p-4 m-0">
+                <div className="border-solid border-black border-2 p-6 rounded-xl">
                   <h2 className="font-bold text-3xl mb-4">
                     The Night is Nigh 🌙
                   </h2>
@@ -88,14 +81,10 @@ const HackNight = () => {
               </div>
             </div>
           </Draggable>
-          <Draggable
-            disabled={!draggable}
-            handle=".handle"
-            defaultPosition={{ x: -280, y: -80 }}
-          >
+          <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-white border-2 
-                w-full sm:w-3/5 md:w-3/5 lg:w-2/5 h-64 rounded-xl font-bold font-mono bg-black z-5"
+                w-full sm:w-3/5 md:w-3/5 lg:w-2/5 h-64 rounded-xl font-bold font-mono bg-black z-5 mt-6 sm:mt-0 sm:bottom-20 sm:right-72 relative"
             >
               <div
                 className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
@@ -122,14 +111,10 @@ const HackNight = () => {
               </div>
             </div>
           </Draggable>
-          <Draggable
-            disabled={!draggable}
-            handle=".handle"
-            defaultPosition={{ x: 250, y: -150 }}
-          >
+          <Draggable handle=".handle">
             <div
               className="border-solid border-white border-2 
-                w-fit h-fit rounded-xl font-bold font-mono bg-black"
+                w-fit h-fit rounded-xl font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-64 sm:bottom-40 relative"
             >
               <div
                 className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
@@ -149,36 +134,38 @@ const HackNight = () => {
               />
             </div>
           </Draggable>
-          <Draggable disabled={!draggable} handle=".handle">
-            <div
-              className="w-fit h-fit border-solid border-white border-4
-                rounded-xl font-mono font-bold"
-            >
+          <div className="flex flex-col sm:flex-row sm:mt-0">
+            <Draggable disabled={!draggable} handle=".handle">
               <div
-                className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
-                  border-black border-solid border-b-4 flex justify-between items-center"
+                className="w-fit h-fit border-solid border-white border-4
+                rounded-xl font-mono font-bold mt-6 sm:mt-0"
               >
-                <div>blobfish.temp</div>
+                <div
+                  className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
+                  border-black border-solid border-b-4 flex justify-between items-center"
+                >
+                  <div>blobfish.temp</div>
+                </div>
+                <Image
+                  src="/img/blob.png"
+                  alt="temporary blobfiss"
+                  width={110}
+                  height={110}
+                />
               </div>
-              <Image
-                src="/img/blob.png"
-                alt="temporary blobfiss"
-                width={110}
-                height={110}
-              />
-            </div>
-          </Draggable>
-          <Draggable>
-            <div className="cursor-pointer">
-              <Image
-                src="/img/keyboard3.png"
-                alt="Keyboard"
-                width={400}
-                height={300}
-                draggable={false}
-              />
-            </div>
-          </Draggable>
+            </Draggable>
+            <Draggable>
+              <div className="cursor-pointer">
+                <Image
+                  src="/img/keyboard3.png"
+                  alt="Keyboard"
+                  width={250}
+                  height={187}
+                  draggable={false}
+                />
+              </div>
+            </Draggable>
+          </div>
         </div>
       </div>
     </div>
