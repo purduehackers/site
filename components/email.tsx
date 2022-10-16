@@ -162,7 +162,9 @@ const Email = () => {
               >
                 <div
                   className={`flex flex-col items-center ${
-                    showScrollReminder ? 'visible' : 'hidden'
+                    showScrollReminder
+                      ? 'opacity-100'
+                      : 'opacity-0 transition-opacity'
                   }`}
                 >
                   <div className="absolute bottom-4 border-2 border-black bg-white p-1 text-sm font-bold animate-bounce">
