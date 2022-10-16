@@ -233,7 +233,7 @@ const Email = () => {
                 >
                   <div
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
-                    shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}
+                    shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
                     <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                       <p
