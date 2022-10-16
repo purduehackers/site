@@ -145,18 +145,8 @@ const HackNight = () => {
                 alt="Hack Night!"
                 width={400}
                 height={300}
+                draggable={false}
               />
-            </div>
-          </Draggable>
-          <Draggable disabled={!draggable} handle=".handle">
-            <div
-              className="border-solid border-black border-4
-                px-2 py-2 w-96 h-20 min-w-fit rounded-3xl font-bold font-mono
-                text-sm bg-black"
-            >
-              <div className="w-full h-2 bg-white"></div>
-              <p className="text-green-500">Potato poatatotoo</p>
-              <div className="hack-btn text-white border-white">Sign Up</div>
             </div>
           </Draggable>
           <Draggable disabled={!draggable} handle=".handle">
