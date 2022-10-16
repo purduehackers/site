@@ -82,7 +82,7 @@ const Email = () => {
             </div>
           </Draggable>
         )}
-        <div className="flex flex-col-reverse md:flex-row-reverse justify-between w-full">
+        <div className="flex flex-col-reverse md:flex-row-reverse justify-between w-full relative">
           <div
             className="overflow-scroll scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 min-w-fit
                 border-4 border-black flex flex-col bg-white w-11/12 sm:w-7/12 md:w-64 h-[32rem] shadow-email shadow-gray-900/70"
