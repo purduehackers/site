@@ -158,6 +158,14 @@ const Email = () => {
                 className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] mr-12 
                   shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
               >
+                <div
+                  className="flex flex-col items-center"
+                  id="scroll-reminder"
+                >
+                  <div className="absolute bottom-4 border-2 border-black bg-white p-1 text-sm font-bold animate-bounce">
+                    <p>scroll to read 👁 👁</p>
+                  </div>
+                </div>
                 <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
@@ -174,7 +182,15 @@ const Email = () => {
                   <div className="grow handle" />
                   <div />
                 </div>
-                <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                <div
+                  className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+                  onScroll={() =>
+                    //@ts-ignore
+                    (document.getElementById(
+                      'scroll-reminder'
+                    ).style.visibility = 'hidden')
+                  }
+                >
                   <p className="font-bold">
                     from:{' '}
                     <span className="font-normal">
