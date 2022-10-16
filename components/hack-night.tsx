@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 
 import { DraggableContext, DraggableInterface } from "../context/DraggableContext";
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faLeftLong, faRightLong, faEllipsis} from '@fortawesome/free-solid-svg-icons'
@@ -144,6 +144,7 @@ const HackNight = () => {
                 alt="Keyboard"
                 width={400}
                 height={300}
+                draggable={false}
               />
             </div>
           </Draggable>
