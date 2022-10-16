@@ -32,7 +32,7 @@ const Home: NextPage = () => {
       height: window.innerHeight
     })
 
-    if (windowSize.width > 1200) {
+    if (windowSize.width > 640) {
       setDraggable(true)
     }
     else {
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
   }
   
   useEffect((): any => {
-    if (window.innerWidth > 1200) {
+    if (window.innerWidth > 640) {
       setDraggable(true)
     }
     else {
