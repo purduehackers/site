@@ -231,7 +231,10 @@ const Email = () => {
                     </p>
                     <p>
                       <span className="font-bold">
-                        Purdue Hackers is a student organization
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-500">
+                          Purdue Hackers
+                        </span>{' '}
+                        is a student organization
                       </span>{' '}
                       (AKA magical universe) full of radically kind, inclusive,
                       and weirdo creative people who{' '}
