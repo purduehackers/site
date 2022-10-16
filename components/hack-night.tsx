@@ -63,19 +63,16 @@ const HackNight = () => {
                     ever-increasing responsibilities? Do you want to escape from
                     reality, to a plane of existence far away from the endless
                     monotony of daily life? Well, you can't. But you know what
-                    you can do? Come to Hack Night!
+                    you can do? Come to Hack Night! 🌙
                   </p>
                   <br />
                   <p className="text-mxs">
-                    Hack night is uninterrupted time for you to work on personal
-                    projects of all kinds—anything from a little hack that you
-                    ship by the end of the night, to part of a larger project.
-                    What you work on is up to you, but organizers will be there
-                    to provide technical & brainstorming help. There's only one
-                    rule: no working on homework. It's friday night, plus you
-                    have the rest of the week to work on your homework! This is
-                    time to work on something that excites you—let's make magic
-                    happen ✨💫
+                    Hack Night is uninterrupted time to work on personal
+                    projects—anything from a little hack that you ship by the
+                    end of the night, to part of a larger project. Hack Night is
+                    largely self-guided, but we're there to help if you're stuck
+                    or don't know where to get started. Let your imagination run
+                    wild ✨💫
                   </p>
                 </div>
               </div>
