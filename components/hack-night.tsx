@@ -74,7 +74,7 @@ const HackNight = () => {
                 <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <div className="px-4 text-green-500 text-sm overflow-scroll 
-                  scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                  scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
                 <p>hacknight login: wackhacker</p>
                 <p>Password: </p>
                 <p>Last login: Fri May 04 16:16:08 on tty2</p>
