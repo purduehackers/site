@@ -59,8 +59,8 @@ const Email = () => {
         {showPW && (
           <Draggable disabled={!draggable} handle=".handle">
             <div
-              className="border-2 border-black w-5/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] left-52"
+              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] left-20 sm:left-52"
             >
               <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
                 <p
