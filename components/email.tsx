@@ -25,11 +25,11 @@ const Email = () => {
   const [showPW, setShowPW] = useState(false)
 
   return (
-    <div className="bg-teal-500 min-h-screen p-24">
-      <div className="flex flex-col w-full lg:w-4/5 mx-auto ">
+    <div className="bg-teal-500 min-h-screen sm:p-24 pb-8">
+      <div className="flex flex-col w-11/12 sm:w-full lg:w-4/5 mx-auto">
         <div
           className="border-2 border-black flex justify-between items-center bg-white
-              w-full h-12 px-8 mb-8 shadow-email shadow-gray-900/70"
+              w-full h-12 px-8 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-gray-900/70"
         >
           <div className="w-12 flex justify-between text-[8px] text-amber-400">
             <FontAwesomeIcon icon={faCircle} />
@@ -55,14 +55,10 @@ const Email = () => {
           </div>
         </div>
         {showPW && (
-          <Draggable
-            disabled={!draggable}
-            handle=".handle"
-            defaultPosition={{ x: 250, y: 60 }}
-          >
+          <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-2 border-black w-5/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100]"
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] left-52"
             >
               <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
                 <p
@@ -77,7 +73,7 @@ const Email = () => {
               </div>
               <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
                 <input
-                  className="bg-black w-3/5 py-1 text-center"
+                  className="bg-black w-full sm:w-3/5 py-1 text-center"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -157,14 +153,10 @@ const Email = () => {
             })}
           </div>
           {open[0] && (
-            <Draggable
-              disabled={!draggable}
-              handle=".handle"
-              defaultPosition={{ x: 20, y: 20 }}
-            >
+            <Draggable handle=".handle">
               <div
                 className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] mr-12 
-                  shadow-email shadow-gray-900/30 h-fit z-0"
+                  shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
               >
                 <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                   <p
@@ -187,7 +179,7 @@ const Email = () => {
                     from:{' '}
                     <span className="font-normal">
                       zap@
-                      <span className="mx-1 bg-black text-white">REDACTED</span>
+                      <span className="bg-black text-white">REDACTED</span>
                     </span>
                   </p>
                   <p className="font-bold">
@@ -236,7 +228,6 @@ const Email = () => {
             if (i != 0 && open[i])
               return (
                 <Draggable
-                  disabled={!draggable}
                   handle=".handle"
                   defaultPosition={{ x: -100 - 40 * i, y: 10 + 18 * i }}
                 >
