@@ -205,36 +205,61 @@ const Email = () => {
                   <div className="flex flex-col gap-y-4 text-mxs">
                     <p>Dear Hacker,</p>
                     <p>
-                      Shipping a technical project that you’re proud of is among
-                      the most validating and rewarding things you can do as a
-                      young person. College is the best time in our lives to do
-                      it—but actually doing it is soooooooooo hard. Before you
-                      can ship something you feel proud of, you have to find
-                      something you’d enjoy building, feels unique, and allows
-                      you to learn new things, but not too many new things,
-                      otherwise you’ll give up. Then, you have to find the time
-                      and motivation to actually build the thing—all while being
-                      pulled in every direction by academic and social
-                      oligations.
+                      <span className="font-bold">
+                        Shipping a technical project
+                      </span>{' '}
+                      that you’re proud of is among the most{' '}
+                      <span className="font-bold">
+                        {' '}
+                        validating and rewarding{' '}
+                      </span>{' '}
+                      things you can do as a young person. College is the best
+                      time in our lives to do it—but{' '}
+                      <span className="font-bold">
+                        actually doing it is soooooooooo hard.
+                      </span>{' '}
+                      You have to find something you’d enjoy building, feels
+                      unique, and allows you to learn new things, but not too
+                      many new things, otherwise you’ll give up. Then, you have
+                      to find the time and motivation to actually build the
+                      thing—all while being pulled in every direction by
+                      academic and social oligations.
                     </p>
                     <p>
                       It’s no surprise most students simply don’t bother, &
                       graduate never having made something they’re proud of.
                     </p>
                     <p>
-                      If only there were a community full of friendly, weird,
-                      creative, & amazing people people who encouraged you to
-                      build projects, & helped you carve out real time in your
-                      schedule to do it. A community where you could finally
-                      find <span className="italic">your people</span>, who you
-                      connect with on a deep level. Who make you feel loved,
-                      valued, and seen for who you are, and who invite you to
-                      make magic with them.
+                      <span className="font-bold">
+                        Purdue Hackers is a student organization
+                      </span>{' '}
+                      (AKA magical universe) full of radically kind, inclusive,
+                      and weirdo creative people who{' '}
+                      <span className="font-bold">
+                        learn new things & ship projects together.
+                      </span>
                     </p>
-                    <p>I mean, that would be life-changing, wouldn’t it?</p>
+                    <p>
+                      Many of us grew up never having found our people until we
+                      were united by our shared love of making things. Via our
+                      community, workshops, and Hack Nights, we want to create
+                      an environment where{' '}
+                      <span className="font-bold">
+                        you can find your people too
+                      </span>
+                      , and make magic with them. ✨
+                    </p>
+                    <p>
+                      If you go to Purdue—whether you've never written code
+                      before, or are highly technical, whether you're an art
+                      major or a CS major—
+                      <span className="font-bold">
+                        we invite you to join our universe.
+                      </span>
+                    </p>
                   </div>
                   <br />
-                  <p className="text-mxs">Regards,</p>
+                  <p className="text-mxs">See you soon,</p>
                   <p className="text-mxs">💛⚡️ The Purdue Hackers community</p>
                 </div>
               </div>
