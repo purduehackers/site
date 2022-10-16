@@ -168,7 +168,7 @@ const Email = () => {
                   }`}
                 >
                   <div className="absolute bottom-4 border-2 border-black bg-white p-1 text-sm font-bold animate-bounce">
-                    <p>scroll to read 👁 👁</p>
+                    <p>👇 scroll to read 👁</p>
                   </div>
                 </div>
                 <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
