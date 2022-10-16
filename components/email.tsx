@@ -158,7 +158,7 @@ const Email = () => {
                 className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] mr-12 
                   shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
               >
-                <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {
@@ -169,9 +169,9 @@ const Email = () => {
                   >
                     x
                   </p>
-                  <div className="grow" />
-                  <p>email</p>
-                  <div className="grow" />
+                  <div className="grow handle" />
+                  <p className="handle">email</p>
+                  <div className="grow handle" />
                   <div />
                 </div>
                 <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
@@ -235,7 +235,7 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0]`}
                   >
-                    <div className="handle border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                    <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                         onClick={() => {
@@ -246,9 +246,9 @@ const Email = () => {
                       >
                         x
                       </p>
-                      <div className="grow" />
-                      <p>email</p>
-                      <div className="grow" />
+                      <div className="grow handle" />
+                      <p className="handle">email</p>
+                      <div className="grow handle" />
                     </div>
                     <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
                       <p className="font-bold">
