@@ -1,10 +1,7 @@
 import Draggable from 'react-draggable'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext } from 'react'
 
-import {
-  DraggableContext,
-  DraggableInterface
-} from '../context/DraggableContext'
+import { DraggableContext } from '../context/DraggableContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -19,7 +16,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { emails } from '../utils/data'
 
 const Email = () => {
-  const { draggable, setDraggable } = useContext(DraggableContext)
+  const { draggable } = useContext(DraggableContext)
 
   const [open, setOpen] = useState([true, false, false, false, false, false])
   const [read, setRead] = useState([true, false, false, false, false, false])
@@ -89,9 +86,9 @@ const Email = () => {
             </div>
           </Draggable>
         )}
-        <div className="flex flex-col flex-col-reverse md:flex-row md:flex-row-reverse justify-between w-full">
+        <div className="flex flex-col-reverse md:flex-row-reverse justify-between w-full">
           <div
-            className="overflow-scroll scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 min-w-fit
+            className="overflow-scroll scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 min-w-fit
                 border-4 border-black flex flex-col bg-white w-11/12 sm:w-7/12 md:w-64 h-[32rem] shadow-email shadow-gray-900/70"
           >
             {emails.map((email, i) => {
@@ -185,7 +182,7 @@ const Email = () => {
                   <div className="grow" />
                   <div />
                 </div>
-                <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
                   <p className="font-bold">
                     from:{' '}
                     <span className="font-normal">
@@ -262,7 +259,7 @@ const Email = () => {
                       <p>email</p>
                       <div className="grow" />
                     </div>
-                    <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+                    <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
                       <p className="font-bold">
                         from: <span className="font-normal">{email.email}</span>
                       </p>
