@@ -111,7 +111,7 @@ const HackNight = () => {
               </div>
             </div>
           </Draggable>
-          <Draggable handle=".handle">
+          <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-white border-2 
                 w-fit h-fit rounded-xl font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-64 sm:bottom-40 relative"
