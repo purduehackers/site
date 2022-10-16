@@ -24,6 +24,8 @@ const Email = () => {
   const [password, setPassword] = useState('')
   const [showPW, setShowPW] = useState(false)
 
+  const [showScrollReminder, setShowScrollReminder] = useState(true)
+
   return (
     <div className="bg-teal-500 min-h-screen sm:p-24 pb-8">
       <div className="flex flex-col w-11/12 sm:w-full lg:w-4/5 mx-auto relative">
@@ -159,8 +161,9 @@ const Email = () => {
                   shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
               >
                 <div
-                  className="flex flex-col items-center"
-                  id="scroll-reminder"
+                  className={`flex flex-col items-center ${
+                    showScrollReminder ? 'visible' : 'hidden'
+                  }`}
                 >
                   <div className="absolute bottom-4 border-2 border-black bg-white p-1 text-sm font-bold animate-bounce">
                     <p>scroll to read 👁 👁</p>
@@ -184,12 +187,7 @@ const Email = () => {
                 </div>
                 <div
                   className="bg-white pl-2 pr-3 py-2 overflow-scroll h-96 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
-                  onScroll={() =>
-                    //@ts-ignore
-                    (document.getElementById(
-                      'scroll-reminder'
-                    ).style.visibility = 'hidden')
-                  }
+                  onScroll={() => setShowScrollReminder(false)}
                 >
                   <p className="font-bold">
                     from:{' '}
