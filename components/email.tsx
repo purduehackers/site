@@ -26,7 +26,7 @@ const Email = () => {
 
   return (
     <div className="bg-teal-500 min-h-screen sm:p-24 pb-8">
-      <div className="flex flex-col w-11/12 sm:w-full lg:w-4/5 mx-auto">
+      <div className="flex flex-col w-11/12 sm:w-full lg:w-4/5 mx-auto relative">
         <div
           className="border-2 border-black flex justify-between items-center bg-white
               w-full h-12 px-8 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-gray-900/70"
