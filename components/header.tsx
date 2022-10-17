@@ -1,11 +1,10 @@
-import Draggable from 'react-draggable';
-import { useState, useEffect, useContext } from 'react';
+import Draggable from 'react-draggable'
+import { useContext } from 'react'
 
-import { DraggableContext, DraggableInterface } from '../context/DraggableContext';
+import { DraggableContext } from '../context/DraggableContext'
 
 const Header = () => {
-  const { draggable, setDraggable } = useContext(DraggableContext)
-  // console.log(draggable)
+  const { draggable } = useContext(DraggableContext)
 
   return (
     <div className="flex flex-col items-center justify-center py-12 lg:py-0 lg:h-screen bg-amber-100 gap-y-4">

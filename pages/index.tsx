@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { createContext, useContext, useEffect, useState, useMemo  } from 'react';
+import { useEffect, useState, useMemo } from 'react'
 import Head from 'next/head'
 
 import Header from '../components/header'
@@ -9,9 +9,10 @@ import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 import JoinUs from '../components/join-us'
 
-import { DraggableContext, DraggableInterface } from '../context/DraggableContext';
-
-import TestCommunity from '../components/test-community'
+import {
+  DraggableContext,
+  DraggableInterface
+} from '../context/DraggableContext'
 
 const Home: NextPage = () => {
   // Disable draggable feature on small screen
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
   const [draggable, setDraggable] = useState<boolean>(false)
 
   const value = useMemo<DraggableInterface>(
-    () => ({ draggable, setDraggable}),
+    () => ({ draggable, setDraggable }),
     [draggable]
   )
 
@@ -34,27 +35,25 @@ const Home: NextPage = () => {
 
     if (windowSize.width > 640) {
       setDraggable(true)
-    }
-    else {
+    } else {
       setDraggable(false)
     }
   }
-  
+
   useEffect((): any => {
     if (window.innerWidth > 640) {
       setDraggable(true)
-    }
-    else {
+    } else {
       setDraggable(false)
     }
-  }, []);
+  }, [])
 
   useEffect((): any => {
     window.addEventListener('resize', resizeHandler)
     return () => {
       window.removeEventListener('resize', resizeHandler)
     }
-  });
+  })
 
   return (
     <DraggableContext.Provider value={value}>
@@ -82,7 +81,6 @@ const Home: NextPage = () => {
         <JoinUs />
       </div>
     </DraggableContext.Provider>
-    
   )
 }
 

@@ -31,7 +31,7 @@ function JoinUs() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center sm:pt-8">
-        <div className="backdrop-blur-md border-y-4 border-black sm:border-none sm:backdrop-blur-none p-4 flex flex-col items-center z-10 backdrop-blur-md">
+        <div className="backdrop-blur-md border-y-4 border-black sm:border-none sm:backdrop-blur-none p-4 flex flex-col items-center z-10">
           <h2
             className="text-center font-bold text-5xl sm:text-6xl 
                         md:text-8xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug"
