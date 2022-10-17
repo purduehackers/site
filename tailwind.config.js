@@ -30,6 +30,7 @@ module.exports = {
       },
       boxShadow: {
         blocks: '8px 8px',
+        email: '6px 6px',
         'footer-btn': '0px 8px'
       },
       screens: {
@@ -53,5 +54,7 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwind-scrollbar')]
+  plugins: [
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/forms')]
 }
