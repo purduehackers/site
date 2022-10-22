@@ -9,8 +9,8 @@ const Community = () => {
     <div className="bg-amber-200 min-h-screen">
       <div className="flex flex-col sm:p-12">
         <h1 className="text-5xl sm:text-9xl font-bold">1. Community</h1>
-        <div className="flex">
-          <div className="flex flex-col">
+        <div className="flex w-full justify-between p-24">
+          <div className="flex flex-col justify-between">
             <Draggable disabled={!draggable} handle=".handle">
               <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
                   h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
