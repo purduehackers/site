@@ -14,10 +14,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
-import { useCallback } from "react";
-import type { Container, Engine } from "tsparticles-engine";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
 
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
