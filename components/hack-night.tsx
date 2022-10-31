@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
@@ -14,12 +14,23 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
+import JSConfetti from 'js-confetti'
 
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
 
+  if (typeof window !== 'undefined') {
+    const canvas = document.getElementById('canvas')
+    const jsConfetti = new JSConfetti({ canvas })
+    jsConfetti.addConfetti({
+      emojis: ['🌞', '⚡️', '', '✨', '💫', '🌚'],
+      emojiSize: 200,
+      confettiNumber: 60,
+    })
+  }
+
   return (
-    <div className="bg-gray-dark min-h-screen">
+    <canvas id="canvas" className="bg-gray-dark min-h-screen">
       <div className="p-6 sm:p-12">
         <h1 className="text-5xl sm:text-9xl font-bold text-white">
           3. Hack Night
@@ -166,7 +177,7 @@ const HackNight = () => {
           </div>
         </div>
       </div>
-    </div>
+    </canvas>
   )
 }
 
