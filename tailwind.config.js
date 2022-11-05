@@ -11,7 +11,8 @@ module.exports = {
       mono: '"Space Mono"',
       pixel: '"Press Start 2P"',
       alka: '"Alkalami", serif',
-      noto: '"Noto Serif Gujarati", serif'
+      noto: '"Noto Serif Gujarati", serif',
+      alegre: '"Alegreya", serif'
     },
     extend: {
       colors: {
