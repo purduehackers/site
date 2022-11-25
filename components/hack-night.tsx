@@ -14,27 +14,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
-import JSConfetti from 'js-confetti'
+import Confetti from './confetti'
 
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
 
-  if (typeof window !== 'undefined') {
-    const canvas = document.getElementById('canvas')
-    const jsConfetti = new JSConfetti({ canvas })
-    jsConfetti.addConfetti({
-      emojis: ['🌞', '⚡️', '', '✨', '💫', '🌚'],
-      emojiSize: 200,
-      confettiNumber: 60,
-    })
-  }
-
   return (
-    <canvas id="canvas" className="bg-gray-dark min-h-screen">
+    <div className="bg-gray-dark min-h-screen">
       <div className="p-6 sm:p-12">
         <h1 className="text-5xl sm:text-9xl font-bold text-white">
           3. Hack Night
-        </h1>
+        </h1> 
         <div className="flex flex-col items-center mt-8">
           <Draggable disabled={!draggable} handle=".handle">
             <div
@@ -166,9 +156,9 @@ const HackNight = () => {
             <Draggable>
               <div className="cursor-pointer">
                 <Image
-                  src="/img/keyboard3.png"
+                  src="/img/keyboard2.png"
                   alt="Keyboard"
-                  width={250}
+                  width={850}
                   height={187}
                   draggable={false}
                 />
@@ -177,7 +167,7 @@ const HackNight = () => {
           </div>
         </div>
       </div>
-    </canvas>
+    </div>
   )
 }
 
