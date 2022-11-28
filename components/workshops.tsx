@@ -37,7 +37,7 @@ const Workshops = () => {
 
   return(
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
-      <div className="h-screen">
+      <div className="min-h-screen">
         <div className="mt-3">
           <div className="grid grid-cols-5">
             <div className="p-5">
@@ -65,13 +65,13 @@ const Workshops = () => {
             <div className="text-2xl text-center uppercase">Issue # 10</div>
           </div>
           <div className="w-full h-1 bg-slate-700"></div>
-          
-          {events.map((event) => {
-            {console.log(event.name);}
-            return(
-              <WorkshopCard name={event.name} date={event.date} description={event.description} rsvp={event.rsvp} />
-            )
-          })}
+          <div className="grid grid-cols-3 gap-4 mt-4">
+            {events.map((event) => {
+              return(
+                <WorkshopCard name={event.name} date={event.date} description={event.description} rsvp={event.rsvp} />
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>

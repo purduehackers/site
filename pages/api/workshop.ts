@@ -11,7 +11,8 @@ interface IEvent {
 
 const filterStrings = [
   'Test Event',
-  'The Ultimate Future Event'
+  'The Ultimate Future Event',
+  'Hack Night'
 ]
 
 const handler = async (

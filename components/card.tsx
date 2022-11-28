@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown'
+
 interface IEvent {
   name: string
   date: Date
@@ -13,7 +15,7 @@ const WorkshopCard = (props: IEvent) => {
     <div className="px-6 py-4">
       <div className="mb-2 text-xl font-bold">{props.name}</div>
       <p className="text-base text-gray-700">
-        {props.description}
+        <ReactMarkdown>{props.description}</ReactMarkdown>
       </p>
     </div>
     {/* <div className="px-6 pt-4 pb-2">
