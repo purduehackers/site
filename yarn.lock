@@ -216,7 +216,14 @@ acorn@^7.0.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
-airtable@^0.11.5:
+airtable-plusplus@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/airtable-plusplus/-/airtable-plusplus-0.3.4.tgz#78bbfa4ab5d45a79ba0d95ebafd71df8f57a1aea"
+  integrity sha512-jD5LXZwwewo1noGNBb7Xchu/F1LPLwiQbYkpUQ80DyDUwbYoVFOOfkWklpdyiihyO8SBhXxtpNG7L5zqKwJIfw==
+  dependencies:
+    airtable "^0.11.4"
+
+airtable@^0.11.4, airtable@^0.11.5:
   version "0.11.5"
   resolved "https://registry.yarnpkg.com/airtable/-/airtable-0.11.5.tgz#eeac9b4bc7fef30663ca2c40153f7587920c2e02"
   integrity sha512-/fqPA5BZTn5K0J636CfVuyGdNyV6t5RbBDPUBASlb/mlWSJj8WcF9O7/R+BuAlGMsSiKqR9dll99srcQcLEQjg==
