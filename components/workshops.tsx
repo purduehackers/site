@@ -26,7 +26,7 @@ const Workshops = () => {
     }
 
     const fetchedEvents = await response.json();
-    setEvents(fetchedEvents);
+    setEvents(fetchedEvents.slice(0,3));
   }
 
   useEffect(() => {
@@ -68,14 +68,10 @@ const Workshops = () => {
           
           {events.map((event) => {
             {console.log(event.name);}
-            return(<div>{event.name}</div>)
+            return(
+              <WorkshopCard name={event.name} date={event.date} description={event.description} rsvp={event.rsvp} />
+            )
           })}
-          {/* <div className="grid grid-cols-3">
-            <div className="flex items-center justify-center col-start-2">
-              <img className="h-2/3" src="/img/typewriter.png"></img>          
-            </div>
-          </div> */}
-          {/* <WorkshopCard /> */}
         </div>
       </div>
     </div>
