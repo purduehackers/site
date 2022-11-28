@@ -1,13 +1,6 @@
 import WorkshopCard from "./card"
 import { useState, useEffect } from "react";
-
-interface IEvent {
-  name: string
-  date: Date
-  description: string
-  rsvp: number
-  // 'Recap Images': Array<AirtableAttachment>
-}
+import IEvent from "../utils/IEvent";
 
 const Workshops = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
@@ -65,7 +58,7 @@ const Workshops = () => {
             <div className="text-2xl text-center uppercase">Issue # 10</div>
           </div>
           <div className="w-full h-1 bg-slate-700"></div>
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-3 mt-4 justify-items-center">
             {events.map((event) => {
               return(
                 <WorkshopCard name={event.name} date={event.date} description={event.description} rsvp={event.rsvp} />

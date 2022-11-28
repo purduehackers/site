@@ -1,13 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { table, base } from "../../utils/table"
-
-interface IEvent {
-  name: string
-  date: Date
-  description: string
-  rsvp: number
-  // 'Recap Images': Array<AirtableAttachment>
-}
+import IEvent from '../../utils/IEvent'
 
 const filterStrings = [
   'Test Event',
@@ -57,24 +50,11 @@ const handler = async (
         })
         if (err) {
           console.error(err);
-          res.status(200).json(sortedEvents);
+          res.status(500);
         }
         console.log("called")
         res.status(200).json(sortedEvents);
       })
-
-
-      // , function done(err) {
-      //   if (err) {
-      //     console.error(err);
-      //   }
-      //   const sortedEvents:IEvent[] = events.sort((a, b) => {
-      //     return a.date >= b.date ? -1 : 1;
-      //   })
-      //   console.log("hi");
-      //   console.log(sortedEvents);
-      //   res.status(200).json(sortedEvents);
-      // })
   }
 }
 
