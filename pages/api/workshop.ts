@@ -17,8 +17,6 @@ const handler = async (
     case 'GET':
       const events:IEvent[] = [];
       table.select({
-        // maxRecords: 10,
-        // view: "Upcoming Events"
       }).eachPage(function page(records, fetchNextPage) {
         
         RecordsLoop:
@@ -26,6 +24,7 @@ const handler = async (
           const eventName = record.fields['Event Name'] as string
           const eventDateStr = record.fields['Event Date & Start Time'] as string
           const eventDate = new Date(eventDateStr)
+          const recapImg = record.fields['Recap Images'] ?? []
 
           // maybe there is a better way to filter out events
           for (const string of filterStrings) {
@@ -33,26 +32,30 @@ const handler = async (
               continue RecordsLoop;
             }
           }
+
+          // only display events with images
+          if (recapImg[0] === undefined) continue
           
           events.push(
             {
               name: eventName,
               date: eventDate,
               description: record.fields['Event Description'] as string,
-              rsvp: record.fields['RSVP Count'] as number
+              rsvp: record.fields['RSVP Count'] as number,
+              img: recapImg[0].url,
+              location: record.fields['Event Location'] as string
             }
           )
         }
         fetchNextPage();
       }, function done(err) {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ message: 'Error occurs when fetching events' });
+        }
         const sortedEvents:IEvent[] = events.sort((a, b) => {
           return a.date >= b.date ? -1 : 1;
         })
-        if (err) {
-          console.error(err);
-          res.status(500);
-        }
-        console.log("called")
         res.status(200).json(sortedEvents);
       })
   }

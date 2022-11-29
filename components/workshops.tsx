@@ -61,7 +61,14 @@ const Workshops = () => {
           <div className="grid grid-cols-3 mt-4 justify-items-center">
             {events.map((event) => {
               return(
-                <WorkshopCard name={event.name} date={event.date} description={event.description} rsvp={event.rsvp} />
+                <WorkshopCard
+                  name={event.name}
+                  date={event.date}
+                  description={event.description}
+                  rsvp={event.rsvp}
+                  img={event.img}
+                  location={event.location}
+                />
               )
             })}
           </div>

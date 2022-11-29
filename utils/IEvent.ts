@@ -3,5 +3,6 @@ export default interface IEvent {
   date: Date
   description: string
   rsvp: number
-  // 'Recap Images': Array<AirtableAttachment>
+  img: string
+  location: string
 }
