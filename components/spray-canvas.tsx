@@ -34,21 +34,24 @@ export default function AnimatedCanvas({
 
   function renderFrame(): void {
     const context = canvasRef.current?.getContext('2d');
+
     if (context != null) {
-      const timeNow = Date.now();
-      const deltaTime = timeNow - lastRenderTimeRef.current;
-      clearBackground(context);
-      drawMainCircle(context, cursorPositionRef.current);
-      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
-      lastRenderTimeRef.current = timeNow;
+      context.canvas.width = document.documentElement.clientWidth
+      context.canvas.height = document.documentElement.clientHeight
+    
+      const timeNow = Date.now()
+      const deltaTime = timeNow - lastRenderTimeRef.current
+      clearBackground(context)
+      drawMainCircle(context, cursorPositionRef.current)
+      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime)
+      lastRenderTimeRef.current = timeNow
     }
-    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
+    animationFrameRequestRef.current = requestAnimationFrame(renderFrame)
   }
 
   function clearBackground(context: CanvasRenderingContext2D): void {
     const { width, height } = context.canvas;
     context.rect(0, 0, width, height);
-    context.fillStyle = 'rgba(0, 0, 0)'
     context.fillStyle = 'rgba(0, 0, 0, 0)'
     context.fill()
   }
@@ -89,7 +92,7 @@ export default function AnimatedCanvas({
   }
 
   return (
-    <canvas ref={canvasRef} height={480} width={720} onMouseMove={handleMouseMoved}>
+    <canvas ref={canvasRef} onMouseMove={handleMouseMoved} className="fixed inset-0">
       Oops! Your browser doesn't support the canvas component.
     </canvas>
   );
