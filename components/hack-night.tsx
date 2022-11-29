@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable'
-import { useContext, useEffect } from 'react'
+import { useContext, useState } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
@@ -14,13 +14,27 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
-import Confetti from './confetti'
+import SprayCanvas from './spray-canvas'
+import Point2D from '../utils/Point2D'
 
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
+  const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
+
+  const [spray, setSpray] = useState(false)
 
   return (
     <div className="bg-gray-dark min-h-screen">
+      {spray && 
+        <SprayCanvas 
+          cursorPosition = {cursorPosition}
+          onCursorPositionChanged = {setCursorPosition}
+        />
+      }
+      <button
+        onClick={() => {setSpray(true)}}
+        className="footer-btn bg-amber-300"
+      >test</button>
       <div className="p-6 sm:p-12">
         <h1 className="text-5xl sm:text-9xl font-bold text-white">
           3. Hack Night
@@ -156,7 +170,7 @@ const HackNight = () => {
             <Draggable>
               <div className="cursor-pointer">
                 <Image
-                  src="/img/keyboard2.png"
+                  src="/img/keyboard4.png"
                   alt="Keyboard"
                   width={850}
                   height={187}
