@@ -40,7 +40,7 @@ const handler = async (
             {
               name: eventName,
               date: eventDate,
-              description: record.fields['Event Description'] as string,
+              description: record.fields['Past Event Description'] as string,
               rsvp: record.fields['RSVP Count'] as number,
               img: recapImg[0].url,
               location: record.fields['Event Location'] as string,

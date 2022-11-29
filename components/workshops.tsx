@@ -46,8 +46,7 @@ const Workshops = () => {
             <div className="p-5">
               <div className="p-2 border-4 border-slate-800">
                 <h1 className="font-bold">Today's Sponsor:</h1>
-                Google<br />
-                Meta<br />
+                We will have sponsors very soon :D
               </div>
             </div>
           </div>
