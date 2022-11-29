@@ -147,6 +147,13 @@
   dependencies:
     "@types/ms" "*"
 
+"@types/emoji-regex@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@types/emoji-regex/-/emoji-regex-9.2.0.tgz#2e117de04f5fa561c5dcbe43a860ecd856517525"
+  integrity sha512-Q2BaUWiokKV2ZWk15twerRiNIex/VOGIz3pAgPMk6JZAeuGT9oAm/kA2Ri9InUtPc84bY0UQZzn/Pd2yUd33Ig==
+  dependencies:
+    emoji-regex "*"
+
 "@types/hast@^2.0.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.4.tgz#8aa5ef92c117d20d974a82bdfb6a648b08c0bafc"
@@ -506,6 +513,16 @@ electron-to-chromium@^1.4.251:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.283.tgz#d4f263f5df402fd799c0a06255d580dcf8aa9a8e"
   integrity sha512-g6RQ9zCOV+U5QVHW9OpFR7rdk/V7xfopNXnyAamdpFgCHgZ1sjI8VuR1+zG2YG/TZk+tQ8mpNkug4P8FU0fuOA==
 
+emoji-regex@*:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-10.2.1.tgz#a41c330d957191efd3d9dfe6e1e8e1e9ab048b3f"
+  integrity sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==
+
+emoji-regex@^9.2.2:
+  version "9.2.2"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
+  integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
+
 end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
@@ -582,6 +599,14 @@ github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
   integrity sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==
+
+github-slugger-typescript@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/github-slugger-typescript/-/github-slugger-typescript-1.1.0.tgz#d05ee3e096543fcc270ad8d056287b2efc7d5a22"
+  integrity sha512-SZWZ7pUeQ4IJKSAaJoGN+VuoDowdpeG4xEsl1+3phFpnZP7EmXeTNFyDTBUnq4+RE0W8A/bg0ojZJuZcGdB0rw==
+  dependencies:
+    "@types/emoji-regex" "^9.2.0"
+    emoji-regex "^9.2.2"
 
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
