@@ -58,7 +58,7 @@ export default function AnimatedCanvas({
 
   function drawMainCircle(context: CanvasRenderingContext2D, position: Point2D): void {
     context.font = "300px Arial";
-    context.strokeText("🌚", position.x - 150, position.y + 100);
+    //context.strokeText("🌚", position.x - 150, position.y + 100);
   }
 
   function drawRevolvingCircle(
@@ -72,10 +72,11 @@ export default function AnimatedCanvas({
     }
     const xOffset = 20 * Math.cos(revolvingCircleRotationRef.current);
     const yOffset = 20 * Math.sin(revolvingCircleRotationRef.current);
-    context.beginPath();
+    /**context.beginPath();
     context.arc(position.x + xOffset, position.y + yOffset, 5, 0, Math.PI * 2);
     context.fillStyle = 'blue';
-    context.fill();
+    context.fill();*/
+    context.strokeText("🌝", position.x - 150 + xOffset, position.y + 100 + yOffset);
   }
 
   function handleMouseMoved(event: React.MouseEvent<Element, MouseEvent>): void {
