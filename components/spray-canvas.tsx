@@ -14,32 +14,41 @@ class RandomParticle{
   vy: number;
   ax: number;
   ay: number;
-  context: CanvasRenderingContext2D;
-  constructor(x = 0, y = 0, maxVelocity = 10, maxAcceleration = -10, context: CanvasRenderingContext2D) {
-    this.x = x;
-    this.y = y;
+  constructor(position: Point2D, maxVelocity = 20, maxAcceleration = -1) {
+    this.x = position.x;
+    this.y = position.y;
 
-    this.vx = Math.floor(Math.random() * maxVelocity);
-    this.vy = Math.floor(Math.random() * maxVelocity);
-    this.ax = Math.floor(Math.random() * maxAcceleration);
-    this.ay = Math.floor(Math.random() * maxAcceleration);
-
-    this.context = context;
+    this.vx = Math.floor(Math.random() * 2 * maxVelocity - maxVelocity);
+    this.vy = Math.random() * 2 * maxVelocity - maxVelocity;
+    this.ax = Math.random() * maxAcceleration;
+    this.ay = Math.random() * maxAcceleration;
   }
 
   draw(context: CanvasRenderingContext2D){
-    this.context = context;
-
+    context.font = "300px Arial";
     context.strokeText("🌚", this.x, this.y);
   }
 
-  move(dt = 1) {
-    this.vx += this.ax * dt;
-    this.vy += this.ay * dt;
-    this.x += this.vx * dt;
-    this.y += this.vy * dt;
+  move(dt: number) {
+    let newVX = this.vx + this.ax * dt * 0.01;
+    let newVY = this.vy + this.ay * dt * 0.01;
 
-    this.draw(this.context);
+    // stop movement once velocity reaches zero
+    if (this.vx == 0 || newVX * this.vx > 0) {
+      this.vx = newVX;
+    } else {
+      this.vx = 0;
+      this.ax = 0;
+    }
+    if (this.vy == 0 || newVY * this.vy > 0) {
+      this.vy = newVY;
+    } else {
+      this.vy = 0;
+      this.ay = 0;
+    }
+
+    this.x += this.vx * dt * 0.01;
+    this.y += this.vy * dt * 0.01;
   }
 }
 
@@ -54,6 +63,12 @@ export default function AnimatedCanvas({
   const revolvingCircleRotationRef = useRef<number>(0);
 
   const animationFrameRequestRef = useRef<number | null>(null);
+
+  let circles: RandomParticle[] = [];
+  for(let i = 0; i < 100; i++){
+    let circle = new RandomParticle(cursorPositionRef.current)
+    circles.push(circle)
+  }
 
   useEffect(() => {
     lastRenderTimeRef.current = Date.now();
@@ -78,9 +93,12 @@ export default function AnimatedCanvas({
     
       const timeNow = Date.now()
       const deltaTime = timeNow - lastRenderTimeRef.current
+
       clearBackground(context)
-      drawMainCircle(context, cursorPositionRef.current)
-      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime)
+      //drawMainCircle(context, cursorPositionRef.current)
+      //drawRevolvingCircle(context, cursorPositionRef.current, deltaTime)
+      circles[0].draw(context)
+      circles[0].move(deltaTime)
       lastRenderTimeRef.current = timeNow
     }
     animationFrameRequestRef.current = requestAnimationFrame(renderFrame)
