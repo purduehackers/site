@@ -25,7 +25,7 @@ const HackNight = () => {
 
   return (
     <div className="bg-gray-dark min-h-screen">
-      {true && 
+      {spray && 
         <SprayCanvas 
           cursorPosition = {cursorPosition}
           onCursorPositionChanged = {setCursorPosition}

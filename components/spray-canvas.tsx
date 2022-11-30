@@ -14,7 +14,8 @@ class RandomParticle{
   vy: number;
   ax: number;
   ay: number;
-  constructor(x: number, y: number, maxVelocity = 30, maxAcceleration = 1) {
+  size: number;
+  constructor(x: number, y: number, maxVelocity = 200, maxAcceleration = 30) {
     this.x = x;
     this.y = y;
 
@@ -30,10 +31,12 @@ class RandomParticle{
     } else {
       this.ay = Math.random() * maxAcceleration;
     }
+
+    this.size = Math.floor(Math.random() * 300);
   }
 
   draw(context: CanvasRenderingContext2D){
-    context.font = "200px Arial";
+    context.font = `${this.size}px Arial`;
     context.strokeText("🌚", this.x, this.y);
   }
 
@@ -73,7 +76,7 @@ export default function AnimatedCanvas({
   const animationFrameRequestRef = useRef<number | null>(null);
 
   let circles: RandomParticle[] = [];
-  const numCircles = 100;
+  const numCircles = 150;
 
   useEffect(() => {
     lastRenderTimeRef.current = Date.now();
@@ -101,7 +104,7 @@ export default function AnimatedCanvas({
 
       clearBackground(context);
       drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
-      drawCircles(context, cursorPositionRef.current, deltaTime);
+      drawCircles(context, deltaTime);
 
       lastRenderTimeRef.current = timeNow;
     }
@@ -117,7 +120,6 @@ export default function AnimatedCanvas({
 
   function drawCircles(
     context: CanvasRenderingContext2D,
-    position: Point2D,
     deltaTime: number
   ): void {
     for(let i = 0; i < numCircles; i++){
@@ -126,7 +128,7 @@ export default function AnimatedCanvas({
         circle.move(deltaTime)
         circle.draw(context)
       } else {
-        let newCircle = new RandomParticle(position.x, position.y)
+        let newCircle = new RandomParticle(context.canvas.width / 2, context.canvas.height / 2);
         circles.push(newCircle)
         newCircle.draw(context)
       }
@@ -162,7 +164,7 @@ export default function AnimatedCanvas({
 
   return (
     <canvas ref={canvasRef} onMouseMove={handleMouseMoved} 
-        className="fixed inset-0 z-20">
+        className="fixed inset-0 z-20 cursor-none">
       Oh no! Your browser does not support the HTML canvas component.
     </canvas>
   );
