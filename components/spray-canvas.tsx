@@ -57,10 +57,8 @@ export default function AnimatedCanvas({
   }
 
   function drawMainCircle(context: CanvasRenderingContext2D, position: Point2D): void {
-    context.beginPath();
-    context.arc(position.x, position.y, 10, 0, Math.PI * 2);
-    context.fillStyle = 'red';
-    context.fill();
+    context.font = "300px Arial";
+    context.strokeText("🌚", position.x - 150, position.y + 100);
   }
 
   function drawRevolvingCircle(
@@ -92,8 +90,9 @@ export default function AnimatedCanvas({
   }
 
   return (
-    <canvas ref={canvasRef} onMouseMove={handleMouseMoved} className="fixed inset-0">
-      Oops! Your browser doesn't support the canvas component.
+    <canvas ref={canvasRef} onMouseMove={handleMouseMoved} 
+        className="fixed inset-0 z-20">
+      Oh no! Your browser does not support the HTML canvas component.
     </canvas>
   );
 }
