@@ -1,4 +1,4 @@
-import WorkshopCard from "./card"
+import WorkshopCard from "./workshop-card"
 import { useState, useEffect } from "react";
 import IEvent from "../utils/IEvent";
 
@@ -42,6 +42,7 @@ const Workshops = ({ fetchedEvents }) => {
                   rsvp={event.rsvp}
                   img={event.img}
                   location={event.location}
+                  key={EventTarget.name}
                 />
               )
             })}
