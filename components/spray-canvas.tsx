@@ -14,18 +14,26 @@ class RandomParticle{
   vy: number;
   ax: number;
   ay: number;
-  constructor(x: number, y: number, maxVelocity = 20, maxAcceleration = -1) {
+  constructor(x: number, y: number, maxVelocity = 30, maxAcceleration = 1) {
     this.x = x;
     this.y = y;
 
     this.vx = Math.floor(Math.random() * 2 * maxVelocity - maxVelocity);
-    this.vy = Math.random() * 2 * maxVelocity - maxVelocity;
-    this.ax = Math.random() * maxAcceleration;
-    this.ay = Math.random() * maxAcceleration;
+    this.vy = Math.floor(Math.random() * 2 * maxVelocity - maxVelocity);
+    if (this.vx > 0) {
+      this.ax = -Math.random() * maxAcceleration;
+    } else {
+      this.ax = Math.random() * maxAcceleration;
+    }
+    if (this.vy > 0) {
+      this.ay = -Math.random() * maxAcceleration;
+    } else {
+      this.ay = Math.random() * maxAcceleration;
+    }
   }
 
   draw(context: CanvasRenderingContext2D){
-    context.font = "300px Arial";
+    context.font = "200px Arial";
     context.strokeText("🌚", this.x, this.y);
   }
 
@@ -65,6 +73,7 @@ export default function AnimatedCanvas({
   const animationFrameRequestRef = useRef<number | null>(null);
 
   let circles: RandomParticle[] = [];
+  const numCircles = 100;
 
   useEffect(() => {
     lastRenderTimeRef.current = Date.now();
@@ -91,8 +100,7 @@ export default function AnimatedCanvas({
       const deltaTime = timeNow - lastRenderTimeRef.current;
 
       clearBackground(context);
-      //drawMainCircle(context, cursorPositionRef.current);
-      //drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
+      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
       drawCircles(context, cursorPositionRef.current, deltaTime);
 
       lastRenderTimeRef.current = timeNow;
@@ -107,24 +115,20 @@ export default function AnimatedCanvas({
     context.fill();
   }
 
-  function drawMainCircle(context: CanvasRenderingContext2D, position: Point2D): void {
-    context.font = "300px Arial";
-    //context.strokeText("🌚", position.x - 150, position.y + 100);
-  }
-
   function drawCircles(
     context: CanvasRenderingContext2D,
     position: Point2D,
     deltaTime: number
   ): void {
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < numCircles; i++){
       let circle = circles[i];
       if (circle != null) {
-        circle.draw(context)
         circle.move(deltaTime)
+        circle.draw(context)
       } else {
         let newCircle = new RandomParticle(position.x, position.y)
         circles.push(newCircle)
+        newCircle.draw(context)
       }
     }
   }
@@ -140,6 +144,8 @@ export default function AnimatedCanvas({
     }
     const xOffset = 20 * Math.cos(revolvingCircleRotationRef.current);
     const yOffset = 20 * Math.sin(revolvingCircleRotationRef.current);
+
+    context.font = "300px Arial";
     context.strokeText("🌝", position.x - 150 + xOffset, position.y + 100 + yOffset);
   }
 
