@@ -16,9 +16,9 @@ const WorkshopCard = (props: IEvent) => {
     <div className="px-6 py-4">
       <a className="mb-2 text-xl font-bold underline text-declaration hover:text-amber-500" href={eventUrl} target="_blank">{props.name}</a>
       <p className='text-slate-500'>{date.toDateString()}</p>
-      <p className="h-40 overflow-auto text-base text-gray-700">
+      <div className="h-40 overflow-auto text-base text-gray-700">
         <div dangerouslySetInnerHTML={{__html:parsedDescription}}></div>
-      </p>
+      </div>
     </div>
     <div className='relative w-full h-52'>
       <Image

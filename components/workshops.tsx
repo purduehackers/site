@@ -2,32 +2,7 @@ import WorkshopCard from "./card"
 import { useState, useEffect } from "react";
 import IEvent from "../utils/IEvent";
 
-const Workshops = () => {
-  const [events, setEvents] = useState<IEvent[]>([]);
-
-  const fetchEvents = async() => {
-    const response = await fetch('/api/workshop', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    console.log(response)
-
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
-
-    const fetchedEvents = await response.json();
-    setEvents(fetchedEvents.slice(0,3));
-  }
-
-  useEffect(() => {
-    fetchEvents();
-  }, []);
-
-  // console.log(events)
-
+const Workshops = ({ fetchedEvents }) => {
   return(
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
       <div className="min-h-screen">
@@ -58,7 +33,7 @@ const Workshops = () => {
           </div>
           <div className="w-full h-1 bg-slate-700"></div>
           <div className="grid grid-cols-3 mt-4 justify-items-center">
-            {events.map((event) => {
+            {fetchedEvents.map((event) => {
               return(
                 <WorkshopCard
                   name={event.name}

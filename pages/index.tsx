@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import { useEffect, useState, useMemo } from 'react'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 
 import Header from '../components/header'
 import Email from '../components/email'
@@ -8,13 +9,19 @@ import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 import JoinUs from '../components/join-us'
+import IEvent from '../utils/IEvent'
 
 import {
   DraggableContext,
   DraggableInterface
 } from '../context/DraggableContext'
 
-const Home: NextPage = () => {
+interface HomeFetchedEventsProps {
+  fetchedEvents: IEvent
+}
+
+const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents}) => {
+
   // Disable draggable feature on small screen
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -76,12 +83,30 @@ const Home: NextPage = () => {
         <Email />
         <hr className="border-2 border-black border-dashed bg-amber-200" />
         <Community />
-        <Workshops />
+        <Workshops fetchedEvents={fetchedEvents}/>
         <HackNight />
         <JoinUs />
       </div>
     </DraggableContext.Provider>
   )
+}
+export const getStaticProps: GetStaticProps = async (context) => {
+  const dev = process.env.NODE_ENV !== 'production';
+  const url = dev ? 'http://localhost:3000' : 'https://purduehackers.com/';
+
+  const response = await fetch(url + '/api/workshop', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  const fetchedEvents:IEvent[] = await response.json();
+
+  return {
+    props: {
+      fetchedEvents,
+    },
+  }
 }
 
 export default Home

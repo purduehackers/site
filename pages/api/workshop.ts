@@ -56,7 +56,7 @@ const handler = async (
         const sortedEvents:IEvent[] = events.sort((a, b) => {
           return a.date >= b.date ? -1 : 1;
         })
-        res.status(200).json(sortedEvents);
+        res.status(200).json(sortedEvents.slice(0,3));
       })
   }
 }
