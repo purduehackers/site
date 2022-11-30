@@ -1,9 +1,46 @@
 import { useEffect, useRef } from 'react'
+import { Context } from 'vm';
 import Point2D from '../utils/Point2D'
 
 interface Props {
   cursorPosition: Point2D
   onCursorPositionChanged: (position: Point2D) => void
+}
+
+class RandomParticle{
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  ax: number;
+  ay: number;
+  context: CanvasRenderingContext2D;
+  constructor(x = 0, y = 0, maxVelocity = 10, maxAcceleration = -10, context: CanvasRenderingContext2D) {
+    this.x = x;
+    this.y = y;
+
+    this.vx = Math.floor(Math.random() * maxVelocity);
+    this.vy = Math.floor(Math.random() * maxVelocity);
+    this.ax = Math.floor(Math.random() * maxAcceleration);
+    this.ay = Math.floor(Math.random() * maxAcceleration);
+
+    this.context = context;
+  }
+
+  draw(context: CanvasRenderingContext2D){
+    this.context = context;
+
+    context.strokeText("🌚", this.x, this.y);
+  }
+
+  move(dt = 1) {
+    this.vx += this.ax * dt;
+    this.vy += this.ay * dt;
+    this.x += this.vx * dt;
+    this.y += this.vy * dt;
+
+    this.draw(this.context);
+  }
 }
 
 export default function AnimatedCanvas({
@@ -72,10 +109,6 @@ export default function AnimatedCanvas({
     }
     const xOffset = 20 * Math.cos(revolvingCircleRotationRef.current);
     const yOffset = 20 * Math.sin(revolvingCircleRotationRef.current);
-    /**context.beginPath();
-    context.arc(position.x + xOffset, position.y + yOffset, 5, 0, Math.PI * 2);
-    context.fillStyle = 'blue';
-    context.fill();*/
     context.strokeText("🌝", position.x - 150 + xOffset, position.y + 100 + yOffset);
   }
 
