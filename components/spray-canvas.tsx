@@ -14,9 +14,9 @@ class RandomParticle{
   vy: number;
   ax: number;
   ay: number;
-  constructor(position: Point2D, maxVelocity = 20, maxAcceleration = -1) {
-    this.x = position.x;
-    this.y = position.y;
+  constructor(x: number, y: number, maxVelocity = 20, maxAcceleration = -1) {
+    this.x = x;
+    this.y = y;
 
     this.vx = Math.floor(Math.random() * 2 * maxVelocity - maxVelocity);
     this.vy = Math.random() * 2 * maxVelocity - maxVelocity;
@@ -65,10 +65,6 @@ export default function AnimatedCanvas({
   const animationFrameRequestRef = useRef<number | null>(null);
 
   let circles: RandomParticle[] = [];
-  for(let i = 0; i < 100; i++){
-    let circle = new RandomParticle(cursorPositionRef.current)
-    circles.push(circle)
-  }
 
   useEffect(() => {
     lastRenderTimeRef.current = Date.now();
@@ -88,32 +84,49 @@ export default function AnimatedCanvas({
     const context = canvasRef.current?.getContext('2d');
 
     if (context != null) {
-      context.canvas.width = document.documentElement.clientWidth
-      context.canvas.height = document.documentElement.clientHeight
+      context.canvas.width = document.documentElement.clientWidth;
+      context.canvas.height = document.documentElement.clientHeight;
     
-      const timeNow = Date.now()
-      const deltaTime = timeNow - lastRenderTimeRef.current
+      const timeNow = Date.now();
+      const deltaTime = timeNow - lastRenderTimeRef.current;
 
-      clearBackground(context)
-      //drawMainCircle(context, cursorPositionRef.current)
-      //drawRevolvingCircle(context, cursorPositionRef.current, deltaTime)
-      circles[0].draw(context)
-      circles[0].move(deltaTime)
-      lastRenderTimeRef.current = timeNow
+      clearBackground(context);
+      //drawMainCircle(context, cursorPositionRef.current);
+      //drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
+      drawCircles(context, cursorPositionRef.current, deltaTime);
+
+      lastRenderTimeRef.current = timeNow;
     }
-    animationFrameRequestRef.current = requestAnimationFrame(renderFrame)
+    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
   }
 
   function clearBackground(context: CanvasRenderingContext2D): void {
     const { width, height } = context.canvas;
     context.rect(0, 0, width, height);
-    context.fillStyle = 'rgba(0, 0, 0, 0)'
-    context.fill()
+    context.fillStyle = 'rgba(0, 0, 0, 0)';
+    context.fill();
   }
 
   function drawMainCircle(context: CanvasRenderingContext2D, position: Point2D): void {
     context.font = "300px Arial";
     //context.strokeText("🌚", position.x - 150, position.y + 100);
+  }
+
+  function drawCircles(
+    context: CanvasRenderingContext2D,
+    position: Point2D,
+    deltaTime: number
+  ): void {
+    for(let i = 0; i < 20; i++){
+      let circle = circles[i];
+      if (circle != null) {
+        circle.draw(context)
+        circle.move(deltaTime)
+      } else {
+        let newCircle = new RandomParticle(position.x, position.y)
+        circles.push(newCircle)
+      }
+    }
   }
 
   function drawRevolvingCircle(
