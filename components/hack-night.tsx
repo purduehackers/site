@@ -174,11 +174,10 @@ const HackNight = () => {
                 />
               </div>
             </Draggable>
-
-      <button
-        onClick={() => {setSpray(true)}}
-        className="footer-btn bg-amber-300"
-      >test</button>
+            <button
+              onClick={() => {setSpray(true)}}
+              className="footer-btn bg-amber-300"
+            >test</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Context } from 'vm';
 import Point2D from '../utils/Point2D'
 
@@ -15,7 +15,7 @@ class RandomParticle{
   ax: number;
   ay: number;
   size: number;
-  constructor(x: number, y: number, maxVelocity = 200, maxAcceleration = 30) {
+  constructor(x: number, y: number, maxVelocity = 150, maxAcceleration = 30) {
     this.x = x;
     this.y = y;
 
@@ -75,8 +75,9 @@ export default function AnimatedCanvas({
 
   const animationFrameRequestRef = useRef<number | null>(null);
 
+  const numCircles = 300;
   let circles: RandomParticle[] = [];
-  const numCircles = 150;
+  let bolts: RandomParticle[] = [];
 
   useEffect(() => {
     lastRenderTimeRef.current = Date.now();
@@ -105,6 +106,7 @@ export default function AnimatedCanvas({
       clearBackground(context);
       drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
       drawCircles(context, deltaTime);
+      drawBolts(context, deltaTime);
 
       lastRenderTimeRef.current = timeNow;
     }
@@ -135,6 +137,19 @@ export default function AnimatedCanvas({
     }
   }
 
+  function drawBolts(
+    context: CanvasRenderingContext2D,
+    deltaTime: number
+  ): void {
+    for(let i = 0; i < bolts.length; i++){
+      let bolt = bolts[i];
+      if (bolt != null) {
+        bolt.move(deltaTime)
+        bolt.draw(context)
+      } 
+    }
+  }
+
   function drawRevolvingCircle(
     context: CanvasRenderingContext2D,
     position: Point2D,
@@ -162,8 +177,21 @@ export default function AnimatedCanvas({
     onCursorPositionChanged({ x: cursorXPos, y: cursorYPos });
   }
 
+  function handleMouseDown(
+    position: Point2D,): void {
+    const canvas = canvasRef.current;
+    if (canvas == null) {
+      return;
+    }
+    let newBolt = new RandomParticle(position.x, position.y);
+    bolts.push(newBolt)
+    console.log(bolts)
+  }
+
   return (
-    <canvas ref={canvasRef} onMouseMove={handleMouseMoved} 
+    <canvas ref={canvasRef} 
+        onMouseMove={handleMouseMoved} 
+        onMouseDown={() => {handleMouseDown(cursorPositionRef.current)}}
         className="fixed inset-0 z-20 cursor-none">
       Oh no! Your browser does not support the HTML canvas component.
     </canvas>
