@@ -8,9 +8,9 @@ const Workshops = ({ fetchedEvents }) => {
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
       <div className="min-h-screen">
         <div className="mt-3">
-          <div className="grid grid-cols-2">
-            <h1 className="p-5 text-5xl text-right">Workshops</h1>
-            <div className="relative w-full h-full">
+          <div className="grid grid-cols-1">
+            <h1 className="p-5 text-5xl text-center">Workshops</h1>
+            <div className="relative w-full h-24">
               <Image
                 src={"/ph-logo.png"}
                 alt="Purdue Hackers Logo"
@@ -42,9 +42,9 @@ const Workshops = ({ fetchedEvents }) => {
           <div className="grid grid-cols-5">
             
             {/* mayber link price to send us a coffee? */}
-            <div className="text-sm text-center uppercase">Price 1$</div>
+            <div className="text-sm text-center uppercase">Price 10$</div>
             <div className="col-span-3 text-center capitalize text-md">Purdue Hackers Inc</div>
-            <div className="text-sm text-center uppercase">Issue # 10</div>
+            <div className="text-sm text-center uppercase">Issue #10</div>
           </div>
           <div className="w-full h-0.5 bg-slate-700"></div>
           <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1">
