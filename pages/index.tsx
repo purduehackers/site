@@ -9,12 +9,13 @@ import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 import JoinUs from '../components/join-us'
-import IEvent from '../utils/IEvent'
+import IEvent from '../utils/interfaces/IEvent'
 
 import {
   DraggableContext,
   DraggableInterface
 } from '../context/DraggableContext'
+import { fetchData } from '../utils/fetchData'
 
 interface HomeFetchedEventsProps {
   fetchedEvents: IEvent
@@ -92,23 +93,13 @@ const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents}) => {
 }
 
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   // const dev = process.env.NEXT_PUBLIC_NODE_ENV !== 'production';
-//   // const url = dev ? 'http://localhost:3000' : 'https://purduehackers.com/';
-
-//   const response = await fetch('ph-site-v2.vercel.app/api/workshop', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//   });
-//   const fetchedEvents:IEvent[] = await response.json();
-
-//   return {
-//     props: {
-//       fetchedEvents,
-//     },
-//   }
-// }
+export const getStaticProps: GetStaticProps = async (context) => {
+  const fetchedEvents:IEvent[] = await fetchData();
+  return {
+    props: {
+      fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
+    },
+  }
+}
 
 export default Home

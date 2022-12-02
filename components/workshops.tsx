@@ -46,7 +46,7 @@ const Workshops = ({ fetchedEvents }) => {
           </div>
           <div className="w-full h-0.5 bg-slate-700"></div>
           <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1">
-            {/* {fetchedEvents.map((event) => {
+            {fetchedEvents.map((event) => {
               return(
                 <WorkshopCard
                   name={event.name}
@@ -58,7 +58,7 @@ const Workshops = ({ fetchedEvents }) => {
                   key={EventTarget.name}
                 />
               )
-            })} */}
+            })}
           </div>
         </div>
       </div>

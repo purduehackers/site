@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { table, base } from "../../utils/table"
-import IEvent from '../../utils/IEvent'
+import IEvent from '../../utils/interfaces/IEvent'
 
 const filterStrings = [
   'Test Event',
