@@ -91,7 +91,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents}) => {
   )
 }
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dev = process.env.NODE_ENV !== 'production';
+  const dev = process.env.NEXT_PUBLIC_NODE_ENV !== 'production';
   const url = dev ? 'http://localhost:3000' : 'https://purduehackers.com/';
 
   const response = await fetch(url + '/api/workshop', {
