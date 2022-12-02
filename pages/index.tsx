@@ -90,23 +90,25 @@ const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents}) => {
     </DraggableContext.Provider>
   )
 }
-export const getStaticProps: GetStaticProps = async (context) => {
-  const dev = process.env.NEXT_PUBLIC_NODE_ENV !== 'production';
-  const url = dev ? 'http://localhost:3000' : 'https://purduehackers.com/';
 
-  const response = await fetch(url + '/api/workshop', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  });
-  const fetchedEvents:IEvent[] = await response.json();
 
-  return {
-    props: {
-      fetchedEvents,
-    },
-  }
-}
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   // const dev = process.env.NEXT_PUBLIC_NODE_ENV !== 'production';
+//   // const url = dev ? 'http://localhost:3000' : 'https://purduehackers.com/';
+
+//   const response = await fetch('ph-site-v2.vercel.app/api/workshop', {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//   });
+//   const fetchedEvents:IEvent[] = await response.json();
+
+//   return {
+//     props: {
+//       fetchedEvents,
+//     },
+//   }
+// }
 
 export default Home

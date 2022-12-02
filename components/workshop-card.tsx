@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown'
 import { Remarkable } from 'remarkable'
 import IEvent from '../utils/IEvent';
 import { GithubSlugger } from 'github-slugger-typescript'
