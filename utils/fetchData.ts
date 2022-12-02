@@ -34,6 +34,7 @@ export async function fetchData(): Promise<IEvent[]> {
       }
       fetchNextPage();
     }, function done(err) {
+      if (err) reject(err)
       resolve(events)
     })
   });
