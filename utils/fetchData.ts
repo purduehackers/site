@@ -1,4 +1,4 @@
-import { table, base } from "./table"
+import { table, base } from './table'
 import IEvent from './interfaces/IEvent'
 
 export async function fetchData(): Promise<IEvent[]> {
@@ -13,6 +13,11 @@ export async function fetchData(): Promise<IEvent[]> {
       AND(
         {Unlisted} = 0,
         NOT(FIND("Hack Night", {Event Name})),
+        OR(
+          {Stat 1 Label} = "people",
+          {Stat 2 Label} = "people",
+          {Stat 3 Label} = "people"
+        ),
         {Recap Images}
       )`
     }).eachPage(function page(records, fetchNextPage) {
@@ -20,13 +25,19 @@ export async function fetchData(): Promise<IEvent[]> {
         const eventDateStr = record.fields['Event Date & Start Time'] as string
         const eventDate = new Date(eventDateStr)
         const recapImg = record.fields['Recap Images'] ?? []
+        let participantCount = "";
         
+        for (let statNum = 0; statNum < 3; statNum++) {
+          if (record.fields['Stat ' + statNum + ' Label'] === 'people') {
+            participantCount = record.fields['Stat ' + statNum + ' Data'] as string
+          }
+        }
         events.push(
           {
             name: record.fields['Event Name'] as string,
             date: eventDate,
             description: record.fields['Past Event Description'] as string,
-            rsvp: record.fields['RSVP Count'] as number,
+            rsvp: participantCount,
             img: recapImg[0].url,
             location: record.fields['Event Location'] as string,
           }

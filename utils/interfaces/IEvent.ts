@@ -2,7 +2,7 @@ export default interface IEvent {
   name: string
   date: Date
   description: string
-  rsvp: number
+  rsvp: string
   img: string
   location: string
 }
