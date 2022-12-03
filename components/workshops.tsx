@@ -1,4 +1,5 @@
 import WorkshopCard from './workshop-card'
+import splitArticle from '../utils/splitArticle'
 import Image from 'next/image'
 
 const Workshops = ({ fetchedEvents, randomBarCode }) => {
@@ -59,7 +60,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
             <div className="text-sm text-center uppercase">Issue #∞</div>
           </div>
           <div className="w-full h-0.5 bg-slate-700"></div>
-          <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1 mb-8">
+          <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1 mb-12">
             {fetchedEvents.map((event) => {
               return (
                 <WorkshopCard
@@ -73,6 +74,12 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
                 />
               )
             })}
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="container w-11/12 sm:w-7/12 flex flex-col sm:flex-row justify-center gap-x-4">
+              <p>{splitArticle[0]}</p>
+              <p>{splitArticle[1]}</p>
+            </div>
           </div>
         </div>
       </div>
