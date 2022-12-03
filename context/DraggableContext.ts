@@ -1,7 +1,7 @@
-import { createContext } from "react"
+import { createContext } from 'react'
 
 export interface DraggableInterface {
-  draggable: boolean,
+  draggable: boolean
   setDraggable: Function
 }
 

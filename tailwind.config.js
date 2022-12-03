@@ -9,7 +9,10 @@ module.exports = {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
       mono: '"Space Mono"',
-      pixel: '"Press Start 2P"'
+      pixel: '"Press Start 2P"',
+      alka: '"Alkalami", serif',
+      noto: '"Noto Serif Gujarati", serif',
+      alegre: '"Alegreya", serif'
     },
     extend: {
       colors: {
@@ -54,7 +57,5 @@ module.exports = {
       }
     }
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-    require('@tailwindcss/forms')]
+  plugins: [require('tailwind-scrollbar'), require('@tailwindcss/forms')]
 }
