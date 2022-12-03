@@ -18,7 +18,7 @@ import {
 import { fetchData } from '../utils/fetchData'
 
 interface HomeFetchedEventsProps {
-  fetchedEvents: IEvent
+  fetchedEvents: IEvent[]
   randomBarCode: string
 }
 
@@ -98,7 +98,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const fetchedEvents: IEvent[] = await fetchData()
   let randomBarCode = ''
   for (let i = 0; i < 5; i++) {

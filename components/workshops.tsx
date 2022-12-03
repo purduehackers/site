@@ -1,8 +1,15 @@
 import WorkshopCard from './workshop-card'
 import splitArticle from '../utils/splitArticle'
 import Image from 'next/image'
+import IEvent from '../utils/interfaces/IEvent'
 
-const Workshops = ({ fetchedEvents, randomBarCode }) => {
+const Workshops = ({
+  fetchedEvents,
+  randomBarCode
+}: {
+  fetchedEvents: IEvent[]
+  randomBarCode: string
+}) => {
   return (
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
       <div className="min-h-screen">

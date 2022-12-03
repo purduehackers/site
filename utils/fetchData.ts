@@ -1,5 +1,6 @@
 import { table, base } from './table'
 import IEvent from './interfaces/IEvent'
+import { Attachment } from 'airtable'
 
 export async function fetchData(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
@@ -27,7 +28,8 @@ export async function fetchData(): Promise<IEvent[]> {
               'Event Date & Start Time'
             ] as string
             const eventDate = new Date(eventDateStr)
-            const recapImg = record.fields['Recap Images'] ?? []
+            const recapImg =
+              (record.fields['Recap Images'] as Attachment[]) ?? []
             let participantCount = ''
 
             for (let statNum = 0; statNum < 3; statNum++) {
