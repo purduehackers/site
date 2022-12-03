@@ -51,7 +51,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
             <div className="text-sm text-center uppercase">Issue #10</div>
           </div>
           <div className="w-full h-0.5 bg-slate-700"></div>
-          <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1">
+          <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1 mb-8">
             {fetchedEvents.map((event) => {
               return(
                 <WorkshopCard
