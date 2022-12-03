@@ -8,7 +8,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
         <div className="mt-3">
           <div className="grid grid-cols-5">
             <div className="flex justify-center">
-              <div className="hidden w-48 p-5 sm:block">
+              <div className="hidden w-48 p-5 md:block">
                 <div className="p-2 border-2 border-slate-800">
                   <p>"All things are ready if our minds be so."</p>
                   <p className="text-right">- William Shakespeare</p>
@@ -17,7 +17,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
             </div>
             <div className="col-span-3">
               <div className="grid grid-cols-1">
-                <h1 className="p-5 text-center text-9xl">Workshops</h1>
+                <h1 className="text-5xl text-center sm:p-5 md:text-8xl sm:text-6xl">Workshops</h1>
                 {/* <div className="relative w-full h-24">
                   <Image
                     src={"/ph-logo.png"}
@@ -29,7 +29,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="hidden w-48 p-5 sm:block">
+              <div className="hidden w-48 p-5 md:block">
                 <h1 className="font-bold tracking-widest">Late City Edition</h1>
                 <p className="pb-2">weather: rainy and depressing day. A little bit of coffee and coding may help</p>
                 <Image
