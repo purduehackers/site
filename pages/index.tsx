@@ -22,8 +22,10 @@ interface HomeFetchedEventsProps {
   randomBarCode: string
 }
 
-const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents, randomBarCode}) => {
-
+const Home: NextPage<HomeFetchedEventsProps> = ({
+  fetchedEvents,
+  randomBarCode
+}) => {
   // Disable draggable feature on small screen
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -85,7 +87,10 @@ const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents, randomBarCode}) 
         <Email />
         <hr className="border-2 border-black border-dashed bg-amber-200" />
         <Community />
-        <Workshops fetchedEvents={fetchedEvents} randomBarCode={randomBarCode}/>
+        <Workshops
+          fetchedEvents={fetchedEvents}
+          randomBarCode={randomBarCode}
+        />
         <HackNight />
         <JoinUs />
       </div>
@@ -93,19 +98,18 @@ const Home: NextPage<HomeFetchedEventsProps> = ({fetchedEvents, randomBarCode}) 
   )
 }
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
-  const fetchedEvents:IEvent[] = await fetchData();
-  let randomBarCode = "";
+  const fetchedEvents: IEvent[] = await fetchData()
+  let randomBarCode = ''
   for (let i = 0; i < 5; i++) {
-    randomBarCode += Math.floor(Math.random() * 10);
-    randomBarCode += "    ";
+    randomBarCode += Math.floor(Math.random() * 10)
+    randomBarCode += '    '
   }
   return {
     props: {
       fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
       randomBarCode
-    },
+    }
   }
 }
 
