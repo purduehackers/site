@@ -17,15 +17,15 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
             </div>
             <div className="col-span-3">
               <div className="grid grid-cols-1">
-                <h1 className="p-5 text-5xl text-center">Workshops</h1>
-                <div className="relative w-full h-24">
+                <h1 className="p-5 text-center text-9xl">Workshops</h1>
+                {/* <div className="relative w-full h-24">
                   <Image
                     src={"/ph-logo.png"}
                     alt="Purdue Hackers Logo"
                     layout='fill'
                     objectFit='contain'
                   ></Image>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex justify-center">
