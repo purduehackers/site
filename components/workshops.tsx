@@ -76,9 +76,14 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
             })}
           </div>
           <div className="flex justify-center mb-8">
-            <div className="w-11/12 sm:w-7/12 flex flex-col sm:flex-row justify-center gap-x-4 border-2 border-black border-dashed p-4">
-              <p>{splitArticle[0]}</p>
-              <p>{splitArticle[1]}</p>
+            <div className="w-11/12 sm:w-7/12 border-2 border-black border-dashed p-4">
+              <p className="sm:hidden">
+                {splitArticle[0]} {splitArticle[1]}
+              </p>
+              <div className="hidden sm:flex flex-row justify-center gap-x-4">
+                <p>{splitArticle[0]}</p>
+                <p>{splitArticle[1]}</p>
+              </div>
             </div>
           </div>
         </div>
