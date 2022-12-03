@@ -70,7 +70,7 @@ const Workshops = ({ fetchedEvents, randomBarCode }) => {
                   rsvp={event.rsvp}
                   img={event.img}
                   location={event.location}
-                  key={EventTarget.name}
+                  key={event.name}
                 />
               )
             })}
