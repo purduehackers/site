@@ -32,7 +32,7 @@ export async function fetchData(): Promise<IEvent[]> {
               (record.fields['Recap Images'] as Attachment[]) ?? []
             let participantCount = ''
 
-            for (let statNum = 0; statNum < 3; statNum++) {
+            for (let statNum = 1; statNum <= 3; statNum++) {
               if (record.fields['Stat ' + statNum + ' Label'] === 'people') {
                 participantCount = record.fields[
                   'Stat ' + statNum + ' Data'
