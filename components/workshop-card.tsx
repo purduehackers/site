@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { Remarkable } from 'remarkable'
 import IEvent from '../utils/interfaces/IEvent'
 import { GithubSlugger } from 'github-slugger-typescript'
@@ -26,8 +26,17 @@ const WorkshopCard = (props: IEvent) => {
           <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
         </div>
       </div>
-      <div className="relative w-full h-52">
-        <Image src={props.img} layout="fill" objectFit="contain"></Image>
+      <div className="relative mx-6">
+        <div className="w-full">
+          <Image
+            className="rounded w-auto h-auto"
+            width={0}
+            height={0}
+            sizes="100%"
+            alt="Image from the Events site"
+            src={props.img}
+          />
+        </div>
       </div>
 
       <div className="px-6 pt-4 pb-2">
