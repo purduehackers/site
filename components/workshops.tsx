@@ -59,7 +59,7 @@ const Workshops = ({
             </div>
           </div>
           <div className="w-full h-0.5 mt-3 bg-slate-700"></div>
-          <div className="grid grid-cols-5 items-center">
+          <div className="grid grid-cols-5 items-center sm:text-lg">
             {/* mayber link price to send us a coffee? */}
             <div className="text-sm text-center uppercase">Price %10</div>
             <div className="col-span-3 text-center capitalize text-md">
