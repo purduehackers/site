@@ -94,13 +94,13 @@ const Workshops = ({
               </div>
             </div>
           </div>
-          <Link href="#">
-            <a href="https://events.purduehackers.com" target="_blank">
-              <button className="flex justify-center mx-auto border-2 border-black p-2 w-32 font-bold mb-8 rounded hover:bg-black hover:text-white transition">
+          <button className="flex justify-center mx-auto border-2 border-black p-2 w-32 font-bold mb-8 rounded hover:bg-black hover:text-white transition">
+            <Link href="#">
+              <a href="https://events.purduehackers.com" target="_blank">
                 View All Events
-              </button>
-            </a>
-          </Link>
+              </a>
+            </Link>
+          </button>
         </div>
       </div>
     </div>
