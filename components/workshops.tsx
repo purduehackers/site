@@ -84,7 +84,7 @@ const Workshops = ({
             })}
           </div>
           <div className="flex justify-center items-center sm:items-stretch mb-4 flex-col sm:flex-row gap-2">
-            <div className="w-11/12 sm:w-7/12 border-2 border-black border-dashed p-4">
+            <div className="w-11/12 sm:w-1/2 xl:w-5/12 border-2 border-black border-dashed p-4">
               <p className="sm:hidden">
                 {splitArticle[0]} {splitArticle[1]}
               </p>

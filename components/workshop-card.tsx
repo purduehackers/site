@@ -12,7 +12,7 @@ const WorkshopCard = (props: IEvent) => {
     'https://events.purduehackers.com/' + slugger.slug(props.name)
 
   return (
-    <div className="max-w-sm mx-5 mt-5 overflow-hidden bg-white rounded-lg shadow-lg">
+    <div className="max-w-sm mx-5 mt-5 overflow-hidden bg-white rounded shadow-lg">
       <div className="px-6 py-4">
         <a
           className="mb-2 text-xl font-bold underline text-declaration hover:text-amber-500"
