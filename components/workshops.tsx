@@ -2,6 +2,7 @@ import WorkshopCard from './workshop-card'
 import splitArticle from '../utils/splitArticle'
 import Image from 'next/image'
 import IEvent from '../utils/interfaces/IEvent'
+import Link from 'next/link'
 
 const Workshops = ({
   fetchedEvents,
@@ -82,7 +83,7 @@ const Workshops = ({
               )
             })}
           </div>
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="w-11/12 sm:w-7/12 border-2 border-black border-dashed p-4">
               <p className="sm:hidden">
                 {splitArticle[0]} {splitArticle[1]}
@@ -93,6 +94,13 @@ const Workshops = ({
               </div>
             </div>
           </div>
+          <Link href="#">
+            <a href="https://events.purduehackers.com" target="_blank">
+              <button className="flex justify-center mx-auto border-2 border-black p-2 w-32 font-bold mb-8 rounded hover:bg-black hover:text-white transition">
+                View All Events
+              </button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
