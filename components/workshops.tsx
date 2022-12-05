@@ -84,7 +84,7 @@ const Workshops = ({
             })}
           </div>
           <div className="flex justify-center items-center sm:items-stretch mb-4 flex-col sm:flex-row gap-2">
-            <div className="w-11/12 sm:w-1/2 xl:w-5/12 border-2 border-black border-dashed p-4">
+            <div className="w-11/12 sm:w-1/2 xl:w-5/12 border-2 border-slate-800 border-dashed rounded p-4">
               <p className="sm:hidden">
                 {splitArticle[0]} {splitArticle[1]}
               </p>
@@ -93,7 +93,7 @@ const Workshops = ({
                 <p>{splitArticle[1]}</p>
               </div>
             </div>
-            <button className="view-workshops-button flex justify-center items-center border-2 border-black p-2 w-48 font-bold rounded hover:bg-black hover:text-white transition leading-tight">
+            <button className="view-workshops-button flex justify-center items-center border-2 border-slate-800 p-2 w-48 font-bold rounded hover:bg-slate-800 hover:text-white transition leading-tight">
               <Link href="#">
                 <a href="https://events.purduehackers.com" target="_blank">
                   <p className="text-center text-xl">View All Workshops</p>
