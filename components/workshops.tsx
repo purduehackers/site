@@ -68,6 +68,17 @@ const Workshops = ({
             <div className="text-sm text-center uppercase">Issue #∞</div>
           </div>
           <div className="w-full h-0.5 bg-slate-700"></div>
+          <div className="flex flex-row items-center gap-1 mt-6 ml-4">
+            <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 animate-pulse"></div>
+            <p className="font-bold">
+              Live from our{' '}
+              <span className="underline hover:text-amber-500">
+                <a href="https://events.purduehackers.com" target="_blank">
+                  Events site
+                </a>
+              </span>
+            </p>
+          </div>
           <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1 mb-12">
             {fetchedEvents.map((event) => {
               return (

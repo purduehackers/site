@@ -12,17 +12,17 @@ const WorkshopCard = (props: IEvent) => {
     'https://events.purduehackers.com/' + slugger.slug(props.name)
 
   return (
-    <div className="max-w-sm mx-4 mt-5 overflow-hidden bg-white rounded border-2 border-slate-800 shadow-lg">
+    <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded border-2 border-slate-800 shadow-lg">
       <div className="px-6 py-4">
         <a
-          className="mb-2 text-xl font-bold underline text-declaration hover:text-amber-500"
+          className="mb-2 text-xl font-bold underline hover:text-amber-500"
           href={eventUrl}
           target="_blank"
         >
           {props.name}
         </a>
         <p className="text-slate-500">{date.toDateString()}</p>
-        <div className="h-40 overflow-auto text-base text-gray-700">
+        <div className="mt-4 h-40 rounded overflow-scroll text-base text-gray-700 px-2 pb-2 pt-1 border-2 border-slate-800 border-dashed">
           <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
         </div>
       </div>
