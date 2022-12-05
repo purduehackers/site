@@ -109,7 +109,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
       randomBarCode
-    }
+    },
+    revalidate: 60
   }
 }
 
