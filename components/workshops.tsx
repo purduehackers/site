@@ -106,7 +106,7 @@ const Workshops = ({
                 <p>{splitArticle[1]}</p>
               </div>
             </div>
-            <button className="view-workshops-button flex justify-center items-center border-2 border-slate-800 p-2 w-48 font-bold rounded hover:bg-slate-800 hover:text-white transition leading-tight">
+            <button className="view-workshops-button flex justify-center items-center border-2 border-slate-800 p-2 w-48 font-bold rounded hover:bg-slate-800 hover:text-white transition ease-in-out duration-100 leading-tight">
               <Link href="#">
                 <a href="https://events.purduehackers.com" target="_blank">
                   <p className="text-center text-xl">View All Workshops</p>
