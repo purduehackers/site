@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import { useEffect, useState, useMemo } from 'react'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 
 import Header from '../components/header'
 import Email from '../components/email'
@@ -8,13 +9,23 @@ import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 import JoinUs from '../components/join-us'
+import IEvent from '../utils/interfaces/IEvent'
 
 import {
   DraggableContext,
   DraggableInterface
 } from '../context/DraggableContext'
+import { fetchData } from '../utils/fetchData'
 
-const Home: NextPage = () => {
+interface HomeFetchedEventsProps {
+  fetchedEvents: IEvent[]
+  randomBarCode: string
+}
+
+const Home: NextPage<HomeFetchedEventsProps> = ({
+  fetchedEvents,
+  randomBarCode
+}) => {
   // Disable draggable feature on small screen
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -76,12 +87,31 @@ const Home: NextPage = () => {
         <Email />
         <hr className="border-2 border-black border-dashed bg-amber-200" />
         <Community />
-        <Workshops />
+        <Workshops
+          fetchedEvents={fetchedEvents}
+          randomBarCode={randomBarCode}
+        />
         <HackNight />
         <JoinUs />
       </div>
     </DraggableContext.Provider>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const fetchedEvents: IEvent[] = await fetchData()
+  let randomBarCode = ''
+  for (let i = 0; i < 5; i++) {
+    randomBarCode += Math.floor(Math.random() * 10)
+    randomBarCode += '    '
+  }
+  return {
+    props: {
+      fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
+      randomBarCode
+    },
+    revalidate: 60
+  }
 }
 
 export default Home
