@@ -7,11 +7,8 @@ const Community = () => (
       <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold">
         Community
       </h1>
-      <div id="messages" className="flex flex-col items-center mt-8 sm:mt-16">
-        {discordMessages.map((message, i) => (
-          <DiscordWindow key={i} {...message} />
-        ))}
-        <div className="flex flex-col gap-2 absolute translate-y-40 w-11/12 p-4 border-4 border-black shadow-email shadow-gray-900/70 bg-white max-w-xl">
+      <div className="flex flex-col items-center">
+        <div className="z-10 flex flex-col gap-2 absolute translate-y-40 w-11/12 p-4 border-4 border-black shadow-email shadow-gray-900/70 bg-white max-w-xl">
           <h1 className="font-bold text-3xl sm:text-4xl text-center mb-3">
             Find Your People 🌈
           </h1>
@@ -24,8 +21,7 @@ const Community = () => (
             technical help in <span className="channel-name">#code</span>
             —wherever you look, you'll find friendly, kind, radically inclusive,
             and <span className="italic">really cool</span> people. It's also
-            where we announce upcoming events—in particular,{' '}
-            <span className="channel-name">#announcements</span>.
+            where we announce upcoming events.
           </p>
           <p>
             Enter a world of magic, find people who push you to be your best
@@ -40,6 +36,11 @@ const Community = () => (
               Join the Community
             </button>
           </a>
+        </div>
+        <div id="messages" className="flex flex-col items-center mt-8 sm:mt-16">
+          {discordMessages.map((message, i) => (
+            <DiscordWindow key={i} {...message} />
+          ))}
         </div>
       </div>
     </div>

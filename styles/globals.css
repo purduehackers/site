@@ -27,4 +27,10 @@
   .channel-name {
     @apply px-1 bg-gray-200 rounded;
   }
+  .message:nth-child(3) {
+    @apply sm:right-[22rem] !important;
+  }
+  .message:nth-child(4) {
+    @apply sm:left-[22rem] !important;
+  }
 }
