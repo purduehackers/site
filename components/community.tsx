@@ -25,7 +25,7 @@ const Community = () => (
           </p>
           <p>
             Enter a world of magic, find people who push you to be your best
-            self, and make things together.
+            self, and make awesome things together.
           </p>
           <a
             href="https://puhack.horse/discord"
