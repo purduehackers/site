@@ -21,6 +21,9 @@ module.exports = {
           discord: '#807cfc',
           'discord-light': '#9b98fa'
         },
+        yellow: {
+          'discord-role': '#ffff88'
+        },
         amber: {
           450: '#F8AF18',
           550: '#E78B09'
