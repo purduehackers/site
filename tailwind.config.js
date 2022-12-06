@@ -31,7 +31,10 @@ module.exports = {
         gray: {
           darker: '#0d0d0d',
           dark: '#1c1c1c',
-          discord: '#37393e'
+          discord: '#383c3c'
+        },
+        gold: {
+          discord: '#f1c40f'
         }
       },
       boxShadow: {

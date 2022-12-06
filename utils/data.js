@@ -83,4 +83,15 @@ export const emails = [
   }
 ]
 
+export const discordMessages = [
+  {
+    channel: '#ship',
+    username: 'matthew!!!',
+    pfpImageSrc: 'https://github.com/MatthewStanciu.png',
+    content: `You may have seen Lightning Time ⚡ floating around—today I'd like to officially share it with you! I spent a week putting together an interactive post that explains how it works and lets you experience it hands-on 🙌 https://blog.purduehackers.com/posts/lightning-time
+
+    Lighting Time was created at Hack Night 0.3—thank you so much to @Neil, @DeltaForce, and @Reece for each contributing major pieces to Lightning Time. If you want to be in the kind of environment where Lightning Time is created, 🌙hack-night 0.5 is happening tomorrow 🌙`
+  }
+]
+
 export const workshopArticle = `Workshops are our flagship events. They don't run on a set schedule, but they typically happen every two weeks or so. A typical workshop lasts one hour, and is divided into two sections: 30-40 minutes for the workshop, and 20-30 minutes for the "hacking" section, where hackers are challenged to take it further on their own.`
