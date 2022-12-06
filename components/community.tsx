@@ -4,8 +4,8 @@ import { discordMessages } from '../utils/data'
 const Community = () => (
   <div className="bg-yellow-discord-role">
     <div className="flex flex-col p-6 sm:p-12">
-      <h1 className="text-5xl sm:text-9xl font-bold">1. Community</h1>
-      <div id="messages" className="flex flex-col items-center mt-8">
+      <h1 className="text-5xl sm:text-9xl font-bold">Community</h1>
+      <div id="messages" className="flex flex-col items-center mt-16">
         {discordMessages.map((message, i) => (
           <DiscordWindow key={i} {...message} />
         ))}
@@ -26,8 +26,8 @@ const Community = () => (
             <span className="channel-name">#announcements</span>.
           </p>
           <p>
-            If you go to Purdue, or are planning to go to Purdue, we would love
-            to see you there.
+            Enter a world of magic, find people who push you to be your best
+            self, and make things together.
           </p>
           <a
             href="https://puhack.horse/discord"
