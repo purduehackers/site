@@ -147,7 +147,7 @@ const HackNight = () => {
             <Draggable handle=".handle">
               <div
                 className="w-fit h-fit border-solid border-white border-4
-                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-32 -top-12"
+                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative left-32 -top-32"
               >
                 <div
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
@@ -176,7 +176,7 @@ const HackNight = () => {
             </Draggable>
             <button
               onClick={() => {setSpray(true)}}
-              className="footer-btn bg-amber-300"
+              className="footer-btn bg-pink-300"
             >test</button>
           </div>
         </div>
