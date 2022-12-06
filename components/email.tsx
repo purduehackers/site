@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
@@ -23,6 +23,25 @@ const Email = () => {
 
   const [password, setPassword] = useState('')
   const [showPW, setShowPW] = useState(false)
+
+  useEffect(() => {
+    if (password === 'heartzap') {
+      alert(
+        `Sike the password doesn't do anything yet. If you want to make it do something, contribute at https://github.com/purduehackers/site.`
+      )
+      setPassword('')
+    }
+  }, [password])
+  useEffect(() => {
+    if (showPW) {
+      console.log(
+        '%c the password is heartzap ',
+        `background-color: #f59e0b; border-radius: 4px; color: black; font-size: 28px;`
+      )
+    } else {
+      setPassword('')
+    }
+  }, [showPW])
 
   const [showScrollReminder, setShowScrollReminder] = useState(true)
 
