@@ -17,19 +17,21 @@ const DiscordWindow = ({
   return (
     <Draggable handle=".handle">
       <div
-        className="border-2 border-black w-11/12 sm:w-[32rem] mr-12 
+        className="border-2 border-black w-11/12 sm:w-96 mr-12 
       shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
       >
-        <div className="border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer text-gray-100">
-          <p className="px-2 border-r-2 border-black bg-red-700 hover:bg-red-600">
-            x
-          </p>
-          <p className="px-2 border-r-2 border-black bg-yellow-700 hover:bg-yellow-600">
-            -
-          </p>
-          <p className="px-2 border-r-2 border-black bg-green-700 hover:bg-green-600">
-            +
-          </p>
+        <div className="flex flex-row bg-gray-discord-darker cursor-pointer text-gray-100">
+          <div className="flex flex-row border-b-2 border-black">
+            <p className="px-2 border-r-2 border-black bg-red-700 hover:bg-red-600">
+              x
+            </p>
+            <p className="px-2 border-r-2 border-black bg-yellow-700 hover:bg-yellow-600">
+              -
+            </p>
+            <p className="px-2 border-r-2 border-black bg-green-700 hover:bg-green-600">
+              +
+            </p>
+          </div>
           <div className="grow handle" />
           <p className="handle">{channel}</p>
           <div className="grow handle" />
@@ -37,7 +39,7 @@ const DiscordWindow = ({
         </div>
         <div className="border-black flex flex-col bg-gray-discord p-2 text-white text-sm">
           <div className="flex flex-row gap-4">
-            <div className="">
+            <div>
               <div className="w-8">
                 <Image
                   src={pfpImageSrc}

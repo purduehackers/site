@@ -86,11 +86,10 @@ export const emails = [
 export const discordMessages = [
   {
     channel: '#ship',
-    username: 'matthew!!!',
-    pfpImageSrc: 'https://github.com/MatthewStanciu.png',
-    content: `You may have seen Lightning Time ⚡ floating around—today I'd like to officially share it with you! I spent a week putting together an interactive post that explains how it works and lets you experience it hands-on 🙌 https://blog.purduehackers.com/posts/lightning-time
-
-    Lighting Time was created at Hack Night 0.3—thank you so much to @Neil, @DeltaForce, and @Reece for each contributing major pieces to Lightning Time. If you want to be in the kind of environment where Lightning Time is created, 🌙hack-night 0.5 is happening tomorrow 🌙`
+    username: 'Cartic',
+    pfpImageSrc:
+      'https://cdn.discordapp.com/avatars/247090061034782721/b033d6798e326464a51351d76ed25232.webp?size=160',
+    content: `🦀 🦀 🦀  i made a web api to store my reviews of movies. I call it review-api`
   }
 ]
 
