@@ -112,7 +112,9 @@ export const discordMessages = [
     username: 'matthew!!!',
     pfpImageSrc:
       'https://cdn.discordapp.com/avatars/89849998585376768/c6f1f84cf99017b24503ffb7eec05c51.webp?size=160',
-    content: `It’s 7~1~f and I’m feeling happy :3`
+    content: `Rainbow today`,
+    imageSrc:
+      'https://cdn.discordapp.com/attachments/809628073896443904/1047263334661095474/IMG_1551.jpg'
   },
   {
     channel: '#ship',
@@ -120,6 +122,13 @@ export const discordMessages = [
     pfpImageSrc:
       'https://cdn.discordapp.com/avatars/305566021664899072/a_ff1b1103553c76c719211a809df3ab36.gif?size=160',
     content: `a small victory but i made my first discord bot with python :,) right now it serves as my own personal quotebook but i want it to be my own journal i can scream / rant at`
+  },
+  {
+    channel: '#music',
+    username: 'Mistra',
+    pfpImageSrc:
+      'https://cdn.discordapp.com/avatars/589487911993606166/c37fa4d103f1fdbde748fa97d4a20425.webp?size=160',
+    content: `Yess!! Honestly I added the random Cassiopeia songs I happened to like on my Spotify, but so much of their discography is so good lmao! Their funky feel is unmatched imo`
   }
 ]
 

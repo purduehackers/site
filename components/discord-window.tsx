@@ -16,10 +16,7 @@ const DiscordWindow = ({
 }) => {
   return (
     <Draggable handle=".handle">
-      <div
-        className="border-2 border-black w-11/12 sm:w-96 mr-12 
-      shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
-      >
+      <div className="border-2 border-black w-11/12 sm:w-96 shadow-email shadow-gray-900/30 h-fit z-0 relative odd:right-40 odd:sm:right-96 even:top-4 even:left-40 even:sm:left-96">
         <div className="flex flex-row bg-gray-discord-darker cursor-pointer text-gray-100">
           <div className="flex flex-row border-b-2 border-black">
             <p className="px-2 border-r-2 border-black bg-red-700 hover:bg-red-600">
@@ -53,7 +50,21 @@ const DiscordWindow = ({
             </div>
             <div className="flex flex-col">
               <p className="text-gold-discord">{username}</p>
-              {content}
+              <p>{content}</p>
+              {imageSrc && (
+                <div className="w-1/2">
+                  <a href={imageSrc} target="_blank">
+                    <Image
+                      src={imageSrc}
+                      alt="Image"
+                      width={0}
+                      height={0}
+                      sizes="100%"
+                      className="rounded w-auto h-auto mt-1"
+                    />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
