@@ -6,13 +6,15 @@ const DiscordWindow = ({
   content,
   pfpImageSrc,
   username,
-  imageSrc
+  imageSrc,
+  imageAlt
 }: {
   channel: string
   content: string
   pfpImageSrc: string
   username: string
   imageSrc?: string
+  imageAlt?: string
 }) => {
   return (
     <Draggable handle=".handle">
@@ -43,12 +45,12 @@ const DiscordWindow = ({
             <div className="flex flex-col">
               <p className="text-gold-discord">{username}</p>
               <p>{content}</p>
-              {imageSrc && (
+              {imageSrc && imageAlt && (
                 <div className="w-1/2">
                   <a href={imageSrc} target="_blank">
                     <Image
                       src={imageSrc}
-                      alt="Image"
+                      alt={imageAlt}
                       width={0}
                       height={0}
                       sizes="100%"

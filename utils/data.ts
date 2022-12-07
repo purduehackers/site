@@ -98,7 +98,8 @@ export const discordMessages = [
       'https://cdn.discordapp.com/avatars/221731072822607872/cf31ac5c2be5ee7e596a2face41bb0ac.webp?size=160',
     content: `made a silly link extender, which puts a ton of loremipsum text as the new link to a webpage`,
     imageSrc:
-      'https://cdn.discordapp.com/attachments/904896819165814794/1045088556315578409/image.png'
+      'https://cdn.discordapp.com/attachments/904896819165814794/1045088556315578409/image.png',
+    imageAlt: `An image of a Discord message showing a really long url. A bunch of lorem ipsum text makes up the long url`
   },
   {
     channel: '#hack-night',
@@ -114,7 +115,8 @@ export const discordMessages = [
       'https://cdn.discordapp.com/avatars/89849998585376768/c6f1f84cf99017b24503ffb7eec05c51.webp?size=160',
     content: `Rainbow today`,
     imageSrc:
-      'https://cdn.discordapp.com/attachments/809628073896443904/1047263334661095474/IMG_1551.jpg'
+      'https://cdn.discordapp.com/attachments/809628073896443904/1047263334661095474/IMG_1551.jpg',
+    imageAlt: `A picture of a double rainbow outside on Purdue's campus`
   },
   {
     channel: '#ship',
