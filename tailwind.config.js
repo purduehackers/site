@@ -47,7 +47,7 @@ module.exports = {
       boxShadow: {
         blocks: '8px 8px',
         email: '6px 6px',
-        'footer-btn': '0px 8px'
+        'footer-btn': '0px 6px'
       },
       screens: {
         xs: '375px'
