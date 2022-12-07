@@ -75,7 +75,10 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
           <meta property="og:name" content="Purdue Hackers" />
           <meta property="og:title" content="Purdue Hackers" />
           <meta property="og:image" content="img/intro.png" />
-          <meta property="og:description" content="💛⚡️" />
+          <meta
+            property="og:description"
+            content="A community of students who collaborate, learn, and build kick-ass technical projects 💛⚡️"
+          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="og:type" content="website" />
           <title>Purdue Hackers</title>
