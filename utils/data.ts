@@ -141,5 +141,6 @@ export const madeWith = [
   'the teeth of our ancestors',
   'love',
   'an army of fearless geese',
-  'coffee and sleepless nights'
+  'coffee and sleepless nights',
+  'a mix of caffeinated and herbal tea'
 ]
