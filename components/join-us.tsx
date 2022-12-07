@@ -5,7 +5,7 @@ function JoinUs() {
   const [water, setWater] = useState(false)
 
   return (
-    <div className="bg-white-400 min-h-screen pt-20 mb-96 sm:mb-0 relative">
+    <div className="bg-white-400 min-h-screen pt-20 mb-[28rem] sm:mb-0 relative">
       <div className="absolute top-0 left-0">
         <div className="relative top-10">
           <Image
@@ -30,7 +30,7 @@ function JoinUs() {
           />
         </div>
       </div>
-      <div className="absolute sm:static -bottom-96 sm:bottom-0 flex flex-col items-center justify-center sm:pt-8">
+      <div className="absolute sm:static -bottom-[28rem] sm:bottom-0 flex flex-col items-center justify-center sm:pt-8">
         <div className="w-10/12 border-4 sm:w-auto border-black p-4 flex flex-col items-center rounded shadow-blocks sm:shadow-none sm:border-none">
           <h1
             className="text-center font-bold text-4xl sm:text-6xl 
