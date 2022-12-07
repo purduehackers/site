@@ -106,7 +106,7 @@ const HackNight = () => {
                 <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <div
-                className="px-4 text-green-500 text-sm overflow-scroll 
+                className="px-4 text-green-400 text-sm overflow-scroll 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
                 <p>hacknight login: wackhacker</p>
@@ -120,29 +120,60 @@ const HackNight = () => {
               </div>
             </div>
           </Draggable>
-          <Draggable disabled={!draggable} handle=".handle">
-            <div
-              className="border-solid border-white border-2 
-                w-fit h-fit rounded-xl font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-64 sm:bottom-40 relative"
-            >
-              <div
-                className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
-                  border-black border-solid border-b-4 flex justify-between items-center"
-              >
-                <div>
-                  <FontAwesomeIcon icon={faWindows} size="1x" /> awesomeness.png
+          <div className="flex flex-col sm:flex-row relative">
+            <Draggable disabled={!draggable} handle=".handle">
+              <div className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
+                  bg-black w-24 h-48 m-0 shadow-email shadow-blue-400/70 relative top-6 left-36">
+                <div className="handle hover:bg-cyan-400 hover:text-black w-full flex 
+                    border-b-2 border-white cursor-pointer bg-blue-600 text-white">
+                  <p className="ml-1">_</p>
+                  <div className="grow" />
+                  <p>ASCEND</p>
+                  <div className="grow" />
                 </div>
-                <FontAwesomeIcon icon={faXmark} size="1x" />
+                <div className="w-full h-full">
+                  <div className="w-full h-full border-4 border-green-400">
+                    <div className="w-full h-full border-4 border-pink-400">
+                      <div className="w-full h-full border-4 border-cyan-300">
+                        <div className="w-full h-full border-4 border-yellow-200">
+                          <div className="w-full h-full border-4 border-purple-400">
+                            <div className="w-full h-full border-4 border-purple-500">
+                              <div className="w-full h-full border-4 border-purple-600">
+                                <div className="w-full h-full border-4 border-purple-700">
+                                  <div className="w-full h-full border-4 border-purple-800">
+                                    <div className="w-full h-full border-4 border-purple-900"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
               </div>
-              <Image
-                src="/img/hackNight.png"
-                alt="Hack Night!"
-                width={400}
-                height={300}
-                draggable={false}
-              />
-            </div>
-          </Draggable>
+            </Draggable>
+            <Draggable disabled={!draggable} handle=".handle">
+              <div className="border-solid border-white border-2 w-fit h-fit rounded-xl 
+                font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative">
+                <div className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
+                    border-black border-solid flex justify-between items-center">
+                  <div>
+                    <FontAwesomeIcon icon={faWindows} size="1x" /> awesomeness.png
+                  </div>
+                  <FontAwesomeIcon icon={faXmark} size="1x" />
+                </div>
+                <Image
+                  src="/img/hackNight.png"
+                  alt="Hack Night!"
+                  width={400}
+                  height={300}
+                  draggable={false}
+                />
+              </div>
+            </Draggable>
+          </div>
           <div className="flex flex-col sm:flex-row sm:mt-0 relative -top-48">
             <Draggable handle=".handle">
               <div
@@ -151,7 +182,7 @@ const HackNight = () => {
               >
                 <div
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
-                  border-black border-solid border-b-4 flex justify-between items-center"
+                  border-black border-solid flex justify-between items-center"
                 >
                   <div>blobfish.temp</div>
                 </div>
@@ -174,10 +205,26 @@ const HackNight = () => {
                 />
               </div>
             </Draggable>
-            <button
-              onClick={() => {setSpray(true)}}
-              className="footer-btn bg-pink-300"
-            >test</button>
+            <Draggable disabled={!draggable} handle=".handle">
+              <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
+                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
+                <div className="handle bg-pink-400 w-full flex border-b-2 border-black
+                    cursor-pointer hover:bg-cyan-400 hover:text-white">
+                  <p className="ml-1">X</p>
+                  <div className="grow" />
+                  <p>TITLE</p>
+                  <div className="grow" />
+                </div>
+                <div className="w-full h-full p-4">
+                  <div className="w-full h-full border-2 border-black bg-green-400">
+                  <button
+                    onClick={() => {setSpray(true)}}
+                    className="footer-btn bg-pink-300"
+                  >test</button>
+                  </div>
+                </div> 
+              </div>
+            </Draggable>
           </div>
         </div>
       </div>
