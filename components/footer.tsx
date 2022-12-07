@@ -8,9 +8,9 @@ const Footer = () => {
     setRandomMadeWith(madeWith[Math.floor(Math.random() * madeWith.length)])
   }, [])
   return (
-    <div className="bg-amber-100 border-t-4 border-black py-12">
-      <div className="max-w-xl mx-auto flex flex-col gap-3 text-center">
-        <p className="text-lg">
+    <div className="bg-amber-100 border-t-4 border-black py-12 px-4">
+      <div className="max-w-xl mx-auto flex flex-col gap-6 text-center">
+        <p className="font-bold text-lg">
           Made with {randomMadeWith} •{' '}
           <span className="underline underline-offset-4 decoration-2">
             <a
