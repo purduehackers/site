@@ -13,6 +13,7 @@ export async function fetchData(): Promise<IEvent[]> {
       AND(
         {Unlisted} = 0,
         NOT(FIND("Hack Night", {Event Name})),
+        NOT(FIND("Social", {Event Name})),
         OR(
           {Stat 1 Label} = "people",
           {Stat 2 Label} = "people",
