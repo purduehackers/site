@@ -89,5 +89,6 @@ export const madeWith = [
   'the blood of a thousand snails',
   'the teeth of our ancestors',
   'love',
-  'an army of fearless geese'
+  'an army of fearless geese',
+  'coffee and sleepless nights'
 ]
