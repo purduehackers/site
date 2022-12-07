@@ -12,7 +12,7 @@ export async function fetchData(): Promise<IEvent[]> {
         filterByFormula: `
       AND(
         {Unlisted} = 0,
-        NOT(FIND("Hack Night", {Event Name})),
+        FIND("Workshop", {Event Name}),
         OR(
           {Stat 1 Label} = "people",
           {Stat 2 Label} = "people",

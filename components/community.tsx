@@ -1,76 +1,50 @@
-import Draggable from 'react-draggable'
-import { useState, useContext } from 'react'
+import DiscordWindow from './discord-window'
+import { discordMessages } from '../utils/data'
 
-import { DraggableContext } from '../context/DraggableContext'
-
-const Community = () => {
-  const { draggable } = useContext(DraggableContext)
-  return (
-    <div className="bg-amber-200 min-h-screen">
-      <div className="flex flex-col sm:p-12">
-        <h1 className="text-5xl sm:text-9xl font-bold">1. Community</h1>
-        <div className="flex w-full justify-between p-24">
-          <div className="flex flex-col justify-between">
-            <Draggable disabled={!draggable} handle=".handle">
-              <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
-                <div className="handle bg-pink-400 w-full flex border-b-2 border-black
-                    cursor-pointer hover:bg-cyan-400 hover:text-white">
-                  <p className="ml-1">X</p>
-                  <div className="grow" />
-                  <p>TITLE</p>
-                  <div className="grow" />
-                </div>
-                <div className="w-full h-full p-4">
-                  <div className="w-full h-full border-2 border-black bg-green-400"></div>
-                </div> 
-              </div>
-            </Draggable>
-            <Draggable disabled={!draggable} handle=".handle">
-              <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-blue-400/70">
-                <div className="handle hover:bg-cyan-400 hover:text-black w-full flex border-b-2 border-black
-                    cursor-pointer bg-blue-600 text-white">
-                  <p className="ml-1">_</p>
-                  <div className="grow" />
-                  <p>TITLE</p>
-                  <div className="grow" />
-                </div>
-                <div className="w-full h-full p-8">
-                  <div className="w-full h-full border-2 border-black"></div>
-                </div> 
-              </div>
-            </Draggable>
-          </div>
-          <Draggable disabled={!draggable} handle=".handle">
-              <div className="w-[40rem] border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-98 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/80">
-                <div className="handle hover:bg-cyan-400 text-black w-full flex border-b-2 border-black
-                    cursor-pointer bg-cyan-400 hover:text-white">
-                  <p className="ml-1">_</p>
-                  <div className="grow" />
-                  <p>TITLE</p>
-                  <div className="grow" />
-                </div>
-                <div className="w-full h-full p-8 flex justify-between">
-                  <div className="border-2 border-black w-3/4 h-full bg-amber-300 text-pink-500 font-pixel
-                      p-8 text-sm">
-                    asdfjsdlf idk. what is this !!!
-                  </div>
-                  <div className="w-3/12 h-full px-2">
-                    <div className="border-2 border-black h-24"></div>
-                    <div className="h-12 py-2 flex items-center">
-                      <div className="border-2 border-black rounded-full w-8 h-8"></div>
-                      <div className="w-2/3 border-2 border-b-0 border-black h-0"></div>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </Draggable>
+const Community = () => (
+  <div className="bg-yellow-discord-role">
+    <div className="flex flex-col p-6 sm:p-12">
+      <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold">
+        Community
+      </h1>
+      <div className="flex flex-col items-center">
+        <div className="z-10 flex flex-col gap-2 absolute translate-y-40 w-11/12 p-4 border-4 border-black shadow-email shadow-gray-900/70 bg-white max-w-xl">
+          <h1 className="font-bold text-3xl sm:text-4xl text-center mb-3">
+            Find Your People 🌈
+          </h1>
+          <p>
+            The heart & soul of Purdue Hackers is our community on Discord with
+            1000+ people. Share what you've made in{' '}
+            <span className="channel-name">#ship</span>, chat about rainbows in{' '}
+            <span className="channel-name">#lounge</span>, share your music
+            musings in <span className="channel-name">#music</span>, ask for
+            technical help in <span className="channel-name">#code</span>
+            —wherever you look, you'll find weird, kind, radically inclusive,
+            and <span className="italic">really cool</span> people. It's also
+            where we announce upcoming events.
+          </p>
+          <p>
+            Enter a world of magic, find people who push you to be your best
+            self, and make awesome things together.
+          </p>
+          <a
+            href="https://puhack.horse/discord"
+            target="_blank"
+            className="mx-auto mt-4"
+          >
+            <button className="p-2 border-2 border-black hover:bg-discord-light transition duration-100 font-bold text-center mx-auto text-xl">
+              Join the Community
+            </button>
+          </a>
+        </div>
+        <div id="messages" className="flex flex-col items-center mt-8 sm:mt-16">
+          {discordMessages.map((message, i) => (
+            <DiscordWindow key={i} {...message} />
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  </div>
+)
 
 export default Community

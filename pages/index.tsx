@@ -16,6 +16,7 @@ import {
   DraggableInterface
 } from '../context/DraggableContext'
 import { fetchData } from '../utils/fetchData'
+import Footer from '../components/footer'
 
 interface HomeFetchedEventsProps {
   fetchedEvents: IEvent[]
@@ -75,17 +76,20 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
           <meta property="og:title" content="Purdue Hackers" />
           <meta
             property="og:image"
-            content="https://og.purduehackers.com/Home.png?theme=light&md=1&fontSize=250px&caption=%25F0%259F%2592%259B%25E2%259A%25A1%25EF%25B8%258F"
+            content="https://raw.githubusercontent.com/purduehackers/site/main/public/img/intro.png"
           />
-          <meta property="og:description" content="💛⚡️" />
+          <meta
+            property="og:description"
+            content="A community of students who collaborate, learn, and build kick-ass technical projects 💛⚡️"
+          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="og:type" content="website" />
           <title>Purdue Hackers</title>
         </Head>
         <Header />
-        <hr className="border-2 border-black border-dashed bg-amber-100" />
+        <hr className="border-2 border-black border-dashed" />
         <Email />
-        <hr className="border-2 border-black border-dashed bg-amber-200" />
+        <hr className="border-2 border-black border-dashed" />
         <Community />
         <Workshops
           fetchedEvents={fetchedEvents}
@@ -93,6 +97,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         />
         <HackNight />
         <JoinUs />
+        <Footer />
       </div>
     </DraggableContext.Provider>
   )
