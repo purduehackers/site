@@ -14,7 +14,7 @@ const Workshops = ({
   return (
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
       <div className="min-h-screen">
-        <div className="mt-3">
+        <div className="mt-8">
           <div className="grid grid-cols-5">
             <div className="flex justify-center">
               <div className="hidden w-48 p-5 md:block">
@@ -81,7 +81,7 @@ const Workshops = ({
                   </span>
                 </p>
               </div>
-              <div className="grid lg:grid-cols-3 justify-items-center sm:grid-cols-1 mb-12 sm:mb-0">
+              <div className="grid lg:grid-cols-3 gap-3 sm:gap-0 justify-items-center sm:grid-cols-1 mb-12 sm:mb-0">
                 {fetchedEvents.map((event) => {
                   return (
                     <WorkshopCard
@@ -110,8 +110,9 @@ const Workshops = ({
               <button className="flex justify-center items-center border-2 border-slate-800 p-2 w-48 font-bold rounded hover:bg-slate-800 hover:text-white transition ease-in-out duration-100 leading-tight">
                 <Link href="#">
                   <a href="https://events.purduehackers.com" target="_blank">
-                    <p className="text-center text-xl">View All Workshops</p>
-                    <p className="hidden sm:block text-lg">—{'>'}</p>
+                    <p className="text-center text-xl">
+                      View Upcoming Workshops
+                    </p>
                   </a>
                 </Link>
               </button>
