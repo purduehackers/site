@@ -126,7 +126,7 @@ const HackNight = () => {
                 <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <Image
-                src="/img/hack-night-3.jpeg"
+                src="/img/hackNight2.jpeg"
                 alt="Hack Night!"
                 width={400}
                 height={300}
