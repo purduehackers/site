@@ -19,7 +19,7 @@ const Community = () => (
             <span className="channel-name">#lounge</span>, share your music
             musings in <span className="channel-name">#music</span>, ask for
             technical help in <span className="channel-name">#code</span>
-            —wherever you look, you'll find friendly, kind, radically inclusive,
+            —wherever you look, you'll find weird, kind, radically inclusive,
             and <span className="italic">really cool</span> people. It's also
             where we announce upcoming events.
           </p>
