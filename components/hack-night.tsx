@@ -19,7 +19,7 @@ const HackNight = () => {
 
   return (
     <div className="bg-gray-dark min-h-screen">
-      <div className="px-6 sm:px-12 pt-12">
+      <div className="px-4 sm:px-12 pt-12">
         <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold text-white">
           Hack Night
         </h1>
