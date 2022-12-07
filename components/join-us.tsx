@@ -39,7 +39,7 @@ function JoinUs() {
         </div>
       </div>
       <div className="absolute sm:static -bottom-[28rem] sm:bottom-0 flex flex-col items-center justify-center sm:pt-8">
-        <div className="bg-white sm:bg-transparent w-10/12 mr-2 sm:mr-0 border-4 sm:w-auto border-black p-4 flex flex-col items-center rounded shadow-blocks sm:shadow-none sm:border-none z-10">
+        <div className="bg-white sm:bg-transparent w-10/12 border-4 sm:w-auto border-black p-4 flex flex-col items-center rounded shadow-blocks sm:shadow-none sm:border-none z-10">
           <h1
             className="text-center font-bold text-4xl sm:text-6xl 
                         md:text-8xl w-10/12 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug"
