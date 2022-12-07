@@ -134,7 +134,7 @@ export const discordMessages = [
   }
 ]
 
-export const workshopArticle = `Workshops are our flagship events, happening happen every two weeks on average. A typical workshop lasts one hour, and is divided into two sections: 30-40 minutes for coding together, and 20-30 minutes for the "hacking" section, where hackers are challenged to take it further on their own.`
+export const workshopArticle = `Workshops are our flagship events, happening every two weeks on average. A typical workshop lasts one hour, and is divided into two sections: 30-40 minutes for coding together, and 20-30 minutes for the "hacking" section, where hackers are challenged to take it further on their own.`
 
 export const madeWith = [
   'love',
