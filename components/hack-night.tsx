@@ -126,12 +126,12 @@ const HackNight = () => {
           <div className="flex flex-col sm:flex-row relative">
             <Draggable disabled={!draggable} handle=".handle">
               <div className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
-                  bg-black w-24 h-48 m-0 shadow-email shadow-blue-400/70 relative top-6 left-36">
+                  bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36">
                 <div className="handle hover:bg-cyan-400 hover:text-black w-full flex 
-                    border-b-2 border-white cursor-pointer bg-blue-600 text-white">
+                    border-b-2 border-white cursor-pointer bg-blue-600 text-white text-sm">
                   <p className="ml-1">_</p>
                   <div className="grow" />
-                  <p>ASCEND</p>
+                  <p>ASCEND.png</p>
                   <div className="grow" />
                 </div>
                 <div className="w-full h-full">
@@ -144,7 +144,17 @@ const HackNight = () => {
                               <div className="w-full h-full border-4 border-purple-600">
                                 <div className="w-full h-full border-4 border-purple-700">
                                   <div className="w-full h-full border-4 border-purple-800">
-                                    <div className="w-full h-full border-4 border-purple-900"></div>
+                                    <div className="w-full h-full border-4 border-purple-900
+                                        flex items-center justify-center">
+                                      <Image
+                                        src="/img/trollface.webp"
+                                        alt="Hack Night!"
+                                        width={35}
+                                        height={35}
+                                        draggable={false}
+                                        className="rounded-b-xl"
+                                      />
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -215,21 +225,24 @@ const HackNight = () => {
                   h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
                 <div className="handle bg-pink-400 w-full flex border-b-2 border-black
                     cursor-pointer hover:bg-cyan-400 hover:text-white">
-                  <p className="ml-1">X</p>
+                  <p className="ml-1">_</p>
                   <div className="grow" />
-                  <p>TITLE</p>
+                  <p>???</p>
                   <div className="grow" />
                 </div>
                 <div className="w-full h-full p-4">
-                  <div className="w-full h-full border-2 border-black bg-green-400">
-                  <button
-                    onClick={() => {
-                      setSpray(true)
-                    }}
-                    className="footer-btn bg-pink-300"
-                  >
-                    test
-                  </button>
+                  <div className="w-full h-full border-2 border-black bg-green-400
+                      flex jusitfy-center items-center animate-bg-flash">
+                    <div className="grow" />
+                    <button
+                      onClick={() => {
+                        setSpray(true)
+                      }}
+                      className="spray-btn"
+                    >
+                      HACK.
+                    </button>
+                    <div className="grow" />
                   </div>
                 </div> 
               </div>
