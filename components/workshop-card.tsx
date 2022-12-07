@@ -12,7 +12,7 @@ const WorkshopCard = (props: IEvent) => {
     'https://events.purduehackers.com/' + slugger.slug(props.name)
 
   return (
-    <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 border-slate-800">
+    <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 border-slate-800 flex flex-col">
       <div className="px-6 py-4">
         <a
           className="mb-2 text-xl font-bold underline hover:text-amber-500"
@@ -35,11 +35,11 @@ const WorkshopCard = (props: IEvent) => {
             sizes="100%"
             alt="Image from the Events site"
             src={props.img}
+            draggable={false}
           />
         </div>
       </div>
-
-      <div className="px-6 pt-4 pb-2">
+      <div className="px-6 pt-4 pb-2 mt-auto">
         <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-sm">
           {props.location}
         </span>
