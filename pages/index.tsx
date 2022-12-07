@@ -16,6 +16,7 @@ import {
   DraggableInterface
 } from '../context/DraggableContext'
 import { fetchData } from '../utils/fetchData'
+import Footer from '../components/footer'
 
 interface HomeFetchedEventsProps {
   fetchedEvents: IEvent[]
@@ -93,6 +94,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         />
         <HackNight />
         <JoinUs />
+        <Footer />
       </div>
     </DraggableContext.Provider>
   )
