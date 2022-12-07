@@ -145,7 +145,7 @@ const HackNight = () => {
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
                   border-black border-solid border-b-4 flex justify-between items-center"
                 >
-                  <div>blobfish.temp</div>
+                  <div>blobfish.tmp</div>
                 </div>
                 <Image
                   src="/img/blob.png"
