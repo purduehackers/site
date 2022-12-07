@@ -20,7 +20,7 @@ const DiscordWindow = ({
     <Draggable handle=".handle">
       <div className="message border-2 border-black w-11/12 sm:w-96 shadow-email shadow-gray-900/30 h-fit z-0 relative odd:right-40 odd:sm:right-96 sm:odd:top-4 sm:even:bottom-8 even:left-40 even:sm:left-96 sm:first-of-type:right-80 sm:last-of-type:left-80">
         <div className="flex flex-row bg-gray-discord-darker cursor-pointer text-gray-100">
-          <p className="px-2 border-r-2 border-b-2 border-black bg-red-700 hover:bg-red-600">
+          <p className="px-2 border-r-2 border-b-2 border-black bg-blue-discord hover:bg-blue-discord-light">
             ∆
           </p>
           <div className="grow handle" />
