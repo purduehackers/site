@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className="bg-amber-100 border-t-4 border-black py-12 px-4">
       <div className="max-w-xl mx-auto flex flex-col gap-6 text-center">
-        <p className="font-bold text-lg">
+        <p className="text-lg">
           Made with {randomMadeWith} •{' '}
           <span className="underline underline-offset-4 decoration-2">
             <a
