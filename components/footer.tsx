@@ -28,7 +28,7 @@ const Footer = () => {
               target="_blank"
               className="decoration-amber-400 dark:decoration-amber-500 hover:decoration-[3px]"
             >
-              Powered by ▲Vercel.
+              Powered by ▲Vercel
             </a>
           </span>
         </p>

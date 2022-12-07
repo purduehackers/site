@@ -32,7 +32,7 @@ const Community = () => (
             target="_blank"
             className="mx-auto mt-4"
           >
-            <button className="p-2 border-2 border-black hover:bg-blue-discord-light transition duration-100 font-bold text-center mx-auto text-xl">
+            <button className="p-2 border-2 border-black hover:bg-discord-light transition duration-100 font-bold text-center mx-auto text-xl">
               Join the Community
             </button>
           </a>

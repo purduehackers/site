@@ -5,7 +5,7 @@ function JoinUs() {
   const [water, setWater] = useState(false)
 
   return (
-    <div className="bg-white-400 min-h-screen pt-20 relative">
+    <div className="bg-white-400 min-h-screen pt-20 mb-[28rem] sm:mb-0 relative">
       <div className="absolute top-0 left-0">
         <div className="relative top-10">
           <Image
@@ -30,17 +30,17 @@ function JoinUs() {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center sm:pt-8">
-        <div className="backdrop-blur-md border-y-4 border-black sm:border-none sm:backdrop-blur-none p-4 flex flex-col items-center z-10">
-          <h2
-            className="text-center font-bold text-5xl sm:text-6xl 
-                        md:text-8xl w-3/5 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug"
+      <div className="absolute sm:static -bottom-[28rem] sm:bottom-0 flex flex-col items-center justify-center sm:pt-8">
+        <div className="w-10/12 mr-2 sm:mr-0 border-4 sm:w-auto border-black p-4 flex flex-col items-center rounded shadow-blocks sm:shadow-none sm:border-none z-10">
+          <h1
+            className="text-center font-bold text-4xl sm:text-6xl 
+                        md:text-8xl w-10/12 sm:w-1/2 md:w-7/12 xl:w-1/2 leading-snug"
           >
             Ready to find your people?
-          </h2>
+          </h1>
         </div>
         <div
-          className="flex flex-row justify-center gap-x-4 gap-y-6 items-center 
+          className="flex flex-row justify-center gap-x-4 items-center 
                         p-6 sm:p-12 sm:h-72 md:h-fit mb-16 sm:mb-5
                         w-2/3 lg:w-1/2 max-w-3xl min-w-fit md:mt-5"
         >

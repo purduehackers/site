@@ -19,7 +19,7 @@ const HackNight = () => {
 
   return (
     <div className="bg-gray-dark min-h-screen">
-      <div className="p-6 sm:p-12">
+      <div className="px-6 sm:px-12 pt-12">
         <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold text-white">
           Hack Night
         </h1>
@@ -54,8 +54,8 @@ const HackNight = () => {
                 </div>
               </div>
               <div className="p-4 m-0">
-                <div className="border-solid border-black border-2 p-6 rounded-xl">
-                  <h2 className="font-bold text-3xl mb-4">
+                <div className="border-solid border-black border-2 p-4 rounded-xl flex flex-col gap-3">
+                  <h2 className="font-bold text-2xl sm:text-3xl mb-4">
                     The Night is Nigh 🌙
                   </h2>
                   <p className="text-mxs">
@@ -65,14 +65,17 @@ const HackNight = () => {
                     monotony of daily life? Well, you can't. But you know what
                     you can do? Come to Hack Night! 🌙
                   </p>
-                  <br />
                   <p className="text-mxs">
                     Hack Night is uninterrupted time to work on personal
                     projects—anything from a little hack that you ship by the
-                    end of the night, to part of a larger project. Hack Night is
-                    largely self-guided, but we're there to help if you're stuck
-                    or don't know where to get started. Let your imagination run
-                    wild ✨💫
+                    end of the night, to part of a larger project. We run
+                    Sessions throughout to help you get started. It's like a
+                    mini-hackathon every week. 💫 💻
+                  </p>
+                  <p>
+                    Join us{' '}
+                    <span className="font-bold">every Friday at 7pm</span> in{' '}
+                    <span className="font-bold">WALC 1087</span>.
                   </p>
                 </div>
               </div>
@@ -123,11 +126,12 @@ const HackNight = () => {
                 <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <Image
-                src="/img/hackNight.png"
+                src="/img/hack-night-3.jpeg"
                 alt="Hack Night!"
                 width={400}
                 height={300}
                 draggable={false}
+                className="rounded-b-xl"
               />
             </div>
           </Draggable>
@@ -141,13 +145,14 @@ const HackNight = () => {
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
                   border-black border-solid border-b-4 flex justify-between items-center"
                 >
-                  <div>blobfish.temp</div>
+                  <div>blobfish.tmp</div>
                 </div>
                 <Image
                   src="/img/blob.png"
                   alt="temporary blobfiss"
                   width={110}
                   height={110}
+                  className="rounded-b-lg"
                 />
               </div>
             </Draggable>
