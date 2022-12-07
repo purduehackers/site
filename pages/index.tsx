@@ -84,9 +84,9 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
           <title>Purdue Hackers</title>
         </Head>
         <Header />
-        <hr className="border-2 border-black border-dashed bg-amber-100" />
+        <hr className="border-2 border-black border-dashed" />
         <Email />
-        <hr className="border-2 border-black border-dashed bg-amber-200" />
+        <hr className="border-2 border-black border-dashed" />
         <Community />
         <Workshops
           fetchedEvents={fetchedEvents}

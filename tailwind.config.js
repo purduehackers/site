@@ -21,6 +21,9 @@ module.exports = {
           discord: '#807cfc',
           'discord-light': '#9b98fa'
         },
+        yellow: {
+          'discord-role': '#ffff88'
+        },
         amber: {
           450: '#F8AF18',
           550: '#E78B09'
@@ -28,7 +31,12 @@ module.exports = {
         gray: {
           darker: '#0d0d0d',
           dark: '#1c1c1c',
-          discord: '#37393e'
+          discord: '#383c3c',
+          'discord-dark': '#303434',
+          'discord-darker': '#282424'
+        },
+        gold: {
+          discord: '#f1c40f'
         }
       },
       boxShadow: {
