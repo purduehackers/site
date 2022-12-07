@@ -19,7 +19,6 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-draggable": "^4.4.5",
-    "react-feather": "^2.0.10",
     "react-markdown": "^8.0.3",
     "remarkable": "^2.0.1",
     "sharp": "^0.31.1",
