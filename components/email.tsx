@@ -263,7 +263,7 @@ const Email = () => {
                     </p>
                     <p>
                       Many of us grew up never having found our people until we
-                      were united by our shared love of making things. Via our
+                      were united by our shared love for making things. Via our
                       community, workshops, and Hack Nights, we want to create
                       an environment where{' '}
                       <span className="font-bold">
