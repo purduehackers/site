@@ -25,12 +25,12 @@ const HackNight = () => {
 
   return (
     <div className="bg-gray-dark min-h-screen">
-      {spray && 
-        <SprayCanvas 
-          cursorPosition = {cursorPosition}
-          onCursorPositionChanged = {setCursorPosition}
+      {spray && (
+        <SprayCanvas
+          cursorPosition={cursorPosition}
+          onCursorPositionChanged={setCursorPosition}
         />
-      }
+      )}
       <div className="px-4 sm:px-12 pt-12">
         <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold text-white">
           Hack Night
@@ -223,9 +223,13 @@ const HackNight = () => {
                 <div className="w-full h-full p-4">
                   <div className="w-full h-full border-2 border-black bg-green-400">
                   <button
-                    onClick={() => {setSpray(true)}}
+                    onClick={() => {
+                      setSpray(true)
+                    }}
                     className="footer-btn bg-pink-300"
-                  >test</button>
+                  >
+                    test
+                  </button>
                   </div>
                 </div> 
               </div>
