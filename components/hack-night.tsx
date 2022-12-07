@@ -124,7 +124,7 @@ const HackNight = () => {
             </div>
           </Draggable>
           <div className="flex flex-col sm:flex-row relative">
-            <Draggable disabled={!draggable} handle=".handle">
+            <Draggable handle=".handle">
               <div className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
                   bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36">
                 <div className="handle hover:bg-cyan-400 hover:text-black w-full flex 
@@ -220,7 +220,7 @@ const HackNight = () => {
                 />
               </div>
             </Draggable>
-            <Draggable disabled={!draggable} handle=".handle">
+            <Draggable handle=".handle">
               <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
                   h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
                 <div className="handle bg-pink-400 w-full flex border-b-2 border-black
