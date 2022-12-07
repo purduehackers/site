@@ -18,8 +18,13 @@ module.exports = {
       colors: {
         'main-yellow': '#fbbf24',
         blue: {
-          discord: '#807cfc',
-          'discord-light': '#9b98fa'
+          discord: '#807cfc'
+        },
+        discord: {
+          light: '#9b98fa',
+          vibrant: '#5864f4',
+          deselected: '#404675',
+          'deselected-mention': '#c9cdfb'
         },
         yellow: {
           'discord-role': '#ffff88'
