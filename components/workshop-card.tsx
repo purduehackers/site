@@ -12,7 +12,7 @@ const WorkshopCard = (props: IEvent) => {
     'https://events.purduehackers.com/' + slugger.slug(props.name)
 
   return (
-    <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded border-2 border-slate-800 shadow-lg">
+    <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 border-slate-800 flex flex-col">
       <div className="px-6 py-4">
         <a
           className="mb-2 text-xl font-bold underline hover:text-amber-500"
@@ -22,7 +22,7 @@ const WorkshopCard = (props: IEvent) => {
           {props.name}
         </a>
         <p className="text-slate-500">{date.toDateString()}</p>
-        <div className="mt-4 h-40 rounded overflow-scroll text-base text-gray-700 px-2 pb-2 pt-1 border-2 border-slate-800 border-dashed">
+        <div className="mt-2 h-[168px] overflow-scroll text-base text-gray-700">
           <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
         </div>
       </div>
@@ -35,15 +35,15 @@ const WorkshopCard = (props: IEvent) => {
             sizes="100%"
             alt="Image from the Events site"
             src={props.img}
+            draggable={false}
           />
         </div>
       </div>
-
-      <div className="px-6 pt-4 pb-2">
-        <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
+      <div className="px-6 pt-4 pb-2 mt-auto">
+        <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-sm">
           {props.location}
         </span>
-        <span className="inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
+        <span className="inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-sm">
           Hackers: {props.rsvp}
         </span>
       </div>

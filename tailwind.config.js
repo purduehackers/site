@@ -18,8 +18,16 @@ module.exports = {
       colors: {
         'main-yellow': '#fbbf24',
         blue: {
-          discord: '#807cfc',
-          'discord-light': '#9b98fa'
+          discord: '#807cfc'
+        },
+        discord: {
+          light: '#9b98fa',
+          vibrant: '#5864f4',
+          deselected: '#404675',
+          'deselected-mention': '#c9cdfb'
+        },
+        yellow: {
+          'discord-role': '#ffff88'
         },
         amber: {
           450: '#F8AF18',
@@ -28,13 +36,18 @@ module.exports = {
         gray: {
           darker: '#0d0d0d',
           dark: '#1c1c1c',
-          discord: '#37393e'
+          discord: '#383c3c',
+          'discord-dark': '#303434',
+          'discord-darker': '#282424'
+        },
+        gold: {
+          discord: '#f1c40f'
         }
       },
       boxShadow: {
         blocks: '8px 8px',
         email: '6px 6px',
-        'footer-btn': '0px 8px'
+        'footer-btn': '0px 6px'
       },
       screens: {
         xs: '375px'
@@ -57,5 +70,9 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwind-scrollbar'), require('@tailwindcss/forms')]
+  plugins: [
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp')
+  ]
 }
