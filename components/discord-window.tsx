@@ -29,7 +29,7 @@ const DiscordWindow = ({
         <div className="border-black flex flex-col bg-gray-discord p-2 text-white text-sm">
           <div className="flex flex-row gap-4">
             <div>
-              <div className="w-8">
+              <div className="w-10">
                 <Image
                   src={pfpImageSrc}
                   alt="Profile picture"
