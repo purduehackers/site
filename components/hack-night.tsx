@@ -148,7 +148,7 @@ const HackNight = () => {
                                         flex items-center justify-center">
                                       <Image
                                         src="/img/trollface.webp"
-                                        alt="Hack Night!"
+                                        alt="troll face"
                                         width={35}
                                         height={35}
                                         draggable={false}
