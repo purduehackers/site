@@ -203,7 +203,7 @@ const HackNight = () => {
             <Draggable handle=".handle">
               <div
                 className="w-fit h-fit border-solid border-white border-4
-                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-12 sm:left-0 -top-72"
+                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-12 sm:left-0 -top-[17rem]"
               >
                 <div
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
