@@ -71,7 +71,7 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fade-in .5s ease-in-out',
-        'bg-flash': 'bg-flash 1s linear 0s infinite alternate',
+        'bg-flash': 'bg-flash 1s linear 0s infinite alternate'
       }
     }
   },

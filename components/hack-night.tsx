@@ -125,10 +125,14 @@ const HackNight = () => {
           </Draggable>
           <div className="flex flex-col sm:flex-row relative">
             <Draggable handle=".handle">
-              <div className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
-                  bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36">
-                <div className="handle hover:bg-cyan-400 hover:text-black w-full flex 
-                    border-b-2 border-white cursor-pointer bg-blue-600 text-white text-sm">
+              <div
+                className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
+                  bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36"
+              >
+                <div
+                  className="handle hover:bg-cyan-400 hover:text-black w-full flex 
+                    border-b-2 border-white cursor-pointer bg-blue-600 text-white text-sm"
+                >
                   <p className="ml-1">_</p>
                   <div className="grow" />
                   <p>ASCEND.png</p>
@@ -144,8 +148,10 @@ const HackNight = () => {
                               <div className="w-full h-full border-4 border-purple-600">
                                 <div className="w-full h-full border-4 border-purple-700">
                                   <div className="w-full h-full border-4 border-purple-800">
-                                    <div className="w-full h-full border-4 border-purple-900
-                                        flex items-center justify-center">
+                                    <div
+                                      className="w-full h-full border-4 border-purple-900
+                                        flex items-center justify-center"
+                                    >
                                       <Image
                                         src="/img/trollface.webp"
                                         alt="troll face"
@@ -164,16 +170,21 @@ const HackNight = () => {
                       </div>
                     </div>
                   </div>
-                </div> 
+                </div>
               </div>
             </Draggable>
             <Draggable disabled={!draggable} handle=".handle">
-              <div className="border-solid border-white border-2 w-fit h-fit rounded-xl 
-                font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative">
-                <div className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
-                    border-black border-solid flex justify-between items-center">
+              <div
+                className="border-solid border-white border-2 w-fit h-fit rounded-xl 
+                font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative"
+              >
+                <div
+                  className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
+                    border-black border-solid flex justify-between items-center"
+                >
                   <div>
-                    <FontAwesomeIcon icon={faWindows} size="1x" /> awesomeness.png
+                    <FontAwesomeIcon icon={faWindows} size="1x" />{' '}
+                    awesomeness.png
                   </div>
                   <FontAwesomeIcon icon={faXmark} size="1x" />
                 </div>
@@ -221,18 +232,24 @@ const HackNight = () => {
               </div>
             </Draggable>
             <Draggable handle=".handle">
-              <div className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70">
-                <div className="handle bg-pink-400 w-full flex border-b-2 border-black
-                    cursor-pointer hover:bg-cyan-400 hover:text-white">
+              <div
+                className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
+                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
+              >
+                <div
+                  className="handle bg-pink-400 w-full flex border-b-2 border-black
+                    cursor-pointer hover:bg-cyan-400 hover:text-white"
+                >
                   <p className="ml-1">_</p>
                   <div className="grow" />
                   <p>???</p>
                   <div className="grow" />
                 </div>
                 <div className="w-full h-full p-4">
-                  <div className="w-full h-full border-2 border-black bg-green-400
-                      flex jusitfy-center items-center animate-bg-flash">
+                  <div
+                    className="w-full h-full border-2 border-black bg-green-400
+                      flex jusitfy-center items-center animate-bg-flash"
+                  >
                     <div className="grow" />
                     <button
                       onClick={() => {
@@ -244,7 +261,7 @@ const HackNight = () => {
                     </button>
                     <div className="grow" />
                   </div>
-                </div> 
+                </div>
               </div>
             </Draggable>
           </div>
