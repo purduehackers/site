@@ -98,12 +98,13 @@ export default function AnimatedCanvas({
 
     if (context != null) {
       context.canvas.width = document.documentElement.clientWidth
-      context.canvas.height = document.documentElement.clientHeight
+      context.canvas.height = document.documentElement.clientHeight * 1.25
 
       const timeNow = Date.now()
       const deltaTime = timeNow - lastRenderTimeRef.current
 
       clearBackground(context)
+      context.fillStyle = 'white'
       drawRevolvingCircle(context, cursorPositionRef.current, deltaTime)
       drawCircles(context, deltaTime)
       drawBolts(context, deltaTime)
