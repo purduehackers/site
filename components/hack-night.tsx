@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
@@ -14,11 +14,23 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
+import SprayCanvas from './spray-canvas'
+import Point2D from '../utils/Point2D'
+
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
+  const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
+
+  const [spray, setSpray] = useState(false)
 
   return (
     <div className="bg-gray-dark min-h-screen">
+      {spray && (
+        <SprayCanvas
+          cursorPosition={cursorPosition}
+          onCursorPositionChanged={setCursorPosition}
+        />
+      )}
       <div className="px-4 sm:px-12 pt-12">
         <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold text-white">
           Hack Night
@@ -97,7 +109,7 @@ const HackNight = () => {
                 <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <div
-                className="px-4 text-green-500 text-sm overflow-scroll 
+                className="px-4 text-green-400 text-sm overflow-scroll 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
                 <p>hacknight login: wackhacker</p>
@@ -111,39 +123,91 @@ const HackNight = () => {
               </div>
             </div>
           </Draggable>
-          <Draggable disabled={!draggable} handle=".handle">
-            <div
-              className="border-solid border-white border-2 
-                w-fit h-fit rounded-xl font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-64 sm:bottom-40 relative"
-            >
+          <div className="flex flex-col sm:flex-row relative">
+            <Draggable handle=".handle">
               <div
-                className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
-                  border-black border-solid border-b-4 flex justify-between items-center"
+                className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
+                  bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36"
               >
-                <div>
-                  <FontAwesomeIcon icon={faWindows} size="1x" /> awesomeness.png
+                <div
+                  className="handle hover:bg-cyan-400 hover:text-black w-full flex 
+                    border-b-2 border-white cursor-pointer bg-blue-600 text-white text-sm"
+                >
+                  <p className="ml-1">_</p>
+                  <div className="grow" />
+                  <p>ASCEND.png</p>
+                  <div className="grow" />
                 </div>
-                <FontAwesomeIcon icon={faXmark} size="1x" />
+                <div className="w-full h-full">
+                  <div className="w-full h-full border-4 border-green-400">
+                    <div className="w-full h-full border-4 border-pink-400">
+                      <div className="w-full h-full border-4 border-cyan-300">
+                        <div className="w-full h-full border-4 border-yellow-200">
+                          <div className="w-full h-full border-4 border-purple-400">
+                            <div className="w-full h-full border-4 border-purple-500">
+                              <div className="w-full h-full border-4 border-purple-600">
+                                <div className="w-full h-full border-4 border-purple-700">
+                                  <div className="w-full h-full border-4 border-purple-800">
+                                    <div
+                                      className="w-full h-full border-4 border-purple-900
+                                        flex items-center justify-center"
+                                    >
+                                      <Image
+                                        src="/img/trollface.webp"
+                                        alt="troll face"
+                                        width={35}
+                                        height={35}
+                                        draggable={false}
+                                        className="rounded-b-xl"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <Image
-                src="/img/hackNight2.jpeg"
-                alt="Hack Night!"
-                width={400}
-                height={300}
-                draggable={false}
-                className="rounded-b-xl"
-              />
-            </div>
-          </Draggable>
+            </Draggable>
+            <Draggable disabled={!draggable} handle=".handle">
+              <div
+                className="border-solid border-white border-2 w-fit h-fit rounded-xl 
+                font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative"
+              >
+                <div
+                  className="handle w-full bg-gray-300 rounded-t-lg px-2 cursor-pointer
+                    border-black border-solid flex justify-between items-center"
+                >
+                  <div>
+                    <FontAwesomeIcon icon={faWindows} size="1x" />{' '}
+                    awesomeness.png
+                  </div>
+                  <FontAwesomeIcon icon={faXmark} size="1x" />
+                </div>
+                <Image
+                  src="/img/hackNight2.jpeg"
+                  alt="Hack Night!"
+                  width={400}
+                  height={300}
+                  draggable={false}
+                  className="rounded-b-xl"
+                />
+              </div>
+            </Draggable>
+          </div>
           <div className="flex flex-col sm:flex-row sm:mt-0 relative -top-48">
             <Draggable handle=".handle">
               <div
                 className="w-fit h-fit border-solid border-white border-4
-                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-32 -top-12"
+                rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-12 -top-72"
               >
                 <div
                   className="handle w-full bg-gray-300 rounded-t-lg px-2 text-xs cursor-pointer
-                  border-black border-solid border-b-4 flex justify-between items-center"
+                  border-black border-solid flex justify-between items-center"
                 >
                   <div>blobfish.tmp</div>
                 </div>
@@ -159,12 +223,45 @@ const HackNight = () => {
             <Draggable>
               <div className="cursor-pointer">
                 <Image
-                  src="/img/keyboard3.png"
+                  src="/img/keyboard4.png"
                   alt="Keyboard"
-                  width={250}
+                  width={850}
                   height={187}
                   draggable={false}
                 />
+              </div>
+            </Draggable>
+            <Draggable handle=".handle">
+              <div
+                className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
+                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
+              >
+                <div
+                  className="handle bg-pink-400 w-full flex border-b-2 border-black
+                    cursor-pointer hover:bg-cyan-400 hover:text-white"
+                >
+                  <p className="ml-1">_</p>
+                  <div className="grow" />
+                  <p>???</p>
+                  <div className="grow" />
+                </div>
+                <div className="w-full h-full p-4">
+                  <div
+                    className="w-full h-full border-2 border-black bg-green-400
+                      flex jusitfy-center items-center animate-bg-flash"
+                  >
+                    <div className="grow" />
+                    <button
+                      onClick={() => {
+                        setSpray(true)
+                      }}
+                      className="spray-btn"
+                    >
+                      HACK.
+                    </button>
+                    <div className="grow" />
+                  </div>
+                </div>
               </div>
             </Draggable>
           </div>

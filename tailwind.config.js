@@ -63,10 +63,15 @@ module.exports = {
         'fade-in': {
           '0%': { opacity: '50%' },
           '100%': { opacity: '100%' }
+        },
+        'bg-flash': {
+          '0%': { backgroundColor: '59, 235, 135' },
+          '100%': { backgroundColor: 'rgb(3, 111, 252)' }
         }
       },
       animation: {
-        'fade-in': 'fade-in .5s ease-in-out'
+        'fade-in': 'fade-in .5s ease-in-out',
+        'bg-flash': 'bg-flash 1s linear 0s infinite alternate'
       }
     }
   },
