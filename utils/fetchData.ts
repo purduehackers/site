@@ -1,5 +1,5 @@
 import IEvent from './interfaces/IEvent'
-import { Attachment } from 'airtable'
+import Attachment from './interfaces/AirtableAttachment'
 
 export async function fetchData(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
