@@ -3,7 +3,7 @@ import { useContext } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
-const Header = () => {
+const Hero = () => {
   const { draggable } = useContext(DraggableContext)
 
   return (
@@ -29,4 +29,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Hero

@@ -1,7 +1,7 @@
 import IEvent from './interfaces/IEvent'
 import Attachment from './interfaces/AirtableAttachment'
 
-export async function fetchData(): Promise<IEvent[]> {
+export async function fetchEvents(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
     const events: IEvent[] = []
     const select = encodeURIComponent(

@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react'
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
-import Header from '../components/header'
+import Hero from '../components/hero'
 import Email from '../components/email'
 import Community from '../components/community'
 import Workshops from '../components/workshops'
@@ -15,7 +15,7 @@ import {
   DraggableContext,
   DraggableInterface
 } from '../context/DraggableContext'
-import { fetchData } from '../utils/fetchData'
+import { fetchEvents } from '../utils/fetchEvents'
 import Footer from '../components/footer'
 
 interface HomeFetchedEventsProps {
@@ -86,7 +86,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
           <meta property="og:type" content="website" />
           <title>Purdue Hackers</title>
         </Head>
-        <Header />
+        <Hero />
         <hr className="border-2 border-black border-dashed" />
         <Email />
         <hr className="border-2 border-black border-dashed" />
@@ -104,7 +104,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fetchedEvents: IEvent[] = await fetchData()
+  const fetchedEvents: IEvent[] = await fetchEvents()
   let randomBarCode = ''
   for (let i = 0; i < 5; i++) {
     randomBarCode += Math.floor(Math.random() * 10)
