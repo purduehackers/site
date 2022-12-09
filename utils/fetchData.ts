@@ -21,7 +21,7 @@ export async function fetchData(): Promise<IEvent[]> {
       )`
       })
     )
-    fetch(`http://localhost:8080/events?select=${select}`)
+    fetch(`https://api.purduehackers.com/events?select=${select}`)
       .then((r) => r.json())
       .then((records) => {
         for (const record of records) {
