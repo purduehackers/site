@@ -121,8 +121,7 @@ export const discordMessages = [
   {
     channel: '#ship',
     username: 'Rachel S.',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/305566021664899072/a_ff1b1103553c76c719211a809df3ab36.gif?size=160',
+    pfpImageSrc: '/img/rachel_pfp.gif',
     content: `a small victory but i made my first discord bot with python :,) right now it serves as my own personal quotebook but i want it to be my own journal i can scream / rant at`
   },
   {
