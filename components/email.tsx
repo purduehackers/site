@@ -31,6 +31,12 @@ const Email = () => {
       )
       setPassword('')
     }
+    else if (password === 'tastyencoding') {
+      alert(
+        `Nice codebreaking! If you feel so inclined, contribute at https://github.com/purduehackers/site`
+      )
+      setPassword('')
+    }
   }, [password])
   useEffect(() => {
     if (showPW) {
