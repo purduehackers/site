@@ -15,6 +15,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { emails } from '../utils/data'
 
+import sha512 from 'crypto-js/sha512'
+
 const Email = () => {
   const { draggable } = useContext(DraggableContext)
 
@@ -31,11 +33,15 @@ const Email = () => {
       )
       setPassword('')
     }
-    else if (password === 'tastyencoding') {
-      alert(
-        `Nice codebreaking! If you feel so inclined, contribute at https://github.com/purduehackers/site`
-      )
-      setPassword('')
+    // else if (sha512(password) === '991E3E06AD1E1557F680F55B360DCA6120D20B5D9254FC539869733E1CDCA169') {
+    //   alert(
+    //     `Nice codebreaking! If you feel so inclined, contribute at https://github.com/purduehackers/site`
+    //   )
+    //   setPassword('')
+    // }
+    else {
+      console.log(sha512(password).toString);
+      // setPassword('')
     }
   }, [password])
   useEffect(() => {
