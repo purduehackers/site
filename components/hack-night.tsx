@@ -3,7 +3,7 @@ import { useContext, useState } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {

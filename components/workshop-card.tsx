@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Remarkable } from 'remarkable'
 import IEvent from '../utils/interfaces/IEvent'
 import { GithubSlugger } from 'github-slugger-typescript'
