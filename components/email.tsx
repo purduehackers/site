@@ -15,7 +15,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { emails } from '../utils/data'
 
-import sha512 from 'crypto-js/sha512'
+function supersecret(input:string) {
+  let temp = input.charCodeAt(0) + " "
+  for (let i = 1; i < input.length - 1; i++) {
+      temp += (input.charCodeAt(i) ^ input.charCodeAt(i-1)) + " "
+  }
+  temp += input.charCodeAt(input.length - 1)
+  return temp
+}
 
 const Email = () => {
   const { draggable } = useContext(DraggableContext)
@@ -27,15 +34,9 @@ const Email = () => {
   const [showPW, setShowPW] = useState(false)
 
   useEffect(() => {
-    if (password === 'heartzap') {
+    if (supersecret(password) === '104 9 2 8 16 19 88 71 40 59 85 85 59 38 73 69 42 56 84 71 43 50 20 38 47 68 71 0 4 71 66 22 91 125') {
       alert(
-        `Sike the password doesn't do anything yet. If you want to make it do something, contribute at https://github.com/purduehackers/site.`
-      )
-      setPassword('')
-    } 
-    else if (sha512(password).toString().toUpperCase() === '53E76B5A117D7DF9A9733F4CE7615418A97DC93A2823E1FC1493A9E94C4F27324781867DCF28D6E51FD8F9BF26B1D528302D60D752D6238BBE82CD96A9BF211C') {
-      alert(
-        `Nice codebreaking! If you feel so inclined, contribute at https://github.com/purduehackers/site`
+        `Hmm, I wonder what else that password could do! Hehe`
       )
       setPassword('')
     }
