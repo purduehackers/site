@@ -26,8 +26,10 @@ const Email = () => {
   const [open, setOpen] = useState([true, false, false, false, false, false])
   const [read, setRead] = useState([true, false, false, false, false, false])
 
+  const [showSendFrame, setShowSendFrame] = useState(false)
+
   const [password, setPassword] = useState('')
-  const [showPW, setShowPW] = useState(false)
+  const [showPWFrame, setShowPWFrame] = useState(false)
 
   useEffect(() => {
     if (password === 'heartzap') {
@@ -44,7 +46,7 @@ const Email = () => {
     }
   }, [password])
   useEffect(() => {
-    if (showPW) {
+    if (showPWFrame) {
       console.log(
         '%c the password is heartzap ',
         `background-color: #f59e0b; border-radius: 4px; color: black; font-size: 28px;`
@@ -52,7 +54,7 @@ const Email = () => {
     } else {
       setPassword('')
     }
-  }, [showPW])
+  }, [showPWFrame])
 
   const [showScrollReminder, setShowScrollReminder] = useState(true)
 
@@ -76,16 +78,16 @@ const Email = () => {
             <FontAwesomeIcon
               icon={faPaperPlane}
               className="cursor-pointer hover:text-amber-300"
-              onClick={() => setShowPW(true)}
+              onClick={() => setShowSendFrame(true)}
             />
             <FontAwesomeIcon
               icon={faCircleRadiation}
-              className="cursor-pointer hover:text-red-500"
-              onClick={() => setShowPW(true)}
+              className="cursor-pointer hover:text-rose-500"
+              onClick={() => setShowPWFrame(true)}
             />
           </div>
         </div>
-        {showPW && (
+        {showPWFrame && (
           <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
@@ -94,7 +96,35 @@ const Email = () => {
               <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
-                  onClick={() => setShowPW(false)}
+                  onClick={() => setShowPWFrame(false)}
+                >
+                  x
+                </p>
+                <div className="grow" />
+                <p className="text-white">password</p>
+                <div className="grow" />
+              </div>
+              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
+                <input
+                  className="bg-black w-full sm:w-3/5 py-1 text-center"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
+          </Draggable>
+        )}
+        {showSendFrame && (
+          <Draggable disabled={!draggable} handle=".handle">
+            <div
+              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
+            >
+              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
+                <p
+                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                  onClick={() => setShowSendFrame(false)}
                 >
                   x
                 </p>
@@ -311,7 +341,7 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
+                    <div className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}>
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                         onClick={() => {

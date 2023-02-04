@@ -3,18 +3,21 @@ export const emails = [
     subject: 'an invitation',
     author: 'Purdue Hackers',
     email: 'zap@█████',
+    color: 'sky',
     content: ''
   },
   {
     subject: '***IMPORTANT!!!***',
     author: 'Your Boss',
     email: 'YOUR_BOSS@iamimportant.co',
+    color: 'orange',
     content: "You're fired."
   },
   {
     subject: `Hello There.`,
     author: 'unknown',
     email: 'urmomisamom@gmail.com',
+    color: 'lime',
     content: `<div class="font-sans">
         ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
         ───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
@@ -34,6 +37,7 @@ export const emails = [
     subject: 'aawww aawaa awawa awawa awwaw',
     author: 'baconlover1605',
     email: 'francis@scramb.le',
+    color: 'pink',
     content: `aawww aawaa wawwa wawwa awwaw waaww<br/> wawwa awwaw waaww waaaw aawaa aawaa awaww 
                     aaawa waaww waaaa awaaa awwaw waaww waaaw<br/><br/> 
                     aawww aawaa waaaa aawaa awaaa waaaw aaaaa awwwa aaaaa waaaw waaaw wawaa awwaw 
@@ -68,6 +72,7 @@ export const emails = [
     subject: 'Want a Free Lawn Mower?',
     author: "McDonald's",
     email: 'mcdonalds@happiness.meal',
+    color: 'yellow',
     content: `Well, it's your lucky day! <br/><br/>
             Get your free lawn mower today for just $3.99! Or even better,
             get TWO free lawn mowers for the price of THREE! Our sale only lasts 
