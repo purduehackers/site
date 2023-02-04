@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEnvelope,
   faPaperPlane,
-  faPencil,
   faCircle,
-  faEnvelopeOpen
+  faEnvelopeOpen,
+  faCircleRadiation,
+  faTriangleExclamation,
+  faBell
 } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -77,8 +79,8 @@ const Email = () => {
               onClick={() => setShowPW(true)}
             />
             <FontAwesomeIcon
-              icon={faPencil}
-              className="cursor-pointer hover:text-amber-300"
+              icon={faCircleRadiation}
+              className="cursor-pointer hover:text-red-500"
               onClick={() => setShowPW(true)}
             />
           </div>
@@ -87,7 +89,7 @@ const Email = () => {
           <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] left-20 sm:left-52"
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
             >
               <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
                 <p
@@ -137,18 +139,21 @@ const Email = () => {
                   <div className="flex justify-between">
                     <div className="flex items-center">
                       {!read[i] && (
-                        <div className="bg-blue-400 w-2 h-2 rounded ml-1 mr-4"></div>
+                        <FontAwesomeIcon
+                        icon={faBell}
+                        className="text-blue-400 mr-4"
+                      />
                       )}
                       {open[i] && (
                         <FontAwesomeIcon
                           icon={faEnvelopeOpen}
-                          className="text-gray-300 mr-4"
+                          className="text-blue-200 mr-4"
                         />
                       )}
                       {!open[i] && read[i] && (
                         <FontAwesomeIcon
                           icon={faEnvelope}
-                          className="text-amber-300 mr-4"
+                          className="text-blue-200 mr-4"
                         />
                       )}
                       <div>
