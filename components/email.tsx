@@ -11,7 +11,8 @@ import {
   faEnvelopeOpen,
   faCircleRadiation,
   faTriangleExclamation,
-  faBell
+  faBell,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -71,7 +72,6 @@ const Email = () => {
             <FontAwesomeIcon
               icon={faEnvelope}
               className="text-gray-300"
-              onClick={() => setShowPW(true)}
             />
             <FontAwesomeIcon
               icon={faPaperPlane}
@@ -139,10 +139,7 @@ const Email = () => {
                   <div className="flex justify-between">
                     <div className="flex items-center">
                       {!read[i] && (
-                        <FontAwesomeIcon
-                        icon={faBell}
-                        className="text-blue-400 mr-4"
-                      />
+                        <div className="bg-blue-400 w-2 h-2 rounded ml-1 mr-4"></div>
                       )}
                       {open[i] && (
                         <FontAwesomeIcon
@@ -203,7 +200,7 @@ const Email = () => {
                     <p>👇 scroll to read 👁</p>
                   </div>
                 </div>
-                <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                <div className="border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {
@@ -212,7 +209,10 @@ const Email = () => {
                       setOpen((newOpen) => [...newOpen])
                     }}
                   >
-                    x
+                    <FontAwesomeIcon
+                      icon={faXmark}
+                      className="text-xs"
+                    />
                   </p>
                   <div className="grow handle" />
                   <p className="handle">email</p>
@@ -311,7 +311,7 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="border-b-2 border-black flex flex-row bg-gray-300 cursor-pointer">
+                    <div className="border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                         onClick={() => {
@@ -320,7 +320,10 @@ const Email = () => {
                           setOpen((newOpen) => [...newOpen])
                         }}
                       >
-                        x
+                        <FontAwesomeIcon
+                          icon={faXmark}
+                          className="text-xs"
+                        />
                       </p>
                       <div className="grow handle" />
                       <p className="handle">email</p>

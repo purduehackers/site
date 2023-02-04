@@ -132,5 +132,17 @@ export const madeWith = [
   'an army of fearless geese',
   'coffee and sleepless nights',
   'a mix of caffeinated and herbal tea',
-  'heart and zap'
+  'heart and zap',
+  'the souls of a thousand diabetic bats',
+  'the power of god and anime',
+  'dihydrogen monoxide',
+  'sacrificial rituals of unspeakable horror',
+  'a half-eaten sandwich',
+  'confetti and contraband',
+  'a top secret mixture lost to mankind',
+  'a spatula',
+  'maximum strength anti-dandruff shampoo',
+  'AWESOMENESS',
+  'a bathtub full of teeth',
+  'a forbidden spell'
 ]
