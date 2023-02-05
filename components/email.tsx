@@ -42,12 +42,7 @@ const Email = () => {
     }
   }, [password])
   useEffect(() => {
-    if (showPW) {
-      console.log(
-        '%c the password is heartzap ',
-        `background-color: #f59e0b; border-radius: 4px; color: black; font-size: 28px;`
-      )
-    } else {
+    if (!showPw) {
       setPassword('')
     }
   }, [showPW])
