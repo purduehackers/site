@@ -42,7 +42,7 @@ const Email = () => {
     }
   }, [password])
   useEffect(() => {
-    if (!showPw) {
+    if (!showPW) {
       setPassword('')
     }
   }, [showPW])
