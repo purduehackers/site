@@ -15,10 +15,10 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { emails } from '../utils/data'
 
-function supersecret(input:string) {
-  let temp = input.charCodeAt(0) + " "
+function supersecret(input: string) {
+  let temp = input.charCodeAt(0) + ' '
   for (let i = 1; i < input.length - 1; i++) {
-      temp += (input.charCodeAt(i) ^ input.charCodeAt(i-1)) + " "
+    temp += (input.charCodeAt(i) ^ input.charCodeAt(i - 1)) + ' '
   }
   temp += input.charCodeAt(input.length - 1)
   return temp
@@ -34,10 +34,11 @@ const Email = () => {
   const [showPW, setShowPW] = useState(false)
 
   useEffect(() => {
-    if (supersecret(password) === '104 9 2 8 16 19 88 71 40 59 85 85 59 38 73 69 42 56 84 71 43 50 20 38 47 68 71 0 4 71 66 22 91 125') {
-      alert(
-        `Hmm, I wonder what else that password could do! Hehe`
-      )
+    if (
+      supersecret(password) ===
+      '104 9 2 8 16 19 88 71 40 59 85 85 59 38 73 69 42 56 84 71 43 50 20 38 47 68 71 0 4 71 66 22 91 125'
+    ) {
+      alert(`Hmm, I wonder what else that password could do! Hehe`)
       setPassword('')
     }
   }, [password])
@@ -101,6 +102,7 @@ const Email = () => {
                   className="bg-black w-full sm:w-3/5 py-1 text-center"
                   type="password"
                   value={password}
+                  autoFocus
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
