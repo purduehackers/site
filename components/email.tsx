@@ -10,8 +10,6 @@ import {
   faCircle,
   faEnvelopeOpen,
   faCircleRadiation,
-  faTriangleExclamation,
-  faBell,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -27,6 +25,13 @@ const Email = () => {
   const [read, setRead] = useState([true, false, false, false, false, false])
 
   const [showSendFrame, setShowSendFrame] = useState(false)
+  const [userEmail, setUserEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+  }
 
   const [password, setPassword] = useState('')
   const [showPWFrame, setShowPWFrame] = useState(false)
@@ -121,7 +126,7 @@ const Email = () => {
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-yellow-300 cursor-pointer">
+              <div className="handle border-b-2 border-black flex flex-row bg-green-300 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
@@ -129,51 +134,54 @@ const Email = () => {
                   x
                 </p>
                 <div className="grow" />
-                <p>new message</p>
+                <p>{subject.trim()? subject: 'new message'}</p>
                 <div className="grow" />
               </div>
               <form 
-                action="/send-data-here" 
-                method="post"
+                onSubmit={handleSubmit}
                 className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
                 <p className="font-bold">
                   to: {' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-500">
-                    PURDUE HACKERS
+                  <span className="text-black bg-amber-300 text-sm px-1 rounded-full border-2 border-black">
+                    PURDUE HACKERS INC.
                   </span>
                 </p>
                 <div>
                   <p className="font-bold">from: </p>
                   <input
-                    className="border-2 border-black rounded-md w-full py-1"
+                    className="text-mxs border-2 border-black rounded-md w-full py-1 no-ring"
                     type="email"
                     placeholder="wackhacker@gmail.com"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div>
                   <p className="font-bold">subject:</p>
                   <input
-                    className="border-2 border-black rounded-md w-full py-1"
+                    className="text-mxs border-2 border-black rounded-md w-full py-1 no-ring"
                     type="text"
-                    placeholder="I had tacos for lunch"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Inquiry of the Utmost Importance"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    required
                   />
                 </div>
                 <br />
-                <div className="flex flex-col gap-y-4 text-mxs overflow-x-hidden">
-                  <textarea 
-                    className="border-2 border-black rounded-md w-full py-1 resize-none"
-                    rows={6}
-                    placeholder="Today was the most glorious day, for I had tacos for lunch. Not even the face of God itself can describe the magnitude of this accomplishment..."
-                  ></textarea>
-                </div>
+                <textarea 
+                  className="text-mxs border-2 border-black rounded-md w-full py-1 resize-none no-ring
+                    scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+                  rows={6}
+                  placeholder="Today was the most glorious day, for I had tacos for lunch..."
+                  value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  required
+                ></textarea>
                 <button 
-                  className="email-btn bg-pink-300"
+                  className="email-btn bg-pink-300 mt-1 mb-2"
                   type="submit"
                 >Send</button>
               </form>

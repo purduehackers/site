@@ -22,7 +22,7 @@
     @apply relative w-40 h-20 sm:w-48 min-w-fit p-2 font-mono text-xl font-bold bg-white border-4 border-black border-solid rounded-xl shadow-footer-btn hover:shadow-none hover:top-2 leading-tight;
   }
   .email-btn {
-    @apply relative p-2 font-mono text-lg font-bold bg-white border-2 border-black border-solid min-w-fit rounded-lg shadow-footer-btn hover:shadow-none hover:top-2 leading-tight;
+    @apply relative px-4 py-2 font-mono text-base font-bold bg-white border-2 border-black border-solid min-w-fit rounded-lg shadow-email-btn hover:shadow-none hover:top-1 hover:left-1 leading-tight;
   }
   .spray-btn {
     @apply relative px-3 py-1 font-mono text-sm font-bold text-white border-2 border-white border-solid min-w-fit hover:scale-110;
@@ -38,5 +38,8 @@
   }
   .message:nth-child(4) {
     @apply sm:left-[22rem] !important;
+  }
+  .no-ring {
+    @apply focus:ring-0 focus:ring-offset-0 focus:border-black !important;
   }
 }
