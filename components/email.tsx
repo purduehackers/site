@@ -115,13 +115,13 @@ const Email = () => {
             </div>
           </Draggable>
         )}
-        {showSendFrame && (
-          <Draggable disabled={!draggable} handle=".handle">
+        {!showSendFrame && (
+          <Draggable handle=".handle">
             <div
-              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
+              className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
+              <div className="handle border-b-2 border-black flex flex-row bg-yellow-300 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
@@ -129,17 +129,54 @@ const Email = () => {
                   x
                 </p>
                 <div className="grow" />
-                <p className="text-white">password</p>
+                <p>new message</p>
                 <div className="grow" />
               </div>
-              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
-                <input
-                  className="bg-black w-full sm:w-3/5 py-1 text-center"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+              <form 
+                action="/send-data-here" 
+                method="post"
+                className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] 
+                  scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+              >
+                <p className="font-bold">
+                  to: {' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-500">
+                    PURDUE HACKERS
+                  </span>
+                </p>
+                <div>
+                  <p className="font-bold">from: </p>
+                  <input
+                    className="border-2 border-black rounded-md w-full py-1"
+                    type="email"
+                    placeholder="wackhacker@gmail.com"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <p className="font-bold">subject:</p>
+                  <input
+                    className="border-2 border-black rounded-md w-full py-1"
+                    type="text"
+                    placeholder="I had tacos for lunch"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <br />
+                <div className="flex flex-col gap-y-4 text-mxs overflow-x-hidden">
+                  <textarea 
+                    className="border-2 border-black rounded-md w-full py-1 resize-none"
+                    rows={6}
+                    placeholder="Today was the most glorious day, for I had tacos for lunch. Not even the face of God itself can describe the magnitude of this accomplishment..."
+                  ></textarea>
+                </div>
+                <button 
+                  className="email-btn bg-pink-300"
+                  type="submit"
+                >Send</button>
+              </form>
             </div>
           </Draggable>
         )}
@@ -152,9 +189,7 @@ const Email = () => {
               return (
                 <div
                   className={`border-b-2 border-black flex flex-col bg-white w-full p-4 overflow-y-hidden
-                      hover:bg-gray-100 cursor-pointer ${
-                        !read[i] && 'border-r-0 border-r-amber-300'
-                      }`}
+                      hover:bg-gray-100 cursor-pointer`}
                   key={i}
                   onClick={() => {
                     let newOpen = open
@@ -245,7 +280,7 @@ const Email = () => {
                     />
                   </p>
                   <div className="grow handle" />
-                  <p className="handle">email</p>
+                  <p className="handle">an invitation</p>
                   <div className="grow handle" />
                   <div />
                 </div>
@@ -356,7 +391,7 @@ const Email = () => {
                         />
                       </p>
                       <div className="grow handle" />
-                      <p className="handle">email</p>
+                      <p className="handle">{email.subject}</p>
                       <div className="grow handle" />
                     </div>
                     <div className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
