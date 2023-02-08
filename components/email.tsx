@@ -79,16 +79,88 @@ const Email = () => {
             />
             <FontAwesomeIcon
               icon={faPaperPlane}
-              className="cursor-pointer hover:text-amber-300"
+              className="cursor-pointer hover:text-gray-500 transition"
               onClick={() => setShowSendFrame(true)}
             />
             <FontAwesomeIcon
               icon={faCircleRadiation}
-              className="cursor-pointer hover:text-rose-500"
+              className="cursor-pointer hover:text-rose-500 transition"
               onClick={() => setShowPWFrame(true)}
             />
           </div>
         </div>
+        {showSendFrame && (
+          <Draggable handle=".handle">
+            <div
+              className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
+            >
+              <div className="handle border-b-2 border-black flex flex-row bg-green-300 cursor-pointer">
+                <p
+                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                  onClick={() => setShowSendFrame(false)}
+                >
+                  x
+                </p>
+                <div className="grow" />
+                <p>{subject.trim()? subject: 'new message'}</p>
+                <div className="grow" />
+              </div>
+              <form 
+                onSubmit={handleSubmit}
+                className="bg-white py-2 overflow-scroll h-fit max-h-[26rem] 
+                  scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+              >
+                <p className="font-bold mb-1 pl-2">
+                  to: {' '}
+                  <span className="text-black bg-amber-300 text-sm px-1 rounded-full border-2 border-black">
+                    PURDUE HACKERS INC.
+                  </span>
+                </p>
+                <div className="pl-2 flex flex-row items-center border-y-2 border-black">
+                  <p className="font-bold">from: </p>
+                  <input
+                    className="text-mxs border-none border-black rounded-md w-full py-1 no-ring"
+                    type="email"
+                    placeholder="wackhacker@gmail.com"
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="pl-2 flex flex-row items-center border-b-2 border-black">
+                  <p className="font-bold">subject:</p>
+                  <input
+                    className="text-mxs border-none border-black rounded-md w-full py-1 no-ring"
+                    type="text"
+                    placeholder="Inquiry of the Utmost Importance"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    required
+                  />
+                </div>
+                <textarea 
+                  className="text-mxs border-none rounded-md w-full pt-2 pb-1 resize-none no-ring
+                    scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+                  rows={6}
+                  placeholder="Today was the most glorious day, for I had tacos for lunch..."
+                  value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  required
+                ></textarea>
+                <div className="flex items-center justify-between p-2">
+                  <button 
+                    className="email-btn bg-pink-300"
+                    type="submit"
+                  >Send</button>
+                  <button 
+                    className="email-btn bg-white mr-1 px-3"
+                  >0</button>
+                </div>
+              </form>
+            </div>
+          </Draggable>
+        )}
         {showPWFrame && (
           <Draggable disabled={!draggable} handle=".handle">
             <div
@@ -115,74 +187,6 @@ const Email = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-            </div>
-          </Draggable>
-        )}
-        {!showSendFrame && (
-          <Draggable handle=".handle">
-            <div
-              className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
-            >
-              <div className="handle border-b-2 border-black flex flex-row bg-green-300 cursor-pointer">
-                <p
-                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
-                  onClick={() => setShowSendFrame(false)}
-                >
-                  x
-                </p>
-                <div className="grow" />
-                <p>{subject.trim()? subject: 'new message'}</p>
-                <div className="grow" />
-              </div>
-              <form 
-                onSubmit={handleSubmit}
-                className="bg-white pl-2 pr-3 py-2 overflow-scroll h-fit max-h-[26rem] 
-                  scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
-              >
-                <p className="font-bold">
-                  to: {' '}
-                  <span className="text-black bg-amber-300 text-sm px-1 rounded-full border-2 border-black">
-                    PURDUE HACKERS INC.
-                  </span>
-                </p>
-                <div>
-                  <p className="font-bold">from: </p>
-                  <input
-                    className="text-mxs border-2 border-black rounded-md w-full py-1 no-ring"
-                    type="email"
-                    placeholder="wackhacker@gmail.com"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div>
-                  <p className="font-bold">subject:</p>
-                  <input
-                    className="text-mxs border-2 border-black rounded-md w-full py-1 no-ring"
-                    type="text"
-                    placeholder="Inquiry of the Utmost Importance"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    required
-                  />
-                </div>
-                <br />
-                <textarea 
-                  className="text-mxs border-2 border-black rounded-md w-full py-1 resize-none no-ring
-                    scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
-                  rows={6}
-                  placeholder="Today was the most glorious day, for I had tacos for lunch..."
-                  value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  required
-                ></textarea>
-                <button 
-                  className="email-btn bg-pink-300 mt-1 mb-2"
-                  type="submit"
-                >Send</button>
-              </form>
             </div>
           </Draggable>
         )}
