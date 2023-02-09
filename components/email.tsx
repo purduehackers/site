@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable'
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, MouseEvent } from 'react'
 
 import { DraggableContext } from '../context/DraggableContext'
 
@@ -35,9 +35,36 @@ const Email = () => {
   const [userEmail, setUserEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     e.preventDefault()
+
+    console.log('sending...')
+
+    let data = {
+      userEmail,
+      subject,
+      message
+    }
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      console.log('Response received')
+      if (res.status === 200) {
+        console.log('Response succeeded!')
+        setSubmitted(true)
+        setUserEmail('')
+        setSubject('')
+        setMessage('')
+      }
+    })
   }
 
   const [password, setPassword] = useState('')
@@ -107,7 +134,6 @@ const Email = () => {
                 <div className="grow" />
               </div>
               <form 
-                onSubmit={handleSubmit}
                 className="bg-white py-2 overflow-scroll h-fit max-h-[26rem] 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
@@ -120,8 +146,9 @@ const Email = () => {
                 <div className="pl-2 flex flex-row items-center border-y-2 border-black">
                   <p className="font-bold">from: </p>
                   <input
-                    className="text-mxs border-none border-black rounded-md w-full py-1 no-ring"
+                    className="text-mxs border-none w-full py-1 no-ring"
                     type="email"
+                    name="email"
                     placeholder="wackhacker@gmail.com"
                     value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
@@ -131,8 +158,9 @@ const Email = () => {
                 <div className="pl-2 flex flex-row items-center border-b-2 border-black">
                   <p className="font-bold">subject:</p>
                   <input
-                    className="text-mxs border-none border-black rounded-md w-full py-1 no-ring"
+                    className="text-mxs border-none w-full py-1 no-ring"
                     type="text"
+                    name="subject"
                     placeholder="Inquiry of the Utmost Importance"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
@@ -143,6 +171,7 @@ const Email = () => {
                   className="text-mxs border-none rounded-md w-full pt-2 pb-1 resize-none no-ring
                     scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
                   rows={6}
+                  name="message"
                   placeholder="Today was the most glorious day, for I had tacos for lunch..."
                   value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -152,6 +181,7 @@ const Email = () => {
                   <button 
                     className="email-btn bg-pink-300"
                     type="submit"
+                    onClick={(e) => {handleSubmit(e)}}
                   >Send</button>
                   <button 
                     className="email-btn bg-white mr-1 px-3"
