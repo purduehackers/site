@@ -41,9 +41,9 @@ const Email = () => {
   const [errorMessage, setErrorMessage] = useState('')
 
   enum StatusColor {
-    Editing = 'gray-400',
+    Editing = 'blue-400',
     Sending = 'amber-400',
-    Error = 'red-400',
+    Error = 'red-500',
     Success = 'green-500'
   }
   const [statusColor, setStatusColor] = useState(StatusColor.Editing)
@@ -210,7 +210,7 @@ const Email = () => {
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
+              <div className="handle border-b-2 border-black flex flex-row bg-sky-200 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
@@ -225,7 +225,7 @@ const Email = () => {
                 <div className="grow" />
               </div>
               <form 
-                className="bg-white py-2 overflow-scroll h-fit max-h-[26rem] 
+                className="bg-white pt-2 overflow-scroll h-fit max-h-[26rem] 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
                 <p className="font-bold mb-1 pl-2">
@@ -280,15 +280,15 @@ const Email = () => {
                   }}
                   required
                 ></textarea>
-                <div className="flex items-end justify-between p-2">
+                <div className="flex items-center justify-between p-2 border-t-2 border-black bg-gray-100">
                   <button 
                     className="email-btn bg-pink-300"
                     type="submit"
                     onClick={(e) => {handleSubmit(e)}}
                   >Send</button>
-                  <div className="bg-green-500 bg-amber-400 bg-red-400 bg-gray-400"></div>
-                  <div className={`bg-${statusColor} text-white px-1 py-0 rounded-md`}>
-                    status: {status}
+                  <div className="bg-green-500 bg-amber-400 bg-red-500 bg-blue-400"></div>
+                  <div className="bg-white ml-5 font-mono text-sm border-2 border-black px-2 py-2">
+                    status: <span className={`bg-${statusColor} text-white px-1 py-0 rounded-md font-mono`}>{status}</span>
                   </div>
                 </div>
               </form>
