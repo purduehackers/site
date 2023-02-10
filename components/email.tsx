@@ -286,7 +286,7 @@ const Email = () => {
                     type="submit"
                     onClick={(e) => {handleSubmit(e)}}
                   >Send</button>
-                  <div className="bg-green-500 bg-amber-400 bg-red-400 bg-gray-500"></div>
+                  <div className="bg-green-500 bg-amber-400 bg-red-400 bg-gray-400"></div>
                   <div className={`bg-${statusColor} text-white px-1 py-0 rounded-md`}>
                     status: {status}
                   </div>
