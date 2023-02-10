@@ -28,43 +28,62 @@ function supersecret(input: string) {
 const Email = () => {
   const { draggable } = useContext(DraggableContext)
 
+  // email windows state
   const [open, setOpen] = useState([true, false, false, false, false, false])
   const [read, setRead] = useState([true, false, false, false, false, false])
 
+  // messaging form state
   const [showSendFrame, setShowSendFrame] = useState(false)
   const [userEmail, setUserEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [status, setStatus] = useState('???')
 
-  const handleSubmit = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  // checks form fields for validity
+  const handleValidation = () => {
+    if (!userEmail.trim() || !subject.trim() || !message.trim()) {
+      setErrorMessage('Please fill in all required fields.')
+      return false
+    } 
+    if (!userEmail.includes('@') || !userEmail.substring(userEmail.indexOf('@') + 1)) {
+      setErrorMessage('Please enter a valid email.')
+      return false
+    }
+    return true
+  }
+
+  // handles submission of email form 
+  const handleSubmit = async (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     e.preventDefault()
 
-    console.log('sending...')
-
-    let data = {
-      userEmail,
-      subject,
-      message
-    }
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((res) => {
-      console.log('Response received')
-      if (res.status === 200) {
-        console.log('Response succeeded!')
-        setSubmitted(true)
+    // send email if form is valid
+    if (handleValidation()) {
+      let data = {
+        userEmail,
+        subject,
+        message
+      }
+  
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+  
+      const { error } = await res.json()
+      if (error) {
+        console.log(error)
+        setErrorMessage('Email failed to send :( \nPlease try again.')
+      } else {
         setUserEmail('')
         setSubject('')
         setMessage('')
       }
-    })
+    }
   }
 
   const [password, setPassword] = useState('')
@@ -127,7 +146,10 @@ const Email = () => {
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
                 >
-                  x
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-xs"
+                  />
                 </p>
                 <div className="grow" />
                 <p>{subject.trim()? subject: 'new message'}</p>
@@ -191,6 +213,38 @@ const Email = () => {
             </div>
           </Draggable>
         )}
+        {errorMessage && (
+          <Draggable disabled={!draggable} handle=".handle">
+            <div
+              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
+            >
+              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
+                <p
+                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                  onClick={() => setShowPWFrame(false)}
+                >
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-xs"
+                  />
+                </p>
+                <div className="grow" />
+                <p className="text-white">password</p>
+                <div className="grow" />
+              </div>
+              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
+                <input
+                  className="bg-black w-full sm:w-3/5 py-1 text-center"
+                  type="password"
+                  value={password}
+                  autoFocus
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
+          </Draggable>
+        )}
         {showPWFrame && (
           <Draggable disabled={!draggable} handle=".handle">
             <div
@@ -202,7 +256,10 @@ const Email = () => {
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowPWFrame(false)}
                 >
-                  x
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-xs"
+                  />
                 </p>
                 <div className="grow" />
                 <p className="text-white">password</p>
