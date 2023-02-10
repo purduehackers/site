@@ -10,7 +10,8 @@ import {
   faCircle,
   faEnvelopeOpen,
   faCircleRadiation,
-  faXmark
+  faXmark,
+  faTriangleExclamation
 } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -38,7 +39,21 @@ const Email = () => {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [status, setStatus] = useState('???')
+
+  enum StatusColor {
+    Editing = 'gray-400',
+    Sending = 'amber-400',
+    Error = 'red-400',
+    Success = 'green-500'
+  }
+  const [statusColor, setStatusColor] = useState(StatusColor.Editing)
+  enum Status {
+    Editing = 'editing',
+    Sending = 'sending...',
+    Error = 'ERROR',
+    Success = 'sent!'
+  }
+  const [status, setStatus] = useState(Status.Editing)
 
   // checks form fields for validity
   const handleValidation = () => {
@@ -59,6 +74,9 @@ const Email = () => {
 
     // send email if form is valid
     if (handleValidation()) {
+      setStatus(Status.Sending)
+      setStatusColor(StatusColor.Sending)
+
       let data = {
         userEmail,
         subject,
@@ -78,11 +96,19 @@ const Email = () => {
       if (error) {
         console.log(error)
         setErrorMessage('Email failed to send :( \nPlease try again.')
+        setStatus(Status.Error)
+        setStatusColor(StatusColor.Error)
       } else {
         setUserEmail('')
         setSubject('')
         setMessage('')
+        setErrorMessage('')
+        setStatus(Status.Success)
+        setStatusColor(StatusColor.Success)
       }
+    } else {
+      setStatus(Status.Error)
+      setStatusColor(StatusColor.Error)
     }
   }
 
@@ -111,37 +137,80 @@ const Email = () => {
       <div className="flex flex-col w-11/12 sm:w-full lg:w-4/5 mx-auto relative">
         <div
           className="border-2 border-black flex justify-between items-center bg-white
-              w-full h-12 px-8 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-gray-900/70"
+              w-full h-fit py-2 px-8 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-gray-900/70"
         >
           <div className="w-12 flex justify-between text-[8px] text-amber-400">
             <FontAwesomeIcon icon={faCircle} />
             <FontAwesomeIcon icon={faCircle} />
             <FontAwesomeIcon icon={faCircle} />
           </div>
-          <div className="w-24 flex justify-between text-2xl">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="text-gray-300"
-            />
-            <FontAwesomeIcon
-              icon={faPaperPlane}
-              className="cursor-pointer hover:text-gray-500 transition"
+          <div className="w-fit flex justify-end items-center text-2xl">
+            <div className="email-btn bg-white-300 w-fit h-fit ml-2 px-1 py-0 text-xl">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="text-gray-300"
+              />
+            </div>
+            <button 
+              className="email-btn bg-pink-300 w-fit h-fit ml-2 px-1 py-0 text-xl"
               onClick={() => setShowSendFrame(true)}
-            />
-            <FontAwesomeIcon
-              icon={faCircleRadiation}
-              className="cursor-pointer hover:text-rose-500 transition"
+            >
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                className="cursor-pointer transition"
+              />
+            </button>
+            <button 
+              className="email-btn bg-yellow-300 w-fit h-fit ml-2 px-1 py-0 text-xl"
               onClick={() => setShowPWFrame(true)}
-            />
+            >
+              <FontAwesomeIcon
+                icon={faCircleRadiation}
+                className="cursor-pointer transition"
+              />
+            </button>
           </div>
         </div>
+        {showPWFrame && (
+          <Draggable disabled={!draggable} handle=".handle">
+            <div
+              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-32"
+            >
+              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
+                <p
+                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
+                  onClick={() => setShowPWFrame(false)}
+                >
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-xs"
+                  />
+                </p>
+                <div className="grow" />
+                <p className="text-white">password</p>
+                <div className="grow" />
+              </div>
+              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
+                <input
+                  className="bg-black w-full sm:w-3/5 py-1 text-center border-2
+                    focus:border-amber-500 focus:ring-amber-500"
+                  type="password"
+                  value={password}
+                  autoFocus
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
+          </Draggable>
+        )}
         {showSendFrame && (
           <Draggable handle=".handle">
             <div
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-green-300 cursor-pointer">
+              <div className="handle border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
@@ -173,7 +242,11 @@ const Email = () => {
                     name="email"
                     placeholder="wackhacker@gmail.com"
                     value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    onChange={(e) => {
+                      setUserEmail(e.target.value)
+                      setStatus(Status.Editing)
+                      setStatusColor(StatusColor.Editing)
+                    }}
                     required
                   />
                 </div>
@@ -185,7 +258,11 @@ const Email = () => {
                     name="subject"
                     placeholder="Inquiry of the Utmost Importance"
                     value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
+                    onChange={(e) => {
+                      setSubject(e.target.value)
+                      setStatus(Status.Editing)
+                      setStatusColor(StatusColor.Editing)
+                    }}
                     required
                   />
                 </div>
@@ -196,33 +273,38 @@ const Email = () => {
                   name="message"
                   placeholder="Today was the most glorious day, for I had tacos for lunch..."
                   value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => {
+                    setMessage(e.target.value)
+                    setStatus(Status.Editing)
+                    setStatusColor(StatusColor.Editing)
+                  }}
                   required
                 ></textarea>
-                <div className="flex items-center justify-between p-2">
+                <div className="flex items-end justify-between p-2">
                   <button 
                     className="email-btn bg-pink-300"
                     type="submit"
                     onClick={(e) => {handleSubmit(e)}}
                   >Send</button>
-                  <button 
-                    className="email-btn bg-white mr-1 px-3"
-                  >0</button>
+                  <div className="bg-green-500 bg-amber-400 bg-red-400 bg-gray-500"></div>
+                  <div className={`bg-${statusColor} text-white px-1 py-0 rounded-md`}>
+                    status: {status}
+                  </div>
                 </div>
               </form>
             </div>
           </Draggable>
         )}
         {errorMessage && (
-          <Draggable disabled={!draggable} handle=".handle">
+          <Draggable handle=".handle">
             <div
-              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
+              className="border-2 border-black w-64 sm:min-w-fit mx-auto
+                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-36 left-48 sm:left-64"
             >
               <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
-                  onClick={() => setShowPWFrame(false)}
+                  onClick={() => setErrorMessage('')}
                 >
                   <FontAwesomeIcon
                     icon={faXmark}
@@ -230,49 +312,20 @@ const Email = () => {
                   />
                 </p>
                 <div className="grow" />
-                <p className="text-white">password</p>
+                <p className="text-white">error</p>
                 <div className="grow" />
               </div>
-              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
-                <input
-                  className="bg-black w-full sm:w-3/5 py-1 text-center"
-                  type="password"
-                  value={password}
-                  autoFocus
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-            </div>
-          </Draggable>
-        )}
-        {showPWFrame && (
-          <Draggable disabled={!draggable} handle=".handle">
-            <div
-              className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
-                shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-52"
-            >
-              <div className="handle border-b-2 border-black flex flex-row bg-gray-800 cursor-pointer">
-                <p
-                  className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
-                  onClick={() => setShowPWFrame(false)}
-                >
+              <div className="bg-white p-8 flex flex-col justify-center items-center">
+                <div className="text-lg">
+                  Error 
                   <FontAwesomeIcon
-                    icon={faXmark}
-                    className="text-xs"
+                    icon={faTriangleExclamation}
+                    className="text-xl text-red-500 ml-2"
                   />
-                </p>
-                <div className="grow" />
-                <p className="text-white">password</p>
-                <div className="grow" />
-              </div>
-              <div className="bg-black text-white p-8 flex flex-col justify-center items-center">
-                <input
-                  className="bg-black w-full sm:w-3/5 py-1 text-center"
-                  type="password"
-                  value={password}
-                  autoFocus
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                </div>
+                <div>
+                  {errorMessage}
+                </div>
               </div>
             </div>
           </Draggable>
@@ -362,7 +415,7 @@ const Email = () => {
                     <p>👇 scroll to read 👁</p>
                   </div>
                 </div>
-                <div className="border-b-2 border-black flex flex-row bg-sky-300 cursor-pointer">
+                <div className="border-b-2 border-black flex flex-row bg-blue-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {
@@ -473,6 +526,7 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
+                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300"></div>
                     <div className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}>
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
