@@ -288,7 +288,7 @@ const Email = () => {
                   >Send</button>
                   <div className="bg-green-500 bg-amber-400 bg-red-500 bg-blue-400"></div>
                   <div className="bg-white ml-5 font-mono text-sm border-2 border-black px-2 py-2">
-                    status: <span className={`bg-${statusColor} text-white px-1 py-0 rounded-md font-mono`}>{status}</span>
+                    status: <span className={`bg-${statusColor} text-white px-1 py-0 rounded-sm font-mono`}>{status}</span>
                   </div>
                 </div>
               </form>

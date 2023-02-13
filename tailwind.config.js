@@ -12,7 +12,9 @@ module.exports = {
       pixel: '"Press Start 2P"',
       alka: '"Alkalami", serif',
       noto: '"Noto Serif Gujarati", serif',
-      alegre: '"Alegreya", serif'
+      alegre: '"Alegreya", serif',
+      digital: '"Digital-7"',
+      digitalMono: '"Digital-7 Mono"'
     },
     extend: {
       colors: {
