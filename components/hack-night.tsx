@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faXmark,
   faLeftLong,
   faRightLong,
   faEllipsis
@@ -16,6 +15,8 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
 import SprayCanvas from './spray-canvas'
 import Point2D from '../utils/Point2D'
+
+import Countdown from './countdown'
 
 const HackNight = () => {
   const { draggable } = useContext(DraggableContext)
@@ -35,20 +36,20 @@ const HackNight = () => {
         <h1 className="text-5xl sm:text-9xl text-center sm:text-left font-bold text-white">
           Hack Night
         </h1>
-        <div className="flex flex-col items-center mt-8">
+        <div className="relative flex flex-col items-center mt-8">
+          <Countdown />
           <Draggable disabled={!draggable} handle=".handle">
             <div
-              className="border-solid border-black border-2 z-10
+              className="border-solid border-black border-2 z-10 shadow-email shadow-gray-900/30
                 w-full md:w-2/3 lg:w-1/2 rounded-xl bg-white relative right sm:top-12 sm:left-44"
             >
               <div
-                className="handle w-full bg-gray-300 rounded-t-lg px-2 text-black font-mono font-bold
+                className="handle w-full bg-gray-300 rounded-t-xl px-2 text-black font-mono font-bold
                   border-black border-solid border-b-2 flex justify-between items-center cursor-pointer"
               >
                 <div>
                   <FontAwesomeIcon icon={faWindows} size="1x" /> Window
                 </div>
-                <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <div
                 className="w-full h-6 bg-white flex justify-end items-center
@@ -95,7 +96,7 @@ const HackNight = () => {
           </Draggable>
           <Draggable disabled={!draggable} handle=".handle">
             <div
-              className="border-solid border-white border-2 
+              className="border-solid border-white border-2 shadow-email shadow-gray-900/30
                 w-full sm:w-3/5 md:w-3/5 lg:w-2/5 h-64 rounded-xl font-bold font-mono bg-black z-5 mt-6 sm:mt-0 sm:bottom-20 sm:right-72 relative"
             >
               <div
@@ -106,7 +107,6 @@ const HackNight = () => {
                   <FontAwesomeIcon icon={faWindows} size="1x" />{' '}
                   wackhacker@hacknight:~$
                 </div>
-                <FontAwesomeIcon icon={faXmark} size="1x" />
               </div>
               <div
                 className="px-4 text-green-400 text-sm overflow-scroll 
@@ -175,7 +175,7 @@ const HackNight = () => {
             </Draggable>
             <Draggable disabled={!draggable} handle=".handle">
               <div
-                className="border-solid border-white border-2 w-fit h-fit rounded-xl 
+                className="border-solid border-white border-2 w-fit h-fit rounded-xl shadow-email shadow-gray-900/30
                 font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative"
               >
                 <div
@@ -186,7 +186,6 @@ const HackNight = () => {
                     <FontAwesomeIcon icon={faWindows} size="1x" />{' '}
                     awesomeness.png
                   </div>
-                  <FontAwesomeIcon icon={faXmark} size="1x" />
                 </div>
                 <Image
                   src="/img/hackNight2.jpeg"
@@ -202,7 +201,7 @@ const HackNight = () => {
           <div className="flex flex-col sm:flex-row sm:mt-0 relative -top-48">
             <Draggable handle=".handle">
               <div
-                className="w-fit h-fit border-solid border-white border-4
+                className="w-fit h-fit border-solid border-white border-4 shadow-email shadow-gray-900/30
                 rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-12 sm:left-0 -top-[17rem]"
               >
                 <div
