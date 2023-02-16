@@ -1,6 +1,7 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import nodemailer from 'nodemailer'
 
-export default function (req, res) {
+export default function (req: NextApiRequest, res: NextApiResponse) {
   const PASSWORD = process.env.SEND_APP_PASSWORD
 
   const transporter = nodemailer.createTransport({
