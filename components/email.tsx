@@ -415,7 +415,7 @@ const Email = () => {
                     <p>👇 scroll to read 👁</p>
                   </div>
                 </div>
-                <div className="border-b-2 border-black flex flex-row bg-blue-300 cursor-pointer">
+                <div className="border-b-2 border-black flex flex-row bg-yellow-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {

@@ -3,7 +3,7 @@ export const emails = [
     subject: 'an invitation',
     author: 'Purdue Hackers',
     email: 'zap@█████',
-    color: 'blue',
+    color: 'yellow',
     content: ''
   },
   {
@@ -72,7 +72,7 @@ export const emails = [
     subject: 'Want a Free Lawn Mower?',
     author: "McDonald's",
     email: 'mcdonalds@happiness.meal',
-    color: 'yellow',
+    color: 'blue',
     content: `Well, it's your lucky day! <br/><br/>
             Get your free lawn mower today for just $3.99! Or even better,
             get TWO free lawn mowers for the price of THREE! Our sale only lasts 
