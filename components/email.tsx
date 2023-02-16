@@ -209,16 +209,18 @@ const Email = () => {
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-sky-200 cursor-pointer">
+              <div className="border-b-2 border-black flex flex-row bg-sky-200 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
                 >
                   <FontAwesomeIcon icon={faXmark} className="text-xs" />
                 </p>
-                <div className="grow" />
-                <p>{subject.trim() ? subject : 'new message'}</p>
-                <div className="grow" />
+                <div className="grow handle" />
+                <p className="handle">
+                  {subject.trim() ? subject : 'new message'}
+                </p>
+                <div className="grow handle" />
               </div>
               <form
                 className="bg-white pt-2 overflow-scroll h-fit max-h-[26rem] 
