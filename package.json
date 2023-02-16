@@ -13,6 +13,7 @@
     "@icons-pack/react-simple-icons": "^6.2.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/crypto-js": "^4.1.1",
+    "@types/nodemailer": "^6.4.7",
     "airtable-plusplus": "^0.3.4",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",

@@ -1,8 +1,7 @@
-export default function (req, res) {
-  require('dotenv').config()
-  const PASSWORD = process.env.SEND_APP_PASSWORD
+import nodemailer from 'nodemailer'
 
-  let nodemailer = require('nodemailer')
+export default function (req, res) {
+  const PASSWORD = process.env.SEND_APP_PASSWORD
 
   const transporter = nodemailer.createTransport({
     port: 465,
@@ -25,7 +24,7 @@ export default function (req, res) {
   transporter.sendMail(mailData, (err, info) => {
     if (err) {
       console.log(err)
-      return res.status(error.statusCode || 500).json({ error: error.message })
+      return res.status(500).json({ error: err.message })
     } else {
       console.log(info)
       return res.status(200).json({ error: '' })
