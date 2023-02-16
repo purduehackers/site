@@ -3,20 +3,23 @@ export const emails = [
     subject: 'an invitation',
     author: 'Purdue Hackers',
     email: 'zap@█████',
+    color: 'yellow',
     content: ''
   },
   {
     subject: '***IMPORTANT!!!***',
     author: 'Your Boss',
     email: 'YOUR_BOSS@iamimportant.co',
+    color: 'orange',
     content: "You're fired."
   },
   {
     subject: `Hello There.`,
     author: 'unknown',
     email: 'urmomisamom@gmail.com',
+    color: 'lime',
     content: `<div class="font-sans">
-        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
+        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
         ───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
         ──█───▀─▐▌──▐▌─▀▀──▐█──────▀─▐──▐▌─█▀
         ─▐▌──────▀▄▄▀──────▐█▄▄─────▀▄▄▀──▐▌
@@ -27,13 +30,14 @@ export const emails = [
         ─▐▌───────────────▀███▀───────────▐▌
         ──█──────────▀▄───────────▄▀─────█
         ───█───────────▀▄▄▄▄▄▄▄▄▄▀──────█<br/>
-        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
+        ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
         <div/>`
   },
   {
     subject: 'aawww aawaa awawa awawa awwaw',
     author: 'baconlover1605',
     email: 'francis@scramb.le',
+    color: 'pink',
     content: `aawww aawaa wawwa wawwa awwaw waaww<br/> wawwa awwaw waaww waaaw aawaa aawaa awaww 
                     aaawa waaww waaaa awaaa awwaw waaww waaaw<br/><br/> 
                     aawww aawaa waaaa aawaa awaaa waaaw aaaaa awwwa aaaaa waaaw waaaw wawaa awwaw 
@@ -68,6 +72,7 @@ export const emails = [
     subject: 'Want a Free Lawn Mower?',
     author: "McDonald's",
     email: 'mcdonalds@happiness.meal',
+    color: 'blue',
     content: `Well, it's your lucky day! <br/><br/>
             Get your free lawn mower today for just $3.99! Or even better,
             get TWO free lawn mowers for the price of THREE! Our sale only lasts 
@@ -132,5 +137,17 @@ export const madeWith = [
   'an army of fearless geese',
   'coffee and sleepless nights',
   'a mix of caffeinated and herbal tea',
-  'heart and zap'
+  'heart and zap',
+  'the souls of a thousand diabetic bats',
+  'the power of god and anime',
+  'dihydrogen monoxide',
+  'sacrificial rituals of unspeakable horror',
+  'a half-eaten sandwich',
+  'confetti and contraband',
+  'a top secret mixture lost to mankind',
+  'a spatula',
+  'maximum strength anti-dandruff shampoo',
+  'AWESOMENESS',
+  'a bathtub full of teeth',
+  'a forbidden spell'
 ]
