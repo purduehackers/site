@@ -525,7 +525,7 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300"></div>
+                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300 bg-blue-300"></div>
                     <div
                       className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}
                     >
