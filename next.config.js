@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['v5.airtableusercontent.com', 'cdn.discordapp.com']
+    domains: ['cdn.sanity.io', 'cdn.discordapp.com']
   }
 }
