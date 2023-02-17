@@ -15,7 +15,6 @@ export async function fetchEvents(): Promise<IEvent[]> {
       .then((r) => r.json())
       .then((records: SanityEvent[]) => {
         for (const event of records) {
-          console.log('event recap images', event.recapImages)
           const eventDateStr = event.start
           const eventDate = new Date(eventDateStr)
           const recapImg = event.recapImages[0] ?? []
