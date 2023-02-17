@@ -9,7 +9,7 @@ import Community from '../components/community'
 import Workshops from '../components/workshops'
 import HackNight from '../components/hack-night'
 import JoinUs from '../components/join-us'
-import IEvent from '../utils/interfaces/SanityEvent'
+import { IEvent } from '../utils/interfaces/SanityEvent'
 
 import {
   DraggableContext,
