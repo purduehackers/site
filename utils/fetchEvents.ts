@@ -4,7 +4,7 @@ export async function fetchEvents(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
     const events: IEvent[] = []
     fetch(
-      `http://localhost:8080/events?groq=*[_type == "event" %26%26 (!unlisted || !defined(unlisted)) %26%26 length(recapImages) > 0 %26%26 name match "Workshop" %26%26 (stat1.label match "people" || stat2.label match "people" || stat3.label match "people")] | order(end desc) [0...3] {
+      `https://api.purduehackers.com/events?groq=*[_type == "event" %26%26 (!unlisted || !defined(unlisted)) %26%26 length(recapImages) > 0 %26%26 name match "Workshop" %26%26 (stat1.label match "people" || stat2.label match "people" || stat3.label match "people")] | order(end desc) [0...3] {
         ...,
         "recapImages": recapImages[].asset->{
           ...,
