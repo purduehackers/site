@@ -1,7 +1,7 @@
 import WorkshopCard from './workshop-card'
 import splitArticle from '../utils/splitArticle'
 import Image from 'next/image'
-import IEvent from '../utils/interfaces/IEvent'
+import { IEvent } from '../utils/interfaces/SanityEvent'
 import Link from 'next/link'
 
 const Workshops = ({
