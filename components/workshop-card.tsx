@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Remarkable } from 'remarkable'
-import IEvent from '../utils/interfaces/IEvent'
+import { IEvent } from '../utils/interfaces/SanityEvent'
 import { GithubSlugger } from 'github-slugger-typescript'
 
 const WorkshopCard = (props: IEvent) => {

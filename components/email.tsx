@@ -60,16 +60,21 @@ const Email = () => {
     if (!userEmail.trim() || !subject.trim() || !message.trim()) {
       setErrorMessage('Please fill in all required fields.')
       return false
-    } 
-    if (!userEmail.includes('@') || !userEmail.substring(userEmail.indexOf('@') + 1)) {
+    }
+    if (
+      !userEmail.includes('@') ||
+      !userEmail.substring(userEmail.indexOf('@') + 1)
+    ) {
       setErrorMessage('Please enter a valid email.')
       return false
     }
     return true
   }
 
-  // handles submission of email form 
-  const handleSubmit = async (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  // handles submission of email form
+  const handleSubmit = async (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
     e.preventDefault()
 
     // send email if form is valid
@@ -82,16 +87,16 @@ const Email = () => {
         subject,
         message
       }
-  
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json, text/plain, */*',
+          Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       })
-  
+
       const { error } = await res.json()
       if (error) {
         console.log(error)
@@ -146,12 +151,9 @@ const Email = () => {
           </div>
           <div className="w-fit flex justify-end items-center text-2xl">
             <div className="email-btn bg-white-300 w-fit h-fit ml-2 px-1 py-0 text-xl">
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="text-gray-300"
-              />
+              <FontAwesomeIcon icon={faEnvelope} className="text-gray-300" />
             </div>
-            <button 
+            <button
               className="email-btn bg-pink-300 w-fit h-fit ml-2 px-1 py-0 text-xl"
               onClick={() => setShowSendFrame(true)}
             >
@@ -160,7 +162,7 @@ const Email = () => {
                 className="cursor-pointer transition"
               />
             </button>
-            <button 
+            <button
               className="email-btn bg-yellow-300 w-fit h-fit ml-2 px-1 py-0 text-xl"
               onClick={() => setShowPWFrame(true)}
             >
@@ -182,10 +184,7 @@ const Email = () => {
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowPWFrame(false)}
                 >
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    className="text-xs"
-                  />
+                  <FontAwesomeIcon icon={faXmark} className="text-xs" />
                 </p>
                 <div className="grow" />
                 <p className="text-white">password</p>
@@ -210,26 +209,25 @@ const Email = () => {
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
-              <div className="handle border-b-2 border-black flex flex-row bg-sky-200 cursor-pointer">
+              <div className="border-b-2 border-black flex flex-row bg-sky-200 cursor-pointer">
                 <p
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setShowSendFrame(false)}
                 >
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    className="text-xs"
-                  />
+                  <FontAwesomeIcon icon={faXmark} className="text-xs" />
                 </p>
-                <div className="grow" />
-                <p>{subject.trim()? subject: 'new message'}</p>
-                <div className="grow" />
+                <div className="grow handle" />
+                <p className="handle">
+                  {subject.trim() ? subject : 'new message'}
+                </p>
+                <div className="grow handle" />
               </div>
-              <form 
+              <form
                 className="bg-white pt-2 overflow-scroll h-fit max-h-[26rem] 
                   scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
               >
                 <p className="font-bold mb-1 pl-2">
-                  to: {' '}
+                  to:{' '}
                   <span className="text-black bg-amber-300 text-sm px-1 rounded-full border-2 border-black">
                     PURDUE HACKERS INC.
                   </span>
@@ -266,7 +264,7 @@ const Email = () => {
                     required
                   />
                 </div>
-                <textarea 
+                <textarea
                   className="text-mxs border-none rounded-md w-full pt-2 pb-1 resize-none no-ring
                     scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
                   rows={6}
@@ -281,14 +279,23 @@ const Email = () => {
                   required
                 ></textarea>
                 <div className="flex items-center justify-between p-2 border-t-2 border-black bg-gray-100">
-                  <button 
+                  <button
                     className="email-btn bg-pink-300"
                     type="submit"
-                    onClick={(e) => {handleSubmit(e)}}
-                  >Send</button>
+                    onClick={(e) => {
+                      handleSubmit(e)
+                    }}
+                  >
+                    Send
+                  </button>
                   <div className="bg-green-500 bg-amber-400 bg-red-500 bg-blue-400"></div>
                   <div className="bg-white ml-5 font-mono text-sm border-2 border-black px-2 py-2">
-                    status: <span className={`bg-${statusColor} text-white px-1 py-0 rounded-sm font-mono`}>{status}</span>
+                    status:{' '}
+                    <span
+                      className={`bg-${statusColor} text-white px-1 py-0 rounded-md font-mono`}
+                    >
+                      {status}
+                    </span>
                   </div>
                 </div>
               </form>
@@ -306,10 +313,7 @@ const Email = () => {
                   className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                   onClick={() => setErrorMessage('')}
                 >
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    className="text-xs"
-                  />
+                  <FontAwesomeIcon icon={faXmark} className="text-xs" />
                 </p>
                 <div className="grow" />
                 <p className="text-white">error</p>
@@ -317,15 +321,13 @@ const Email = () => {
               </div>
               <div className="bg-white p-8 flex flex-col justify-center items-center">
                 <div className="text-lg">
-                  Error 
+                  Error
                   <FontAwesomeIcon
                     icon={faTriangleExclamation}
                     className="text-xl text-red-500 ml-2"
                   />
                 </div>
-                <div>
-                  {errorMessage}
-                </div>
+                <div>{errorMessage}</div>
               </div>
             </div>
           </Draggable>
@@ -415,7 +417,7 @@ const Email = () => {
                     <p>👇 scroll to read 👁</p>
                   </div>
                 </div>
-                <div className="border-b-2 border-black flex flex-row bg-blue-300 cursor-pointer">
+                <div className="border-b-2 border-black flex flex-row bg-yellow-300 cursor-pointer">
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {
@@ -424,10 +426,7 @@ const Email = () => {
                       setOpen((newOpen) => [...newOpen])
                     }}
                   >
-                    <FontAwesomeIcon
-                      icon={faXmark}
-                      className="text-xs"
-                    />
+                    <FontAwesomeIcon icon={faXmark} className="text-xs" />
                   </p>
                   <div className="grow handle" />
                   <p className="handle">an invitation</p>
@@ -526,8 +525,10 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300"></div>
-                    <div className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}>
+                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300 bg-blue-300"></div>
+                    <div
+                      className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}
+                    >
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                         onClick={() => {
@@ -536,10 +537,7 @@ const Email = () => {
                           setOpen((newOpen) => [...newOpen])
                         }}
                       >
-                        <FontAwesomeIcon
-                          icon={faXmark}
-                          className="text-xs"
-                        />
+                        <FontAwesomeIcon icon={faXmark} className="text-xs" />
                       </p>
                       <div className="grow handle" />
                       <p className="handle">{email.subject}</p>

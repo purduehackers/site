@@ -1,51 +1,43 @@
-import IEvent from './interfaces/IEvent'
-import Attachment from './interfaces/AirtableAttachment'
+import { SanityEvent, IEvent } from './interfaces/SanityEvent'
 
 export async function fetchEvents(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
     const events: IEvent[] = []
-    const select = encodeURIComponent(
-      JSON.stringify({
-        maxRecords: 3,
-        sort: [{ field: 'Event Date & End Time', direction: 'desc' }],
-        filterByFormula: `
-      AND(
-        {Unlisted} = 0,
-        FIND("Workshop", {Event Name}),
-        OR(
-          {Stat 1 Label} = "people",
-          {Stat 2 Label} = "people",
-          {Stat 3 Label} = "people"
-        ),
-        {Recap Images}
-      )`
-      })
+
+    const groqFilter = `*[_type == "event" %26%26 (!unlisted || !defined(unlisted)) %26%26 length(recapImages) > 0 %26%26 name match "Workshop" %26%26 (stat1.label match "people" || stat2.label match "people" || stat3.label match "people")] | order(end desc) [0...3]`
+    fetch(
+      `https://api.purduehackers.com/events?groq=${groqFilter} {
+        ...,
+        "recapImages": recapImages[].asset->{
+          ...,
+          metadata
+        }
+      }`
     )
-    fetch(`https://api.purduehackers.com/events?select=${select}`)
       .then((r) => r.json())
-      .then((records) => {
-        for (const record of records) {
-          const eventDateStr = record.fields[
-            'Event Date & Start Time'
-          ] as string
+      .then((records: SanityEvent[]) => {
+        for (const event of records) {
+          const eventDateStr = event.start
           const eventDate = new Date(eventDateStr)
-          const recapImg = (record.fields['Recap Images'] as Attachment[]) ?? []
+          const recapImg = event.recapImages[0] ?? []
           let participantCount = ''
 
           for (let statNum = 1; statNum <= 3; statNum++) {
-            if (record.fields['Stat ' + statNum + ' Label'] === 'people') {
-              participantCount = record.fields[
-                'Stat ' + statNum + ' Data'
-              ] as string
+            if (event.stat1.label === 'people') {
+              participantCount = event.stat1.data
+            } else if (event.stat2.label === 'people') {
+              participantCount = event.stat2.data
+            } else if (event.stat3.label === 'people') {
+              participantCount = event.stat3.data
             }
           }
           events.push({
-            name: record.fields['Event Name'] as string,
+            name: event.name,
             date: eventDate,
-            description: record.fields['Past Event Description'] as string,
+            description: event.pastEventDesc,
             rsvp: participantCount,
-            img: recapImg[0].url,
-            location: record.fields['Event Location'] as string
+            img: recapImg.url,
+            location: event.loc
           })
         }
         resolve(events)
