@@ -86,8 +86,8 @@ const HackNight = () => {
                   </p>
                   <p>
                     Join us{' '}
-                    <span className="font-bold">every Friday at 8pm</span> in{' '}
-                    <span className="font-bold">WALC 2124</span>.
+                    <span className="font-bold">every Friday at 8pm</span> at{' '}
+                    <span className="font-bold">the Bechtel Center</span>.
                   </p>
                 </div>
               </div>
