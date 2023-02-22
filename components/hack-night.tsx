@@ -1,9 +1,9 @@
 import Draggable from 'react-draggable'
 import { useContext, useState } from 'react'
+import Image from 'next/image'
 
 import { DraggableContext } from '../context/DraggableContext'
-
-import Image from 'next/image'
+import { IEvent } from '../utils/interfaces/SanityEvent'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,9 +16,14 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons'
 import SprayCanvas from './spray-canvas'
 import Point2D from '../utils/Point2D'
 
+import HackNightCard from './hack-night-card'
 import Countdown from './countdown'
 
-const HackNight = () => {
+const HackNight = ({
+  fetchedHackNights
+}: {
+  fetchedHackNights: IEvent[]
+}) => {
   const { draggable } = useContext(DraggableContext)
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
 
@@ -38,6 +43,19 @@ const HackNight = () => {
         </h1>
         <div className="relative flex flex-col items-center mt-8">
           <Countdown />
+          {fetchedHackNights.map((hackNight) => {
+            return (
+              <HackNightCard
+                name={hackNight.name}
+                date={hackNight.date}
+                description={hackNight.description}
+                rsvp={hackNight.rsvp}
+                img={hackNight.img}
+                location={hackNight.location}
+                key={hackNight.name}
+              />
+            )
+          })}
           <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-black border-2 z-10 shadow-email shadow-gray-900/30

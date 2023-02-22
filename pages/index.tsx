@@ -19,12 +19,14 @@ import { fetchEvents } from '../utils/fetchEvents'
 import Footer from '../components/footer'
 
 interface HomeFetchedEventsProps {
-  fetchedEvents: IEvent[]
+  fetchedWorkshops: IEvent[]
+  fetchedHackNights: IEvent[]
   randomBarCode: string
 }
 
 const Home: NextPage<HomeFetchedEventsProps> = ({
-  fetchedEvents,
+  fetchedWorkshops,
+  fetchedHackNights,
   randomBarCode
 }) => {
   // Disable draggable feature on small screen
@@ -92,10 +94,12 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         <hr className="border-2 border-black border-dashed" />
         <Community />
         <Workshops
-          fetchedEvents={fetchedEvents}
+          fetchedWorkshops={fetchedWorkshops}
           randomBarCode={randomBarCode}
         />
-        <HackNight />
+        <HackNight 
+          fetchedHackNights={fetchedHackNights}
+        />
         <JoinUs />
         <Footer />
       </div>
@@ -105,14 +109,31 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const fetchedEvents: IEvent[] = await fetchEvents()
+
+  // sort for workshops and hack nights
+  let numWorkshops = 3
+  let fetchedWorkshops: IEvent[] = []
+  let fetchedHackNights: IEvent[] = []
+
+  for (let i = 0; i < fetchedEvents.length; i++) {
+    if (fetchedEvents[i].name.includes('Hack Night')) {
+      fetchedHackNights.push(fetchedEvents[i])
+    } else if (fetchedEvents[i].name.includes('Workshop') && fetchedWorkshops.length < numWorkshops) {
+      fetchedWorkshops.push(fetchedEvents[i])
+    }
+  }
+
+  // generate barcode
   let randomBarCode = ''
   for (let i = 0; i < 5; i++) {
     randomBarCode += Math.floor(Math.random() * 10)
     randomBarCode += '    '
   }
+
   return {
     props: {
-      fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
+      fetchedWorkshops: JSON.parse(JSON.stringify(fetchedWorkshops)),
+      fetchedHackNights: JSON.parse(JSON.stringify(fetchedHackNights)),
       randomBarCode
     },
     revalidate: 60

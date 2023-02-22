@@ -39,7 +39,6 @@ const Countdown = () => {
             setBoltColor(colors.boltColor)
             setZapColor(colors.zapColor)
             setSparkColor(colors.sparkColor)
-            console.log('updated!')
         }, 100)
 
         return () => {

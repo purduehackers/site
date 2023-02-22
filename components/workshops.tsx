@@ -5,10 +5,10 @@ import { IEvent } from '../utils/interfaces/SanityEvent'
 import Link from 'next/link'
 
 const Workshops = ({
-  fetchedEvents,
+  fetchedWorkshops,
   randomBarCode
 }: {
-  fetchedEvents: IEvent[]
+  fetchedWorkshops: IEvent[]
   randomBarCode: string
 }) => {
   return (
@@ -82,16 +82,16 @@ const Workshops = ({
                 </p>
               </div>
               <div className="grid lg:grid-cols-3 gap-3 sm:gap-0 justify-items-center sm:grid-cols-1 mb-12 sm:mb-0">
-                {fetchedEvents.map((event) => {
+                {fetchedWorkshops.map((workshop) => {
                   return (
                     <WorkshopCard
-                      name={event.name}
-                      date={event.date}
-                      description={event.description}
-                      rsvp={event.rsvp}
-                      img={event.img}
-                      location={event.location}
-                      key={event.name}
+                      name={workshop.name}
+                      date={workshop.date}
+                      description={workshop.description}
+                      rsvp={workshop.rsvp}
+                      img={workshop.img}
+                      location={workshop.location}
+                      key={workshop.name}
                     />
                   )
                 })}
