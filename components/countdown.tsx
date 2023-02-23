@@ -49,7 +49,7 @@ const Countdown = () => {
     return (
         <Draggable>
             <div
-                className="border-2 border-white rounded-lg w-86 sm:w-96 sm:min-w-fit mx-auto
+                className="border-4 border-yellow-400 rounded-lg w-80 sm:w-80 sm:min-w-fit mx-auto z-20
                 shadow-email shadow-gray-900/30 h-fit absolute top-8 left-20 sm:left-32 cursor-pointer"
             >
                 <div className="rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
@@ -58,8 +58,8 @@ const Countdown = () => {
                         countdown.exe
                     </div>
                 </div>
-                <div className="bg-black rounded-b-lg text-white px-8 flex flex-col justify-center items-center">
-                    <div className="sm:text-[150px] text-[100px] font-digital">
+                <div className="bg-black rounded-b-lg text-white py-4 flex flex-col justify-center items-center">
+                    <div className="sm:text-[100px] text-[100px] font-digital">
                         <span style={{color: boltColor}}>{bolts}</span>~
                         <span style={{color: zapColor}}>{zaps}</span>~
                         <span style={{color: sparkColor}}>{sparks}</span>

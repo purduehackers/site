@@ -112,11 +112,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   // sort for workshops and hack nights
   let numWorkshops = 3
+  let numHackNights = 5
   let fetchedWorkshops: IEvent[] = []
   let fetchedHackNights: IEvent[] = []
 
   for (let i = 0; i < fetchedEvents.length; i++) {
-    if (fetchedEvents[i].name.includes('Hack Night')) {
+    if (fetchedEvents[i].name.includes('Hack Night') && fetchedHackNights.length < numHackNights) {
       fetchedHackNights.push(fetchedEvents[i])
     } else if (fetchedEvents[i].name.includes('Workshop') && fetchedWorkshops.length < numWorkshops) {
       fetchedWorkshops.push(fetchedEvents[i])

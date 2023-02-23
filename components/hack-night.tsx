@@ -43,19 +43,6 @@ const HackNight = ({
         </h1>
         <div className="relative flex flex-col items-center mt-8">
           <Countdown />
-          {fetchedHackNights.map((hackNight) => {
-            return (
-              <HackNightCard
-                name={hackNight.name}
-                date={hackNight.date}
-                description={hackNight.description}
-                rsvp={hackNight.rsvp}
-                img={hackNight.img}
-                location={hackNight.location}
-                key={hackNight.name}
-              />
-            )
-          })}
           <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-black border-2 z-10 shadow-email shadow-gray-900/30
@@ -281,6 +268,23 @@ const HackNight = ({
                 </div>
               </div>
             </Draggable>
+            <div className="absolute">
+              {fetchedHackNights.slice(0).reverse().map((hackNight, i) => {
+                return (
+                  <div>
+                    <HackNightCard
+                      name={hackNight.name}
+                      date={hackNight.date}
+                      description={hackNight.description}
+                      rsvp={hackNight.rsvp}
+                      img={hackNight.img}
+                      location={hackNight.location}
+                      key={hackNight.name}
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
