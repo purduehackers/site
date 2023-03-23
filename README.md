@@ -1,3 +1,3 @@
 # site
 
-The new landing page for Purdue Hackers ✨
+The new landing page for Purdue Hackers ✨⚡️
