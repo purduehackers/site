@@ -116,10 +116,20 @@ export const getStaticProps: GetStaticProps = async () => {
   let fetchedWorkshops: IEvent[] = []
   let fetchedHackNights: IEvent[] = []
 
+  let today = new Date()
+
   for (let i = 0; i < fetchedEvents.length; i++) {
-    if (fetchedEvents[i].name.includes('Hack Night') && fetchedHackNights.length < numHackNights) {
+    console.log("event date: " + fetchedEvents[i].date)
+    console.log("todays date: " + today)
+    console.log("img url: " + fetchedEvents[i].img)
+    if (fetchedHackNights.length < numHackNights 
+          && fetchedEvents[i].date < today
+          && fetchedEvents[i].name.includes('Hack Night')) {
       fetchedHackNights.push(fetchedEvents[i])
-    } else if (fetchedEvents[i].name.includes('Workshop') && fetchedWorkshops.length < numWorkshops) {
+    } else if (fetchedWorkshops.length < numWorkshops 
+                //&& fetchedEvents[i].img
+                && fetchedEvents[i].date < today
+                && fetchedEvents[i].name.includes('Workshop')) {
       fetchedWorkshops.push(fetchedEvents[i])
     }
   }

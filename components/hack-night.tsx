@@ -279,7 +279,7 @@ const HackNight = ({
                       rsvp={hackNight.rsvp}
                       img={hackNight.img}
                       location={hackNight.location}
-                      key={hackNight.name}
+                      key={i}
                     />
                   </div>
                 )
