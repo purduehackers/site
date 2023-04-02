@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLeftLong,
   faRightLong,
-  faEllipsis
+  faEllipsis,
+  faMoon
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
@@ -20,9 +21,11 @@ import HackNightCard from './hack-night-card'
 import Countdown from './countdown'
 
 const HackNight = ({
-  fetchedHackNights
+  fetchedHackNights,
+  upcomingHackNight
 }: {
-  fetchedHackNights: IEvent[]
+  fetchedHackNights: IEvent[],
+  upcomingHackNight: IEvent
 }) => {
   const { draggable } = useContext(DraggableContext)
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
@@ -261,24 +264,25 @@ const HackNight = ({
                       }}
                       className="spray-btn"
                     >
-                      HACK.
+                      NIGHT.
                     </button>
                     <div className="grow" />
                   </div>
                 </div>
               </div>
             </Draggable>
-            <div className="absolute">
+            <div className="absolute top-[0px]">
               {fetchedHackNights.slice(0).reverse().map((hackNight, i) => {
                 return (
-                  <div>
+                  <div className={`absolute bg-pink left-[${4 * i}px] top-[${4 * i}px]`}>
                     <HackNightCard
                       name={hackNight.name}
-                      date={hackNight.date}
+                      dateProp={hackNight.date}
                       description={hackNight.description}
                       rsvp={hackNight.rsvp}
                       img={hackNight.img}
                       location={hackNight.location}
+                      index={i}
                       key={i}
                     />
                   </div>
@@ -286,6 +290,45 @@ const HackNight = ({
               })}
             </div>
           </div>
+          <Draggable handle=".handle">
+              <div
+                className="w-96 sm:w-[420px] border-2 border-black flex flex-col justify-between items-center bg-white
+                  h-full mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
+              >
+                <div
+                  className="handle bg-purple-400 animate-bg-flash w-full flex border-b-2 border-black
+                    cursor-pointer hover:bg-cyan-400 hover:text-white"
+                >
+                  <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
+                  <div className="grow" />
+                  <p className="font-semibold text-white">ALERT</p>
+                  <div className="grow" />
+                </div>
+                <div className="w-full h-full p-4 text-center">
+                  <p>
+                    BREAKING NEWS!!!!!! THE NEXT HACK NIGHT IS 
+                    <span className="font-bold"> FRIDAY 0/0</span> AT 
+                    <span className="font-bold"> BECHTEL</span> AND ITS COLOR IS 
+                    <span className="font-bold text-fuchsia-500"> FUCHSIA</span>.
+                  </p>
+                  <div
+                    className="w-full h-full
+                      flex jusitfy-center items-center"
+                  >
+                    <div className="grow" />
+                    <button
+                      onClick={() => {
+                        setSpray(true)
+                      }}
+                      className="email-btn mt-4 text-white bg-gray-400 shadow-black"
+                    >
+                      HACK.
+                    </button>
+                    <div className="grow" />
+                  </div>
+                </div>
+              </div>
+            </Draggable>
         </div>
       </div>
     </div>

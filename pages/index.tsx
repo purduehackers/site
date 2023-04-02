@@ -21,12 +21,14 @@ import Footer from '../components/footer'
 interface HomeFetchedEventsProps {
   fetchedWorkshops: IEvent[]
   fetchedHackNights: IEvent[]
+  upcomingHackNight: IEvent
   randomBarCode: string
 }
 
 const Home: NextPage<HomeFetchedEventsProps> = ({
   fetchedWorkshops,
   fetchedHackNights,
+  upcomingHackNight,
   randomBarCode
 }) => {
   // Disable draggable feature on small screen
@@ -99,6 +101,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         />
         <HackNight 
           fetchedHackNights={fetchedHackNights}
+          upcomingHackNight={upcomingHackNight}
         />
         <JoinUs />
         <Footer />
@@ -115,19 +118,28 @@ export const getStaticProps: GetStaticProps = async () => {
   let numHackNights = 5
   let fetchedWorkshops: IEvent[] = []
   let fetchedHackNights: IEvent[] = []
+  let upcomingHackNight: IEvent = { 
+    name: '',
+    date: new Date(),
+    description: '',
+    rsvp: '',
+    img: '',
+    location: '' 
+  }
 
   let today = new Date()
 
   for (let i = 0; i < fetchedEvents.length; i++) {
-    console.log("event date: " + fetchedEvents[i].date)
-    console.log("todays date: " + today)
-    console.log("img url: " + fetchedEvents[i].img)
-    if (fetchedHackNights.length < numHackNights 
-          && fetchedEvents[i].date < today
+    if (fetchedEvents[i].date >= today
           && fetchedEvents[i].name.includes('Hack Night')) {
+      upcomingHackNight = fetchedEvents[i]
+    } else if (fetchedHackNights.length < numHackNights 
+                && fetchedEvents[i].img
+                && fetchedEvents[i].date < today
+                && fetchedEvents[i].name.includes('Hack Night')) {
       fetchedHackNights.push(fetchedEvents[i])
     } else if (fetchedWorkshops.length < numWorkshops 
-                //&& fetchedEvents[i].img
+                && fetchedEvents[i].img
                 && fetchedEvents[i].date < today
                 && fetchedEvents[i].name.includes('Workshop')) {
       fetchedWorkshops.push(fetchedEvents[i])
@@ -145,6 +157,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       fetchedWorkshops: JSON.parse(JSON.stringify(fetchedWorkshops)),
       fetchedHackNights: JSON.parse(JSON.stringify(fetchedHackNights)),
+      upcomingHackNight: JSON.parse(JSON.stringify(upcomingHackNight)),
       randomBarCode
     },
     revalidate: 60

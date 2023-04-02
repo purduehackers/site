@@ -55,4 +55,5 @@ export interface IEvent {
   rsvp: string
   img: string
   location: string
+  color?: string
 }
