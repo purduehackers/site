@@ -43,7 +43,7 @@ const HackNightCard = ({
   return (
     <Draggable 
         disabled={!draggable}
-        defaultPosition={{ x: 40 * index, y: 10 + 18 * index }}>
+        defaultPosition={{ x: (index != 4) ? 40 * index : 53, y: (index != 4) ? 10 + 12 * index + 2 * Math.pow(3, index) : 185 }}>
       <div
           className={`w-96 min-w-fit max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 
             border-slate-800 flex flex-col absolute`}>
