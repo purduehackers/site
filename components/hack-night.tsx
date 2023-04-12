@@ -10,7 +10,8 @@ import {
   faLeftLong,
   faRightLong,
   faEllipsis,
-  faMoon
+  faMoon,
+  faTriangleExclamation
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
@@ -205,6 +206,39 @@ const HackNight = ({
                 />
               </div>
             </Draggable>
+            <Draggable handle=".handle">
+              <div
+                className="w-[180px] border-2 border-black flex flex-col justify-between items-center bg-white
+                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
+              >
+                <div
+                  className="handle bg-pink-400 w-full flex border-b-2 border-black
+                    cursor-pointer hover:bg-cyan-400 hover:text-white"
+                >
+                  <p className="ml-1">_</p>
+                  <div className="grow" />
+                  <p>???</p>
+                  <div className="grow" />
+                </div>
+                <div className="w-full h-full p-4">
+                  <div
+                    className="w-full h-full border-2 border-black bg-green-400
+                      flex jusitfy-center items-center animate-bg-flash"
+                  >
+                    <div className="grow" />
+                    <button
+                      onClick={() => {
+                        setSpray(true)
+                      }}
+                      className="spray-btn"
+                    >
+                      HACK.
+                    </button>
+                    <div className="grow" />
+                  </div>
+                </div>
+              </div>
+            </Draggable>
           </div>
           <div className="flex flex-col sm:flex-row sm:mt-0 relative -top-48">
             <Draggable handle=".handle">
@@ -238,39 +272,6 @@ const HackNight = ({
                 />
               </div>
             </Draggable>
-            <Draggable handle=".handle">
-              <div
-                className="w-48 border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
-              >
-                <div
-                  className="handle bg-pink-400 w-full flex border-b-2 border-black
-                    cursor-pointer hover:bg-cyan-400 hover:text-white"
-                >
-                  <p className="ml-1">_</p>
-                  <div className="grow" />
-                  <p>???</p>
-                  <div className="grow" />
-                </div>
-                <div className="w-full h-full p-4">
-                  <div
-                    className="w-full h-full border-2 border-black bg-green-400
-                      flex jusitfy-center items-center animate-bg-flash"
-                  >
-                    <div className="grow" />
-                    <button
-                      onClick={() => {
-                        setSpray(true)
-                      }}
-                      className="spray-btn"
-                    >
-                      NIGHT.
-                    </button>
-                    <div className="grow" />
-                  </div>
-                </div>
-              </div>
-            </Draggable>
             <div className="absolute top-[0px]">
               {fetchedHackNights.slice(0).reverse().map((hackNight, i) => {
                 return (
@@ -290,23 +291,24 @@ const HackNight = ({
           </div>
           <Draggable handle=".handle">
               <div
-                className="w-96 sm:w-[340px] border-2 border-black flex flex-col justify-between items-center bg-white
-                  h-full mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
+                className="w-96 sm:w-[300px] border-2 border-white flex flex-col justify-between items-center bg-gray-800 text-white
+                  h-full mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-yellow-400/70"
               >
                 <div
-                  className="handle bg-cyan-400 animate-bg-flash w-full flex border-b-2 border-black
+                  className="handle bg-cyan-400 animate-bg-flash w-full flex border-b-2 border-white
                     cursor-pointer hover:bg-purple-400 hover:text-white"
                 >
-                  <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
+                  <FontAwesomeIcon className="ml-2 mt-1" icon={faTriangleExclamation} size="1x" />
                   <div className="grow" />
                   <p className="font-semibold text-white"><span className="italic text-lg">BREAKING NEWS!!!!!!</span></p>
                   <div className="grow" />
+                  <FontAwesomeIcon className="mr-2 mt-1" icon={faTriangleExclamation} size="1x" />
                 </div>
                 <div className="w-full h-full p-4 text-center text-base uppercase">
                   <p>
                     THE NEXT HACK NIGHT IS <br/>
-                    <span className="font-semibold text-3xl"> FRIDAY 4/1</span> <br/> AT <br/>
-                    <span className="font-bold text-2xl"> The Bechtel Center</span> <br/> AND ITS COLOR IS <br/>
+                    <span className="font-semibold text-3xl"> ✨ FRIDAY 4/1 ✨</span> <br/> AT <br/>
+                    <span className="font-bold text-2xl text-yellow-300"> The Bechtel Center</span> <br/> AND ITS COLOR IS <br/>
                     <span className="font-bold text-4xl text-fuchsia-500"> FUCHSIA.</span>
                   </p>
                   <div
@@ -318,9 +320,9 @@ const HackNight = ({
                       onClick={() => {
                         setSpray(true)
                       }}
-                      className="uppercase email-btn mt-4 text-white bg-gray-400 shadow-black"
+                      className="uppercase email-btn mt-3 text-black bg-white shadow-black"
                     >
-                      hack.
+                      click to sign up <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
                     </button>
                     <div className="grow" />
                   </div>
