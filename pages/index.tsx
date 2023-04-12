@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps = async () => {
     description: '',
     rsvp: '',
     img: '',
-    location: '' 
+    location: 'The Bechtel Center' 
   }
 
   let today = new Date()

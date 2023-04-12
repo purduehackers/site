@@ -28,6 +28,8 @@ const HackNight = ({
   fetchedHackNights: IEvent[],
   upcomingHackNight: IEvent
 }) => {
+  upcomingHackNight.date = new Date(upcomingHackNight.date)
+
   const { draggable } = useContext(DraggableContext)
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
 
@@ -222,18 +224,20 @@ const HackNight = ({
                 </div>
                 <div className="w-full h-full p-4">
                   <div
-                    className="w-full h-full border-2 border-black bg-green-400
+                    className="w-full h-full border-2 border-black bg-gradient-to-r from-emerald-500 via-cyan-300 via-pink-500 via-purple-500 to-indigo-500
                       flex jusitfy-center items-center animate-bg-flash"
                   >
                     <div className="grow" />
-                    <button
-                      onClick={() => {
-                        setSpray(true)
-                      }}
-                      className="spray-btn"
-                    >
-                      HACK.
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => {
+                          setSpray(true)
+                        }}
+                        className="email-btn"
+                      >
+                        HACK.
+                      </button>
+                    </div>
                     <div className="grow" />
                   </div>
                 </div>
@@ -289,7 +293,8 @@ const HackNight = ({
               })}
             </div>
           </div>
-          <Draggable handle=".handle">
+          {!upcomingHackNight.name &&
+            <Draggable handle=".handle">
               <div
                 className="w-96 sm:w-[300px] border-2 border-white flex flex-col justify-between items-center bg-gray-800 text-white
                   h-full mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-yellow-400/70"
@@ -307,8 +312,8 @@ const HackNight = ({
                 <div className="w-full h-full p-4 text-center text-base uppercase">
                   <p>
                     THE NEXT HACK NIGHT IS <br/>
-                    <span className="font-semibold text-3xl"> ✨ FRIDAY 4/1 ✨</span> <br/> AT <br/>
-                    <span className="font-bold text-2xl text-yellow-300"> The Bechtel Center</span> <br/> AND ITS COLOR IS <br/>
+                    <span className="font-semibold text-3xl"> ✨ Friday {upcomingHackNight.date.getMonth() + 1}/{upcomingHackNight.date.getDate()} ✨</span> <br/> AT <br/>
+                    <span className="font-bold text-2xl text-yellow-300"> {upcomingHackNight.location}</span> <br/> AND ITS COLOR IS <br/>
                     <span className="font-bold text-4xl text-fuchsia-500"> FUCHSIA.</span>
                   </p>
                   <div
@@ -320,7 +325,7 @@ const HackNight = ({
                       onClick={() => {
                         setSpray(true)
                       }}
-                      className="uppercase email-btn mt-3 text-black bg-white shadow-black"
+                      className="uppercase dark-action-btn mt-2 mb-1 text-black bg-white shadow-yellow-400"
                     >
                       click to sign up <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
                     </button>
@@ -329,6 +334,7 @@ const HackNight = ({
                 </div>
               </div>
             </Draggable>
+          }
         </div>
       </div>
     </div>
