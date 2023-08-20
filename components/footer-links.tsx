@@ -2,8 +2,7 @@ import {
   Instagram,
   Discord,
   Github,
-  Twitter,
-  Mastodon
+  Twitter
 } from '@icons-pack/react-simple-icons'
 
 const FooterLinks = () => (
@@ -35,14 +34,6 @@ const FooterLinks = () => (
       target="_blank"
     >
       <Twitter height={32} width={32} />
-    </a>
-    <a
-      href="https://mastodon.boiler.social/@purduehackers"
-      rel="me"
-      className="transition hover:scale-110 hover:text-[#563acc]"
-      target="_blank"
-    >
-      <Mastodon height={32} width={32} />
     </a>
   </div>
 )
