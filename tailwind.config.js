@@ -9,6 +9,7 @@ module.exports = {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
       mono: '"Space Mono"',
+      serif: '"IBM Plex Serif"',
       pixel: '"Press Start 2P"',
       alka: '"Alkalami", serif',
       noto: '"Noto Serif Gujarati", serif',
