@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  @page {
+    margin: 0;
+  }
   body {
     @apply font-main;
     -webkit-print-color-adjust: exact !important;
