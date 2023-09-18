@@ -20,7 +20,7 @@
     "crypto.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/sponsor.mdx"
+    "pages/sponsor.tsx"
   ],
   "exclude": ["node_modules"]
 }
