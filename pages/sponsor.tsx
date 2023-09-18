@@ -4,7 +4,7 @@ import SponsorContent from '../components/sponsor/sponsor.mdx'
 export default function Sponsor(): JSX.Element {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b-4 bg-amber-400 border-black">
+      <header className="border-b-4 bg-amber-400 print:bg-amber-400 border-black">
         <div className="py-16 flex flex-col gap-y-4">
           <h1 className="text-center text-4xl sm:text-7xl sm:tracking-tight font-bold flex justify-center items-center gap-2">
             <img
