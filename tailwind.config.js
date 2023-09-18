@@ -6,14 +6,12 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      main: '"Space Grotesk", system-ui, Roboto, sans-serif',
-      sans: '"Inter", sans-serif',
-      mono: '"Space Mono"',
-      serif: '"IBM Plex Serif"',
-      pixel: '"Press Start 2P"',
-      alka: '"Alkalami", serif',
-      noto: '"Noto Serif Gujarati", serif',
-      alegre: '"Alegreya", serif'
+      main: ['var(--font-space-grotesk)'],
+      sans: ['var(--font-inter)'],
+      mono: ['var(--font-space-mono)'],
+      serif: ['var(--font-ibm-plex-serif)'],
+      pixel: ['var(--press-start)'],
+      alegre: ['var(--font-alegreya)']
     },
     extend: {
       colors: {
