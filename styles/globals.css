@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-  @page {
-    margin: 0;
+  @media print {
+    @page :first {
+      margin: 0 0 15mm 0;
+    }
+    @page {
+      margin-top: 15mm;
+      margin-bottom: 15mm;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
   body {
     @apply font-main;
