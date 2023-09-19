@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export const MDXComponents = {
   h1: (props) => (
     <h1
@@ -21,17 +19,5 @@ export const MDXComponents = {
       {...props}
     ></a>
   ),
-  img: (props) => (
-    <Image
-      {...props}
-      width={0}
-      height={0}
-      sizes="100vw"
-      style={{
-        width: '100vw',
-        height: 'auto',
-        borderRadius: '8px'
-      }}
-    />
-  )
+  img: (props) => <img {...props} className="rounded-lg" />
 }
