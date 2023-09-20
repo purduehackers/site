@@ -19,5 +19,12 @@ export const MDXComponents = {
       {...props}
     ></a>
   ),
-  img: (props) => <img {...props} className="rounded-lg" />
+  img: (props) => <img {...props} className="rounded-lg" />,
+  ul: (props) => (
+    <ul className="list-disc list-outside ml-6 sm:ml-0">{props.children}</ul>
+  ),
+  ol: (props) => (
+    <ol className="list-decimal list-inside ml-6">{props.children}</ol>
+  ),
+  li: (props) => <li className="mb-2">{props.children}</li>
 }
