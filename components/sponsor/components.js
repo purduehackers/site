@@ -19,7 +19,7 @@ export const MDXComponents = {
       {...props}
     ></a>
   ),
-  img: (props) => <img {...props} className="rounded-lg" />,
+  img: (props) => <img {...props} className="rounded" />,
   ul: (props) => (
     <ul className="list-disc list-outside ml-6 sm:ml-0">{props.children}</ul>
   ),
