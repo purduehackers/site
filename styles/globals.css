@@ -49,4 +49,17 @@
   .no-ring {
     @apply focus:ring-0 focus:ring-offset-0 focus:border-black !important;
   }
+
+  .sponsor-overflow {
+    position: relative;
+    left: -80px;
+    width: calc(100% + 160px);
+  }
+  @media print {
+    .sponsor-overflow {
+      position: static;
+      left: 0;
+      width: auto;
+    }
+  }
 }
