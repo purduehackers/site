@@ -55,11 +55,19 @@
     left: -80px;
     width: calc(100% + 160px);
   }
+  .page-break {
+    display: none;
+  }
   @media print {
     .sponsor-overflow {
       position: static;
       left: 0;
       width: auto;
+    }
+    .page-break {
+      display: block;
+      visibility: hidden;
+      break-before: page;
     }
   }
 }
