@@ -18,7 +18,7 @@ export function Grid({
         className,
         `grid grid-cols-2 ${largeGap ? 'gap-4' : 'gap-2'} items-center ${
           overflow ? 'sponsor-overflow' : ''
-        }`
+        } break-inside-avoid`
       )}
     >
       {children}
