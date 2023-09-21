@@ -29,6 +29,7 @@ module.exports = {
           'discord-role': '#ffff88'
         },
         amber: {
+          150: '#FEEDA9',
           450: '#F8AF18',
           550: '#E78B09'
         },
