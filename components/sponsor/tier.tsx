@@ -19,7 +19,7 @@ export function Tier({
     >
       {mostPopular ? (
         <div className="absolute top-0 right-0 transform rotate-12 print:rotate-[35deg] print:translate-x-4 print:translate-y-2 bg-white border-2 border-black px-1 rounded-sm">
-          <p className="text-sm">Most Popular</p>
+          <p className="text-sm print:text-xs">Most Popular</p>
         </div>
       ) : null}
       <div className="flex flex-col">
@@ -28,7 +28,7 @@ export function Tier({
           {price ? `$${price.toLocaleString('en-US')}` : 'Contact us'}
         </p>
       </div>
-      <p className="text-base">{description}</p>
+      <p className="text-base print:text-sm">{description}</p>
     </div>
   )
 }
