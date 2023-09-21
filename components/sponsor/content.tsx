@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react'
-import { MDXComponents } from './components'
+import { MDXComponents } from './mdx-components'
 
 export function Content({ children }: { children: React.ReactNode }) {
   return (
