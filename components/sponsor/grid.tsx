@@ -16,9 +16,9 @@ export function Grid({
     <div
       className={clsx(
         className,
-        `grid grid-cols-2 ${largeGap ? 'gap-4' : 'gap-2'} items-center ${
-          overflow ? 'sponsor-overflow' : ''
-        } break-inside-avoid`
+        `grid grid-cols-2 items-center break-inside-avoid ${
+          largeGap ? 'gap-4' : 'gap-2'
+        } ${overflow ? 'sponsor-overflow' : ''}`
       )}
     >
       {children}
