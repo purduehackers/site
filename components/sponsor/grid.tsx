@@ -19,9 +19,11 @@ export function Grid({
       className={clsx(
         className,
         `grid items-center break-inside-avoid ${
-          singleRow ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2'
+          singleRow
+            ? 'grid-cols-1 md:grid-cols-2 print:grid-cols-2'
+            : 'grid-cols-2'
         } ${largeGap ? 'gap-4' : 'gap-2'} ${
-          overflow ? 'md:sponsor-overflow' : ''
+          overflow ? 'md:sponsor-overflow print:sponsor-overflow' : ''
         }`
       )}
     >
