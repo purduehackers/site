@@ -24,7 +24,7 @@ export function Tier({
       ) : null}
       <div className="flex flex-col">
         <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="text-gray-600 font-mono text-lg">
+        <p className="text-gray-700 font-mono text-lg">
           {price ? `$${price.toLocaleString('en-US')}` : 'Contact us'}
         </p>
       </div>
