@@ -1,18 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     fontFamily: {
-      main: '"Space Grotesk", system-ui, Roboto, sans-serif',
-      sans: '"Inter", sans-serif',
-      mono: '"Space Mono"',
-      pixel: '"Press Start 2P"',
-      alka: '"Alkalami", serif',
-      noto: '"Noto Serif Gujarati", serif',
-      alegre: '"Alegreya", serif'
+      main: ['var(--font-space-grotesk)'],
+      sans: ['var(--font-inter)'],
+      mono: ['var(--font-space-mono)'],
+      serif: ['var(--font-ibm-plex-serif)'],
+      pixel: ['var(--press-start)'],
+      alegre: ['var(--font-alegreya)']
     },
     extend: {
       colors: {
@@ -46,6 +45,8 @@ module.exports = {
       },
       boxShadow: {
         blocks: '8px 8px',
+        'blocks-sm': '4px 4px',
+        'blocks-md': '6px 6px',
         email: '6px 6px',
         'footer-btn': '0px 6px',
         'email-btn': '2px 3px'
