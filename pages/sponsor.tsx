@@ -1,5 +1,5 @@
-import { Content } from '../components/sponsor/content'
-import SponsorContent from '../components/sponsor/sponsor.mdx'
+import { Content } from '../components/sponsor/content';
+import SponsorContent from '../components/sponsor/sponsor.mdx';
 
 export default function Sponsor(): JSX.Element {
   return (
@@ -22,5 +22,5 @@ export default function Sponsor(): JSX.Element {
         </Content>
       </article>
     </div>
-  )
+  );
 }

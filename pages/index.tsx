@@ -1,26 +1,26 @@
-import { NextPage } from 'next'
-import { useEffect, useState, useMemo } from 'react'
-import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { NextPage } from 'next';
+import { useEffect, useState, useMemo } from 'react';
+import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
-import Hero from '../components/hero'
-import Email from '../components/email'
-import Community from '../components/community'
-import Workshops from '../components/workshops'
-import HackNight from '../components/hack-night'
-import JoinUs from '../components/join-us'
-import { IEvent } from '../utils/interfaces/SanityEvent'
+import Hero from '../components/hero';
+import Email from '../components/email';
+import Community from '../components/community';
+import Workshops from '../components/workshops';
+import HackNight from '../components/hack-night';
+import JoinUs from '../components/join-us';
+import { IEvent } from '../utils/interfaces/SanityEvent';
 
 import {
   DraggableContext,
   DraggableInterface
-} from '../context/DraggableContext'
-import { fetchEvents } from '../utils/fetchEvents'
-import Footer from '../components/footer'
+} from '../context/DraggableContext';
+import { fetchEvents } from '../utils/fetchEvents';
+import Footer from '../components/footer';
 
 interface HomeFetchedEventsProps {
-  fetchedEvents: IEvent[]
-  randomBarCode: string
+  fetchedEvents: IEvent[];
+  randomBarCode: string;
 }
 
 const Home: NextPage<HomeFetchedEventsProps> = ({
@@ -31,41 +31,41 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0
-  })
-  const [draggable, setDraggable] = useState<boolean>(false)
+  });
+  const [draggable, setDraggable] = useState<boolean>(false);
 
   const value = useMemo<DraggableInterface>(
     () => ({ draggable, setDraggable }),
     [draggable]
-  )
+  );
 
   const resizeHandler = () => {
     setWindowSize({
       width: window.innerWidth,
       height: window.innerHeight
-    })
+    });
 
     if (windowSize.width > 640) {
-      setDraggable(true)
+      setDraggable(true);
     } else {
-      setDraggable(false)
+      setDraggable(false);
     }
-  }
+  };
 
   useEffect((): any => {
     if (window.innerWidth > 640) {
-      setDraggable(true)
+      setDraggable(true);
     } else {
-      setDraggable(false)
+      setDraggable(false);
     }
-  }, [])
+  }, []);
 
   useEffect((): any => {
-    window.addEventListener('resize', resizeHandler)
+    window.addEventListener('resize', resizeHandler);
     return () => {
-      window.removeEventListener('resize', resizeHandler)
-    }
-  })
+      window.removeEventListener('resize', resizeHandler);
+    };
+  });
 
   return (
     <DraggableContext.Provider value={value}>
@@ -100,15 +100,15 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         <Footer />
       </div>
     </DraggableContext.Provider>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fetchedEvents: IEvent[] = await fetchEvents()
-  let randomBarCode = ''
+  const fetchedEvents: IEvent[] = await fetchEvents();
+  let randomBarCode = '';
   for (let i = 0; i < 5; i++) {
-    randomBarCode += Math.floor(Math.random() * 10)
-    randomBarCode += '    '
+    randomBarCode += Math.floor(Math.random() * 10);
+    randomBarCode += '    ';
   }
   return {
     props: {
@@ -116,7 +116,7 @@ export const getStaticProps: GetStaticProps = async () => {
       randomBarCode
     },
     revalidate: 60
-  }
-}
+  };
+};
 
-export default Home
+export default Home;

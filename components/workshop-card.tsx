@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import { Remarkable } from 'remarkable'
-import { IEvent } from '../utils/interfaces/SanityEvent'
-import { GithubSlugger } from 'github-slugger-typescript'
+import Image from 'next/image';
+import { Remarkable } from 'remarkable';
+import { IEvent } from '../utils/interfaces/SanityEvent';
+import { GithubSlugger } from 'github-slugger-typescript';
 
 const WorkshopCard = (props: IEvent) => {
-  const md = new Remarkable()
-  const parsedDescription = md.render(props.description)
-  const date = new Date(props.date)
-  const slugger = new GithubSlugger()
+  const md = new Remarkable();
+  const parsedDescription = md.render(props.description);
+  const date = new Date(props.date);
+  const slugger = new GithubSlugger();
   const eventUrl =
-    'https://events.purduehackers.com/' + slugger.slug(props.name)
+    'https://events.purduehackers.com/' + slugger.slug(props.name);
 
   return (
     <div className="max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 border-slate-800 flex flex-col">
@@ -48,7 +48,7 @@ const WorkshopCard = (props: IEvent) => {
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default WorkshopCard
+export default WorkshopCard;

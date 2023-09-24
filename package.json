@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install",
+    "lint": "next lint --cache --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -22,6 +24,7 @@
     "clsx": "^2.0.0",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
+    "eslint-config-next": "^13.5.2",
     "github-slugger-typescript": "^1.1.0",
     "next": "^13.4.19",
     "nodemailer": "^6.9.1",
@@ -39,9 +42,22 @@
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
     "@types/remarkable": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
     "autoprefixer": "^10.4.7",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
+    "lint-staged": ">=10",
     "postcss": "^8.4.14",
+    "prettier": "^3.0.3",
     "tailwindcss": "^3.1.2",
     "typescript": "4.7.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write",
+    "*.js": "eslint --cache --fix"
   }
 }
