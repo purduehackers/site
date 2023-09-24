@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Image from 'next/image'
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 function JoinUs() {
-  const [water, setWater] = useState(false)
+  const [water, setWater] = useState(false);
 
   return (
     <div className="bg-white-400 min-h-screen pt-20 mb-[28rem] sm:mb-0 relative">
@@ -99,7 +99,7 @@ function JoinUs() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default JoinUs
+export default JoinUs;

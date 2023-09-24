@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Draggable from 'react-draggable'
+import Image from 'next/image';
+import Draggable from 'react-draggable';
 
 const DiscordWindow = ({
   channel,
@@ -9,12 +9,12 @@ const DiscordWindow = ({
   imageSrc,
   imageAlt
 }: {
-  channel: string
-  content: string
-  pfpImageSrc: string
-  username: string
-  imageSrc?: string
-  imageAlt?: string
+  channel: string;
+  content: string;
+  pfpImageSrc: string;
+  username: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }) => {
   return (
     <Draggable handle=".handle">
@@ -64,7 +64,7 @@ const DiscordWindow = ({
         </div>
       </div>
     </Draggable>
-  )
-}
+  );
+};
 
-export default DiscordWindow
+export default DiscordWindow;

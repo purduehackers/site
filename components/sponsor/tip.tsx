@@ -1,5 +1,5 @@
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function Tip({ text }: { text: string }): JSX.Element {
   return (
@@ -7,5 +7,5 @@ export function Tip({ text }: { text: string }): JSX.Element {
       <FontAwesomeIcon icon={faInfoCircle} className="pt-1" />
       <p className="text-base">{text}</p>
     </div>
-  )
+  );
 }

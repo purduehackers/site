@@ -1,5 +1,5 @@
-import React from 'react'
-import clsx from 'clsx'
+import React from 'react';
+import clsx from 'clsx';
 
 export function Grid({
   children,
@@ -8,11 +8,11 @@ export function Grid({
   singleRow,
   className
 }: {
-  children: React.ReactNode
-  largeGap?: boolean
-  overflow?: boolean
-  singleRow?: boolean
-  className?: string
+  children: React.ReactNode;
+  largeGap?: boolean;
+  overflow?: boolean;
+  singleRow?: boolean;
+  className?: string;
 }): JSX.Element {
   return (
     <div
@@ -29,5 +29,5 @@ export function Grid({
     >
       {children}
     </div>
-  )
+  );
 }

@@ -3,7 +3,7 @@ import {
   Discord,
   Github,
   Twitter
-} from '@icons-pack/react-simple-icons'
+} from '@icons-pack/react-simple-icons';
 
 const FooterLinks = () => (
   <div className="flex flex-row justify-center gap-x-8">
@@ -36,6 +36,6 @@ const FooterLinks = () => (
       <Twitter height={32} width={32} />
     </a>
   </div>
-)
+);
 
-export default FooterLinks
+export default FooterLinks;

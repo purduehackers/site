@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # Add the following
-yarn lint && npx lint-stagednpx lint-staged
+yarn lint && npx lint-staged

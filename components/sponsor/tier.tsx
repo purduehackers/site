@@ -4,10 +4,10 @@ export function Tier({
   price,
   mostPopular
 }: {
-  title: string
-  description: string
-  price?: number
-  mostPopular?: boolean
+  title: string;
+  description: string;
+  price?: number;
+  mostPopular?: boolean;
 }): JSX.Element {
   return (
     <div
@@ -30,5 +30,5 @@ export function Tier({
       </div>
       <p className="text-base print:text-sm">{description}</p>
     </div>
-  )
+  );
 }
