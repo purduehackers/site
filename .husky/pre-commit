@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Add the following
+yarn lint && npx lint-stagednpx lint-staged
