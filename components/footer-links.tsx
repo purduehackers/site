@@ -1,8 +1,8 @@
 import {
-  Siinstagram as Instagram,
-  Sidiscord as Discord,
-  Sigithub as Github,
-  Sitwitter as Twitter
+  Instagram,
+  Discord,
+  Github,
+  Twitter
 } from '@icons-pack/react-simple-icons';
 
 const FooterLinks = () => (
