@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { Context } from 'vm';
 import Point2D from '../utils/Point2D';
+import { useCallback } from 'react';
+import { useMemo } from 'react';
 
 interface Props {
   cursorPosition: Point2D;
@@ -76,43 +77,12 @@ export default function AnimatedCanvas({
   const animationFrameRequestRef = useRef<number | null>(null);
 
   const numCircles = 300;
-  let circles: RandomParticle[] = [];
-  let bolts: RandomParticle[] = [];
-
-  useEffect(() => {
-    lastRenderTimeRef.current = Date.now();
-    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
-    return () => {
-      if (animationFrameRequestRef.current != null) {
-        cancelAnimationFrame(animationFrameRequestRef.current);
-      }
-    };
-  }, []);
+  let circles: RandomParticle[] = useMemo(() => [], []);
+  let bolts: RandomParticle[] = useMemo(() => [], []);
 
   useEffect(() => {
     cursorPositionRef.current = cursorPosition;
   }, [cursorPosition]);
-
-  function renderFrame(): void {
-    const context = canvasRef.current?.getContext('2d');
-
-    if (context != null) {
-      context.canvas.width = document.documentElement.clientWidth;
-      context.canvas.height = document.documentElement.clientHeight * 1.25;
-
-      const timeNow = Date.now();
-      const deltaTime = timeNow - lastRenderTimeRef.current;
-
-      clearBackground(context);
-      context.fillStyle = 'white';
-      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
-      drawCircles(context, deltaTime);
-      drawBolts(context, deltaTime);
-
-      lastRenderTimeRef.current = timeNow;
-    }
-    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
-  }
 
   function clearBackground(context: CanvasRenderingContext2D): void {
     const { width, height } = context.canvas;
@@ -121,38 +91,38 @@ export default function AnimatedCanvas({
     context.fill();
   }
 
-  function drawCircles(
-    context: CanvasRenderingContext2D,
-    deltaTime: number
-  ): void {
-    for (let i = 0; i < numCircles; i++) {
-      let circle = circles[i];
-      if (circle != null) {
-        circle.move(deltaTime);
-        circle.draw(context);
-      } else {
-        let newCircle = new RandomParticle(
-          context.canvas.width / 2,
-          context.canvas.height / 2
-        );
-        circles.push(newCircle);
-        newCircle.draw(context);
+  const drawCircles = useCallback(
+    (context: CanvasRenderingContext2D, deltaTime: number) => {
+      for (let i = 0; i < numCircles; i++) {
+        let circle = circles[i];
+        if (circle != null) {
+          circle.move(deltaTime);
+          circle.draw(context);
+        } else {
+          let newCircle = new RandomParticle(
+            context.canvas.width / 2,
+            context.canvas.height / 2
+          );
+          circles.push(newCircle);
+          newCircle.draw(context);
+        }
       }
-    }
-  }
+    },
+    [circles]
+  );
 
-  function drawBolts(
-    context: CanvasRenderingContext2D,
-    deltaTime: number
-  ): void {
-    for (let i = 0; i < bolts.length; i++) {
-      let bolt = bolts[i];
-      if (bolt != null) {
-        bolt.move(deltaTime);
-        bolt.draw(context);
+  const drawBolts = useCallback(
+    (context: CanvasRenderingContext2D, deltaTime: number) => {
+      for (let i = 0; i < bolts.length; i++) {
+        let bolt = bolts[i];
+        if (bolt != null) {
+          bolt.move(deltaTime);
+          bolt.draw(context);
+        }
       }
-    }
-  }
+    },
+    [bolts]
+  );
 
   function drawRevolvingCircle(
     context: CanvasRenderingContext2D,
@@ -194,8 +164,45 @@ export default function AnimatedCanvas({
     }
     let newBolt = new RandomParticle(position.x, position.y);
     bolts.push(newBolt);
-    console.log(bolts);
   }
+
+  const renderFrame = useCallback(() => {
+    const context = canvasRef.current?.getContext('2d');
+
+    if (context != null) {
+      context.canvas.width = document.documentElement.clientWidth;
+      context.canvas.height = document.documentElement.clientHeight * 1.25;
+
+      const timeNow = Date.now();
+      const deltaTime = timeNow - lastRenderTimeRef.current;
+
+      clearBackground(context);
+      context.fillStyle = 'white';
+      drawRevolvingCircle(context, cursorPositionRef.current, deltaTime);
+      drawCircles(context, deltaTime);
+      drawBolts(context, deltaTime);
+
+      lastRenderTimeRef.current = timeNow;
+    }
+    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
+  }, [
+    canvasRef,
+    lastRenderTimeRef,
+    cursorPositionRef,
+    animationFrameRequestRef,
+    drawBolts,
+    drawCircles
+  ]);
+
+  useEffect(() => {
+    lastRenderTimeRef.current = Date.now();
+    animationFrameRequestRef.current = requestAnimationFrame(renderFrame);
+    return () => {
+      if (animationFrameRequestRef.current != null) {
+        cancelAnimationFrame(animationFrameRequestRef.current);
+      }
+    };
+  }, [renderFrame]);
 
   return (
     <canvas

@@ -99,7 +99,6 @@ const Email = () => {
 
       const { error } = await res.json();
       if (error) {
-        console.log(error);
         setErrorMessage('Email failed to send :( \nPlease try again.');
         setStatus(Status.Error);
         setStatusColor(StatusColor.Error);
@@ -288,7 +287,6 @@ const Email = () => {
                   >
                     Send
                   </button>
-                  <div className="bg-green-500 bg-amber-400 bg-red-500 bg-blue-400"></div>
                   <div className="bg-white ml-5 font-mono text-sm border-2 border-black px-2 py-2">
                     status:{' '}
                     <span
@@ -525,7 +523,6 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300 bg-blue-300"></div>
                     <div
                       className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}
                     >

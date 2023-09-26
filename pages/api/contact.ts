@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
+export default function contact(req: NextApiRequest, res: NextApiResponse) {
   const PASSWORD = process.env.SEND_APP_PASSWORD;
 
   const transporter = nodemailer.createTransport({
@@ -24,10 +24,8 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
 
   transporter.sendMail(mailData, (err, info) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({ error: err.message });
     } else {
-      console.log(info);
       return res.status(200).json({ error: '' });
     }
   });

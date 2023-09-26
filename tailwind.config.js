@@ -4,6 +4,17 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  safelist: [
+    'bg-green-500',
+    'bg-amber-400',
+    'bg-red-500',
+    'bg-blue-400',
+    'bg-orange-300',
+    'bg-lime-300',
+    'bg-pink-300',
+    'bg-yellow-300',
+    'bg-blue-300'
+  ],
   theme: {
     fontFamily: {
       main: ['var(--font-space-grotesk)'],
