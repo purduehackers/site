@@ -81,14 +81,27 @@ export default function AnimatedCanvas({
   let bolts: RandomParticle[] = useMemo(() => [], []);
 
   useEffect(() => {
+    const resizeCanvas = () => {
+      const context = canvasRef.current?.getContext('2d');
+      if (context) {
+        context.canvas.width = document.documentElement.clientWidth;
+        context.canvas.height = document.documentElement.clientHeight * 1.25;
+      }
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  useEffect(() => {
     cursorPositionRef.current = cursorPosition;
   }, [cursorPosition]);
 
   function clearBackground(context: CanvasRenderingContext2D): void {
     const { width, height } = context.canvas;
-    context.rect(0, 0, width, height);
-    context.fillStyle = 'rgba(0, 0, 0, 0)';
-    context.fill();
+    context.clearRect(0, 0, width, height);
   }
 
   const drawCircles = useCallback(
@@ -170,9 +183,6 @@ export default function AnimatedCanvas({
     const context = canvasRef.current?.getContext('2d');
 
     if (context != null) {
-      context.canvas.width = document.documentElement.clientWidth;
-      context.canvas.height = document.documentElement.clientHeight * 1.25;
-
       const timeNow = Date.now();
       const deltaTime = timeNow - lastRenderTimeRef.current;
 
