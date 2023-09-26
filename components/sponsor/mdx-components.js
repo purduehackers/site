@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export const MDXComponents = {
   h1: props => (
     <h1
@@ -19,7 +20,8 @@ export const MDXComponents = {
       {...props}
     ></a>
   ),
-  img: props => <img {...props} className="rounded" />,
+  // eslint-disable-next-line jsx-a11y/alt-text
+  img: props => <img {...props} className="rounded" />, // enforcing alt text in mdx file
   ul: props => (
     <ul className="list-disc list-outside ml-6 sm:ml-0">{props.children}</ul>
   ),

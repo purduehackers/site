@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */ // Using next/image dramatically increases the pdf's size when printing
 import Head from 'next/head';
 import { Content } from '../components/sponsor/content';
 import SponsorContent from '../components/sponsor/sponsor.mdx';
