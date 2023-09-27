@@ -21,7 +21,7 @@ module.exports = {
       sans: ['var(--font-inter)'],
       mono: ['var(--font-space-mono)'],
       serif: ['var(--font-ibm-plex-serif)'],
-      pixel: ['var(--press-start)'],
+      pixel: ['var(--font-press-start)'],
       alegre: ['var(--font-alegreya)']
     },
     extend: {
