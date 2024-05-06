@@ -467,7 +467,7 @@ const Email = () => {
                       many new things, otherwise you’ll give up. Then, you have
                       to find the time and motivation to actually build the
                       thing—all while being pulled in every direction by
-                      academic and social oligations.
+                      academic and social obligations.
                     </p>
                     <p>
                       It’s no surprise most students simply don’t bother, &
