@@ -5,8 +5,19 @@ import { LightningTime } from '@purduehackers/time'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
+import { faRepeat, faMagicWandSparkles } from '@fortawesome/free-solid-svg-icons'
 
-const Countdown = () => {
+const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
+    // Display state
+    const [display, setDisplay] = useState('lightning')
+
+    // Regular time countdown
+    const [days, setDays] = useState('5')
+    const [hours, setHours] = useState('16')
+    const [minutes, setMinutes] = useState('54')
+    const [seconds, setSeconds] = useState('33')
+
+    // Lightning time 
     const [bolts, setBolts] = useState('0')
     const [zaps, setZaps] = useState('0')
     const [sparks, setSparks] = useState('0')
@@ -16,16 +27,27 @@ const Countdown = () => {
     const [zapColor, setZapColor] = useState('#FFFFFF')
     const [sparkColor, setSparkColor] = useState('#FFFFFF')
 
+    //let countDownDate = new Date(2024, 8, 20, 20, 0, 0).getTime()
+    let countDownDate = hackNightDate.getTime()
+
     useEffect(() => {
         const timer = setInterval(() => {
+            // Countdown 
             const currentTime = new Date()
+            let timeDiff = countDownDate - currentTime.getTime()
+
+            // Time calculations for days, hours, minutes and seconds
+            setDays(Math.floor(timeDiff / (1000 * 60 * 60 * 24)).toString())
+            setHours(Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString())
+            setMinutes(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)).toString())
+            setSeconds(Math.floor((timeDiff % (1000 * 60)) / 1000).toString())
+
+            // Lightning time
             const lt = new LightningTime({
                 staticBoltColors: [50, 250],
                 staticZapColors: [250, 0],
                 staticSparkColors: [250, 0]
             })
-
-            var countDownDate = new Date("Jul 25, 2021 2:42:20");
 
             const convertedTime = lt.convertToLightning(currentTime)
             const parts = lt.getParts(convertedTime.lightningString)
@@ -49,22 +71,33 @@ const Countdown = () => {
     return (
         <Draggable>
             <div
-                className="border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
+                className="bg-black border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
                 shadow-email shadow-gray-900/30 h-fit absolute top-8 left-20 sm:left-32 cursor-pointer"
             >
                 <div className="rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
                     <div className="text-white font-bold font-mono">
                         <FontAwesomeIcon icon={faWindows} size="1x" />{' '}
-                        time.exe
+                        {display}.exe {' '}
+                        <FontAwesomeIcon icon={faRepeat} size="1x" 
+                            onClick={() => (display == 'lightning') ? setDisplay('countdown') : setDisplay('lightning')}/> {' '}
+                        <FontAwesomeIcon icon={faMagicWandSparkles} size="1x" />
                     </div>
                 </div>
-                <div className="bg-black rounded-b-lg text-white py-0 flex flex-col justify-center items-center">
-                    <div className="text-[70px] font-digital">
-                        <span style={{color: boltColor}}>{bolts}</span>~
-                        <span style={{color: zapColor}}>{zaps}</span>~
-                        <span style={{color: sparkColor}}>{sparks}</span>
-                        <span className="text-[30px] font-digitalMono">|{charges}</span>
-                    </div>
+                <div className="rounded-b-lg text-white py-0 flex flex-col justify-center items-center">
+                    {display == 'lightning' ?
+                        <div className="text-[70px] font-digital">
+                            <span style={{color: boltColor}}>{bolts}</span>~
+                            <span style={{color: zapColor}}>{zaps}</span>~
+                            <span style={{color: sparkColor}}>{sparks}</span>
+                            <span className="text-[30px] font-digitalMono">|{charges}</span>
+                        </div>
+                        :
+                        <div className="text-[70px] font-digital">
+                            <span style={{color: boltColor}}>{days}</span>:
+                            <span style={{color: zapColor}}>{hours}</span>:
+                            <span style={{color: sparkColor}}>{minutes}</span>
+                            <span className="text-[30px] font-digitalMono">:{seconds}</span>
+                        </div>}
                 </div>
             </div>
         </Draggable>

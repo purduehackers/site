@@ -48,7 +48,7 @@ const HackNight = ({
           Hack Night
         </h1>
         <div className="relative flex flex-col items-center mt-8">
-          <Countdown />
+          <Countdown hackNightDate={upcomingHackNight.date} />
           <Draggable disabled={!draggable} handle=".handle">
             <div
               className="border-solid border-black border-2 z-10 shadow-email shadow-gray-900/30

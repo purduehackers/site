@@ -120,7 +120,7 @@ export const getStaticProps: GetStaticProps = async () => {
   let fetchedHackNights: IEvent[] = []
   let upcomingHackNight: IEvent = { 
     name: '',
-    date: new Date(),
+    date: new Date(2024, 8, 20, 20, 0, 0),
     description: '',
     rsvp: '',
     img: '',

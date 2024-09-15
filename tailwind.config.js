@@ -13,8 +13,8 @@ module.exports = {
       alka: '"Alkalami", serif',
       noto: '"Noto Serif Gujarati", serif',
       alegre: '"Alegreya", serif',
-      digital: '"Digital-7"',
-      digitalMono: '"Digital-7 Mono"'
+      digital: '"Digital"',
+      digitalMono: '"Digital Mono"'
     },
     extend: {
       colors: {
