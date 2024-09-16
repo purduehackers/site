@@ -5,17 +5,18 @@ import { LightningTime } from '@purduehackers/time'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
-import { faRepeat, faMagicWandSparkles } from '@fortawesome/free-solid-svg-icons'
+import { faRepeat, faMagicWandSparkles, faBolt, faBoltLightning } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
     // Display state
     const [display, setDisplay] = useState('lightning')
 
     // Regular time countdown
-    const [days, setDays] = useState('5')
-    const [hours, setHours] = useState('16')
-    const [minutes, setMinutes] = useState('54')
-    const [seconds, setSeconds] = useState('33')
+    const [days, setDays] = useState('0')
+    const [hours, setHours] = useState('0')
+    const [minutes, setMinutes] = useState('0')
+    const [seconds, setSeconds] = useState('0')
 
     // Lightning time 
     const [bolts, setBolts] = useState('0')
@@ -32,11 +33,18 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            // Countdown 
+            /* Countdown */
+
+            // Get difference between current date and date we're counting to
             const currentTime = new Date()
             let timeDiff = countDownDate - currentTime.getTime()
 
-            // Time calculations for days, hours, minutes and seconds
+            // Create date object from time diff to pass to lightning time
+            let timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
+            //console.log('current time: ' + currentTime)
+            //console.log('time diff date: ' + timeDiffDate)
+
+            // Calculate and update days, hours, minutes and seconds
             setDays(Math.floor(timeDiff / (1000 * 60 * 60 * 24)).toString())
             setHours(Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString())
             setMinutes(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)).toString())
@@ -49,10 +57,12 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
                 staticSparkColors: [250, 0]
             })
 
-            const convertedTime = lt.convertToLightning(currentTime)
+            // Convert countdown time to lightning time
+            const convertedTime = lt.convertToLightning(timeDiffDate)
             const parts = lt.getParts(convertedTime.lightningString)
             const colors = convertedTime.colors
 
+            // Update lightning time units
             setBolts(parts.bolts)
             setZaps(parts.zaps)
             setSparks(parts.sparks)
@@ -80,12 +90,20 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
                         {display}.exe {' '}
                         <FontAwesomeIcon icon={faRepeat} size="1x" 
                             onClick={() => (display == 'lightning') ? setDisplay('countdown') : setDisplay('lightning')}/> {' '}
-                        <FontAwesomeIcon icon={faMagicWandSparkles} size="1x" />
+                        <Link href={'https://blog.purduehackers.com/posts/lightning-time'} target='_blank'>
+                            <FontAwesomeIcon icon={faMagicWandSparkles} size="1x" className="text-sky-400" />
+                        </Link>  {' '}
+                        {(display == 'lightning') &&
+                            <Link href={'https://blog.purduehackers.com/posts/lightning-time'} target='_blank'>
+                                <FontAwesomeIcon icon={faBolt} size="1x" className="text-yellow-400" />
+                            </Link>
+                        }
                     </div>
                 </div>
-                <div className="rounded-b-lg text-white py-0 flex flex-col justify-center items-center">
+                <div className="rounded-b-lg text-white px-4 py-0 flex flex-col justify-center items-center">
                     {display == 'lightning' ?
                         <div className="text-[70px] font-digital">
+                            <span className="text-yellow-400">{days}</span>:
                             <span style={{color: boltColor}}>{bolts}</span>~
                             <span style={{color: zapColor}}>{zaps}</span>~
                             <span style={{color: sparkColor}}>{sparks}</span>
@@ -93,9 +111,9 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
                         </div>
                         :
                         <div className="text-[70px] font-digital">
-                            <span style={{color: boltColor}}>{days}</span>:
-                            <span style={{color: zapColor}}>{hours}</span>:
-                            <span style={{color: sparkColor}}>{minutes}</span>
+                            <span className="text-yellow-400">{days}</span><span className="text-[18px] font-digitalMono">days</span>:
+                            <span style={{color: zapColor}}>{hours}</span><span className="text-[18px] font-digitalMono">hr</span>:
+                            <span style={{color: sparkColor}}>{minutes}</span><span className="text-[18px] font-digitalMono">min</span>
                             <span className="text-[30px] font-digitalMono">:{seconds}</span>
                         </div>}
                 </div>

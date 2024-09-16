@@ -307,7 +307,7 @@ const HackNight = ({
                 </div>
                 <div className="w-full h-full p-4 text-center text-base uppercase">
                   <p>
-                    THE NEXT HACK NIGHT IS <br/>
+                    THE NEXT PASSPORT CEREMONY IS <br/>
                     <span className="font-semibold text-3xl"> ✨ Friday {upcomingHackNight.date.getMonth() + 1}/{upcomingHackNight.date.getDate()} ✨</span> <br/> AT <br/>
                     <span className="font-bold text-2xl text-yellow-300"> {upcomingHackNight.location}</span> <br/> AND ITS COLOR IS <br/>
                     <span className="font-bold text-4xl text-fuchsia-500"> FUCHSIA.</span>
