@@ -17,23 +17,15 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      // merge
-      /*main: '"Space Grotesk", system-ui, Roboto, sans-serif',
-      sans: '"Inter", sans-serif',
-      mono: '"Space Mono"',
-      pixel: '"Press Start 2P"',
-      alka: '"Alkalami", serif',
-      noto: '"Noto Serif Gujarati", serif',
-      alegre: '"Alegreya", serif',*/
-      digital: '"Digital"',
-      digitalMono: '"Digital Mono"'
-
       main: ['var(--font-space-grotesk)'],
       sans: ['var(--font-inter)'],
       mono: ['var(--font-space-mono)'],
       serif: ['var(--font-ibm-plex-serif)'],
       pixel: ['var(--font-press-start)'],
-      alegre: ['var(--font-alegreya)']
+      alegre: ['var(--font-alegreya)'],
+
+      digital: '"Digital"',
+      digitalMono: '"Digital Mono"'
     },
     extend: {
       colors: {
