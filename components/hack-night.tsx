@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { DraggableContext } from '../context/DraggableContext'
 import { IEvent } from '../utils/interfaces/SanityEvent'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLeftLong,
   faRightLong,
@@ -16,8 +16,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
-import SprayCanvas from './spray-canvas'
-import Point2D from '../utils/Point2D'
+import SprayCanvas from './spray-canvas';
+import Point2D from '../utils/Point2D';
 
 import HackNightCard from './hack-night-card'
 import Countdown from './countdown'
@@ -34,7 +34,7 @@ const HackNight = ({
   const { draggable } = useContext(DraggableContext)
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
 
-  const [spray, setSpray] = useState(false)
+  const [spray, setSpray] = useState(false);
 
   return (
     <div className="bg-gray-dark min-h-screen">
@@ -87,20 +87,20 @@ const HackNight = ({
                     Have you ever felt burdened by the weight of your
                     ever-increasing responsibilities? Do you want to escape from
                     reality, to a plane of existence far away from the endless
-                    monotony of daily life? Well, you can't. But you know what
-                    you can do? Come to Hack Night! 🌙
+                    monotony of daily life? Well, you can&apos;t. But you know
+                    what you can do? Come to Hack Night! 🌙
                   </p>
                   <p className="text-mxs">
                     Hack Night is uninterrupted time to work on personal
                     projects—anything from a little hack that you ship by the
                     end of the night, to part of a larger project. We run
-                    Sessions throughout to help you get started. It's like a
-                    mini-hackathon every week. 💫 💻
+                    Sessions throughout to help you get started. It&apos;s like
+                    a mini-hackathon every week. 💫 💻
                   </p>
                   <p>
                     Join us{' '}
-                    <span className="font-bold">every Friday at 8pm</span> in{' '}
-                    <span className="font-bold">WALC 2124</span>.
+                    <span className="font-bold">every Friday at 8pm</span> at{' '}
+                    <span className="font-bold">the Bechtel Center</span>.
                   </p>
                 </div>
               </div>
@@ -165,9 +165,9 @@ const HackNight = ({
                 <p>Password: </p>
                 <p>Last login: Fri May 04 16:16:08 on tty2</p>
                 <p>wackhacker@hacknight:~$ _</p>
-                <p>Adding user 'hacker' ...</p>
-                <p>Creating home directory '/dir' ...</p>
-                <p>Copying files from '/etc/skel' ...</p>
+                <p>Adding user &apos;hacker&apos; ...</p>
+                <p>Creating home directory &apos;/dir&apos; ...</p>
+                <p>Copying files from &apos;/etc/skel&apos; ...</p>
                 <p>Is this information correct? [Y/n]</p>
               </div>
             </div>
@@ -300,7 +300,7 @@ const HackNight = ({
                   >
                     <button
                       onClick={() => {
-                        setSpray(true)
+                        setSpray(true);
                       }}
                       className="email-btn mx-7"
                     >
@@ -330,7 +330,7 @@ const HackNight = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HackNight
+export default HackNight;

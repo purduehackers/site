@@ -1,5 +1,5 @@
-import DiscordWindow from './discord-window'
-import { discordMessages } from '../utils/data'
+import DiscordWindow from './discord-window';
+import { discordMessages } from '../utils/data';
 
 const Community = () => (
   <div className="bg-yellow-discord-role">
@@ -14,14 +14,14 @@ const Community = () => (
           </h1>
           <p>
             The heart & soul of Purdue Hackers is our community on Discord with
-            1000+ people. Share what you've made in{' '}
+            1000+ people. Share what you&apos;ve made in{' '}
             <span className="channel-name">#ship</span>, chat about rainbows in{' '}
             <span className="channel-name">#lounge</span>, share your music
             musings in <span className="channel-name">#music</span>, ask for
             technical help in <span className="channel-name">#code</span>
-            —wherever you look, you'll find weird, kind, radically inclusive,
-            and <span className="italic">really cool</span> people. It's also
-            where we announce upcoming events.
+            —wherever you look, you&apos;ll find weird, kind, radically
+            inclusive, and <span className="italic">really cool</span> people.
+            It&apos;s also where we announce upcoming events.
           </p>
           <p>
             Enter a world of magic, find people who push you to be your best
@@ -45,6 +45,6 @@ const Community = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Community
+export default Community;

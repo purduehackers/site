@@ -1,15 +1,15 @@
-import WorkshopCard from './workshop-card'
-import splitArticle from '../utils/splitArticle'
-import Image from 'next/image'
-import { IEvent } from '../utils/interfaces/SanityEvent'
-import Link from 'next/link'
+import WorkshopCard from './workshop-card';
+import splitArticle from '../utils/splitArticle';
+import Image from 'next/image';
+import { IEvent } from '../utils/interfaces/SanityEvent';
+import Link from 'next/link';
 
 const Workshops = ({
   fetchedWorkshops,
   randomBarCode
 }: {
-  fetchedWorkshops: IEvent[]
-  randomBarCode: string
+  fetchedWorkshops: IEvent[];
+  randomBarCode: string;
 }) => {
   return (
     <div className="bg-[url('/img/news_paper_bg.jpg')] bg-cover font-alegre">
@@ -19,7 +19,7 @@ const Workshops = ({
             <div className="flex justify-center">
               <div className="hidden w-48 p-5 md:block">
                 <div className="p-2 border-2 border-slate-800">
-                  <p>"All things are ready if our minds be so."</p>
+                  <p>&quot;All things are ready if our minds be so.&quot;</p>
                   <p className="text-right">- William Shakespeare</p>
                 </div>
               </div>
@@ -93,7 +93,7 @@ const Workshops = ({
                       location={workshop.location}
                       key={workshop.name}
                     />
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -121,7 +121,7 @@ const Workshops = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Workshops
+export default Workshops;

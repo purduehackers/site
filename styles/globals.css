@@ -11,8 +11,21 @@
 @tailwind utilities;
 
 @layer base {
+  @media print {
+    @page :first {
+      margin: 0 0 15mm 0;
+    }
+    @page {
+      margin-top: 15mm;
+      margin-bottom: 15mm;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
   body {
     @apply font-main;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   :not(.message *) > ::selection {
     background: #fcd34d;
@@ -47,5 +60,25 @@
   }
   .no-ring {
     @apply focus:ring-0 focus:ring-offset-0 focus:border-black !important;
+  }
+  .sponsor-overflow {
+    position: relative;
+    left: -80px;
+    width: calc(100% + 160px);
+  }
+  .page-break {
+    display: none;
+  }
+  @media print {
+    .sponsor-overflow {
+      position: static;
+      left: 0;
+      width: auto;
+    }
+    .page-break {
+      display: block;
+      visibility: hidden;
+      break-before: page;
+    }
   }
 }

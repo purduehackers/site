@@ -1,9 +1,9 @@
-import Draggable from 'react-draggable'
-import { useState, useContext, useEffect, MouseEvent } from 'react'
+import Draggable from 'react-draggable';
+import { useState, useContext, useEffect, MouseEvent } from 'react';
 
-import { DraggableContext } from '../context/DraggableContext'
+import { DraggableContext } from '../context/DraggableContext';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faPaperPlane,
@@ -12,33 +12,33 @@ import {
   faCircleRadiation,
   faXmark,
   faTriangleExclamation
-} from '@fortawesome/free-solid-svg-icons'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+} from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
-import { emails } from '../utils/data'
+import { emails } from '../utils/data';
 
 function supersecret(input: string) {
-  let temp = input.charCodeAt(0) + ' '
+  let temp = input.charCodeAt(0) + ' ';
   for (let i = 1; i < input.length - 1; i++) {
-    temp += (input.charCodeAt(i) ^ input.charCodeAt(i - 1)) + ' '
+    temp += (input.charCodeAt(i) ^ input.charCodeAt(i - 1)) + ' ';
   }
-  temp += input.charCodeAt(input.length - 1)
-  return temp
+  temp += input.charCodeAt(input.length - 1);
+  return temp;
 }
 
 const Email = () => {
-  const { draggable } = useContext(DraggableContext)
+  const { draggable } = useContext(DraggableContext);
 
   // email windows state
-  const [open, setOpen] = useState([true, false, false, false, false, false])
-  const [read, setRead] = useState([true, false, false, false, false, false])
+  const [open, setOpen] = useState([true, false, false, false, false, false]);
+  const [read, setRead] = useState([true, false, false, false, false, false]);
 
   // messaging form state
-  const [showSendFrame, setShowSendFrame] = useState(false)
-  const [userEmail, setUserEmail] = useState('')
-  const [subject, setSubject] = useState('')
-  const [message, setMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [showSendFrame, setShowSendFrame] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   enum StatusColor {
     Editing = 'blue-400',
@@ -46,47 +46,47 @@ const Email = () => {
     Error = 'red-500',
     Success = 'green-500'
   }
-  const [statusColor, setStatusColor] = useState(StatusColor.Editing)
+  const [statusColor, setStatusColor] = useState(StatusColor.Editing);
   enum Status {
     Editing = 'editing',
     Sending = 'sending...',
     Error = 'ERROR',
     Success = 'sent!'
   }
-  const [status, setStatus] = useState(Status.Editing)
+  const [status, setStatus] = useState(Status.Editing);
 
   // checks form fields for validity
   const handleValidation = () => {
     if (!userEmail.trim() || !subject.trim() || !message.trim()) {
-      setErrorMessage('Please fill in all required fields.')
-      return false
+      setErrorMessage('Please fill in all required fields.');
+      return false;
     }
     if (
       !userEmail.includes('@') ||
       !userEmail.substring(userEmail.indexOf('@') + 1)
     ) {
-      setErrorMessage('Please enter a valid email.')
-      return false
+      setErrorMessage('Please enter a valid email.');
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
   // handles submission of email form
   const handleSubmit = async (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // send email if form is valid
     if (handleValidation()) {
-      setStatus(Status.Sending)
-      setStatusColor(StatusColor.Sending)
+      setStatus(Status.Sending);
+      setStatusColor(StatusColor.Sending);
 
       let data = {
         userEmail,
         subject,
         message
-      }
+      };
 
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -95,47 +95,46 @@ const Email = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-      })
+      });
 
-      const { error } = await res.json()
+      const { error } = await res.json();
       if (error) {
-        console.log(error)
-        setErrorMessage('Email failed to send :( \nPlease try again.')
-        setStatus(Status.Error)
-        setStatusColor(StatusColor.Error)
+        setErrorMessage('Email failed to send :( \nPlease try again.');
+        setStatus(Status.Error);
+        setStatusColor(StatusColor.Error);
       } else {
-        setUserEmail('')
-        setSubject('')
-        setMessage('')
-        setErrorMessage('')
-        setStatus(Status.Success)
-        setStatusColor(StatusColor.Success)
+        setUserEmail('');
+        setSubject('');
+        setMessage('');
+        setErrorMessage('');
+        setStatus(Status.Success);
+        setStatusColor(StatusColor.Success);
       }
     } else {
-      setStatus(Status.Error)
-      setStatusColor(StatusColor.Error)
+      setStatus(Status.Error);
+      setStatusColor(StatusColor.Error);
     }
-  }
+  };
 
-  const [password, setPassword] = useState('')
-  const [showPWFrame, setShowPWFrame] = useState(false)
+  const [password, setPassword] = useState('');
+  const [showPWFrame, setShowPWFrame] = useState(false);
 
   useEffect(() => {
     if (
       supersecret(password) ===
       '104 9 2 8 16 19 88 71 40 59 85 85 59 38 73 69 42 56 84 71 43 50 20 38 47 68 71 0 4 71 66 22 91 125'
     ) {
-      alert(`Hmm, I wonder what else that password could do! Hehe`)
-      setPassword('')
+      alert(`Hmm, I wonder what else that password could do! Hehe`);
+      setPassword('');
     }
-  }, [password])
+  }, [password]);
   useEffect(() => {
     if (!showPWFrame) {
-      setPassword('')
+      setPassword('');
     }
-  }, [showPWFrame])
+  }, [showPWFrame]);
 
-  const [showScrollReminder, setShowScrollReminder] = useState(true)
+  const [showScrollReminder, setShowScrollReminder] = useState(true);
 
   return (
     <div className="bg-teal-500 min-h-screen sm:p-24 pb-8">
@@ -197,7 +196,7 @@ const Email = () => {
                   type="password"
                   value={password}
                   autoFocus
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -240,10 +239,10 @@ const Email = () => {
                     name="email"
                     placeholder="wackhacker@gmail.com"
                     value={userEmail}
-                    onChange={(e) => {
-                      setUserEmail(e.target.value)
-                      setStatus(Status.Editing)
-                      setStatusColor(StatusColor.Editing)
+                    onChange={e => {
+                      setUserEmail(e.target.value);
+                      setStatus(Status.Editing);
+                      setStatusColor(StatusColor.Editing);
                     }}
                     required
                   />
@@ -256,10 +255,10 @@ const Email = () => {
                     name="subject"
                     placeholder="Inquiry of the Utmost Importance"
                     value={subject}
-                    onChange={(e) => {
-                      setSubject(e.target.value)
-                      setStatus(Status.Editing)
-                      setStatusColor(StatusColor.Editing)
+                    onChange={e => {
+                      setSubject(e.target.value);
+                      setStatus(Status.Editing);
+                      setStatusColor(StatusColor.Editing);
                     }}
                     required
                   />
@@ -271,10 +270,10 @@ const Email = () => {
                   name="message"
                   placeholder="Today was the most glorious day, for I had tacos for lunch..."
                   value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value)
-                    setStatus(Status.Editing)
-                    setStatusColor(StatusColor.Editing)
+                  onChange={e => {
+                    setMessage(e.target.value);
+                    setStatus(Status.Editing);
+                    setStatusColor(StatusColor.Editing);
                   }}
                   required
                 ></textarea>
@@ -282,13 +281,12 @@ const Email = () => {
                   <button
                     className="email-btn bg-pink-300"
                     type="submit"
-                    onClick={(e) => {
-                      handleSubmit(e)
+                    onClick={e => {
+                      handleSubmit(e);
                     }}
                   >
                     Send
                   </button>
-                  <div className="bg-green-500 bg-amber-400 bg-red-500 bg-blue-400"></div>
                   <div className="bg-white ml-5 font-mono text-sm border-2 border-black px-2 py-2">
                     status:{' '}
                     <span
@@ -344,13 +342,13 @@ const Email = () => {
                       hover:bg-gray-100 cursor-pointer`}
                   key={i}
                   onClick={() => {
-                    let newOpen = open
-                    newOpen[i] = true
-                    setOpen((newOpen) => [...newOpen])
+                    let newOpen = open;
+                    newOpen[i] = true;
+                    setOpen(newOpen => [...newOpen]);
 
-                    let newRead = read
-                    newRead[i] = true
-                    setRead((newRead) => [...newRead])
+                    let newRead = read;
+                    newRead[i] = true;
+                    setRead(newRead => [...newRead]);
                   }}
                 >
                   <div className="flex justify-between">
@@ -397,7 +395,7 @@ const Email = () => {
                     )}
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
           {open[0] && (
@@ -421,9 +419,9 @@ const Email = () => {
                   <p
                     className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                     onClick={() => {
-                      let newOpen = open
-                      newOpen[0] = false
-                      setOpen((newOpen) => [...newOpen])
+                      let newOpen = open;
+                      newOpen[0] = false;
+                      setOpen(newOpen => [...newOpen]);
                     }}
                   >
                     <FontAwesomeIcon icon={faXmark} className="text-xs" />
@@ -469,7 +467,7 @@ const Email = () => {
                       many new things, otherwise you’ll give up. Then, you have
                       to find the time and motivation to actually build the
                       thing—all while being pulled in every direction by
-                      academic and social oligations.
+                      academic and social obligations.
                     </p>
                     <p>
                       It’s no surprise most students simply don’t bother, &
@@ -499,9 +497,9 @@ const Email = () => {
                       , and make magic with them. ✨
                     </p>
                     <p>
-                      If you go to Purdue—whether you've never written code
-                      before, or are highly technical, whether you're an art
-                      major or a CS major—
+                      If you go to Purdue—whether you&apos;ve never written code
+                      before, or are highly technical, whether you&apos;re an
+                      art major or a CS major—
                       <span className="font-bold">
                         we invite you to join our universe.
                       </span>
@@ -525,16 +523,15 @@ const Email = () => {
                     className={`border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[28rem]
                     shadow-email shadow-gray-900/30 h-fit absolute z-[${i}0] overflow-hidden`}
                   >
-                    <div className="bg-orange-300 bg-lime-300 bg-pink-300 bg-yellow-300 bg-blue-300"></div>
                     <div
                       className={`border-b-2 border-black flex flex-row bg-${email.color}-300 cursor-pointer`}
                     >
                       <p
                         className="px-2 border-r-2 border-black bg-red-400 hover:bg-red-500"
                         onClick={() => {
-                          let newOpen = open
-                          newOpen[i] = false
-                          setOpen((newOpen) => [...newOpen])
+                          let newOpen = open;
+                          newOpen[i] = false;
+                          setOpen(newOpen => [...newOpen]);
                         }}
                       >
                         <FontAwesomeIcon icon={faXmark} className="text-xs" />
@@ -560,12 +557,12 @@ const Email = () => {
                     </div>
                   </div>
                 </Draggable>
-              )
+              );
           })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Email
+export default Email;
