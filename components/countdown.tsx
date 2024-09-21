@@ -28,8 +28,6 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
     const [zapColor, setZapColor] = useState('#FFFFFF')
     const [sparkColor, setSparkColor] = useState('#FFFFFF')
 
-    //let countDownDate = new Date(2024, 8, 20, 20, 0, 0).getTime()
-
     useEffect(() => {
         const timer = setInterval(() => {
             /* Countdown */

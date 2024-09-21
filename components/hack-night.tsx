@@ -1,6 +1,7 @@
 import Draggable from 'react-draggable'
 import { useContext, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { DraggableContext } from '../context/DraggableContext'
 import { IEvent } from '../utils/interfaces/SanityEvent'
@@ -101,6 +102,43 @@ const HackNight = ({
                     <span className="font-bold">every Friday at 8pm</span> in{' '}
                     <span className="font-bold">WALC 2124</span>.
                   </p>
+                </div>
+              </div>
+            </div>
+          </Draggable>
+          <Draggable handle=".handle">
+            <div
+              className="absolute top-[-100px] left-[850px] w-96 sm:w-[300px] border-2 border-white flex flex-col justify-between items-center bg-gray-800 text-white
+                mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-orange-300/70"
+            >
+              <div
+                className="handle bg-cyan-400 animate-bg-flash w-full flex border-b-2 border-white
+                  cursor-pointer hover:bg-purple-400 hover:text-white"
+              >
+                <FontAwesomeIcon className="ml-2 mt-1" icon={faTriangleExclamation} size="1x" />
+                <div className="grow" />
+                <p className="font-semibold text-white"><span className="italic text-lg">BREAKING NEWS!!!!!!</span></p>
+                <div className="grow" />
+                <FontAwesomeIcon className="mr-2 mt-1" icon={faTriangleExclamation} size="1x" />
+              </div>
+              <div className="w-full h-full p-4 text-center text-base uppercase">
+                <p>
+                  <a href='https://blog.purduehackers.com/posts/papers-please' target='_blank' className='font-semibold text-yellow-300 hover:underline'>PASSPORT CEREMONIES</a><br/>
+                  <span className="font-semibold text-4xl"> ✨ NOW LIVE ✨</span> <br/> get inducted into <br/>
+                  <span className="font-bold text-3xl text-yellow-300">The Republic of Hackerland</span> <br/>There is <br/>
+                  <span className="font-bold text-3xl text-purple-500"> No escape.</span>
+                </p>
+                <div
+                  className="w-full h-full
+                    flex jusitfy-center items-center"
+                >
+                  <div className="grow" />
+                  <Link href={'https://passport-data-pages.vercel.app/'} target='_blank'>
+                    <button className="uppercase dark-action-btn mt-2 mb-1 text-black bg-white shadow-yellow-400">
+                      Become a Citizen <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
+                    </button>
+                  </Link>
+                  <div className="grow" />
                 </div>
               </div>
             </div>
@@ -231,7 +269,7 @@ const HackNight = ({
               </div>
             </Draggable>
             <Draggable>
-              <div className="cursor-pointer">
+              <div className="cursor-pointer relative top-20 left-48">
                 <Image
                   src="/img/keyboard4.png"
                   alt="Keyboard"
@@ -272,7 +310,7 @@ const HackNight = ({
                 </div>
               </div>
             </Draggable>
-            <div className="absolute top-[0px]">
+            <div className="absolute top-[-40px]">
               {fetchedHackNights.slice(0).reverse().map((hackNight, i) => {
                 return (
                   <HackNightCard
@@ -289,48 +327,6 @@ const HackNight = ({
               })}
             </div>
           </div>
-          {!upcomingHackNight.name &&
-            <Draggable handle=".handle">
-              <div
-                className="w-96 sm:w-[300px] border-2 border-white flex flex-col justify-between items-center bg-gray-800 text-white
-                  h-full mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-orange-300/70"
-              >
-                <div
-                  className="handle bg-cyan-400 animate-bg-flash w-full flex border-b-2 border-white
-                    cursor-pointer hover:bg-purple-400 hover:text-white"
-                >
-                  <FontAwesomeIcon className="ml-2 mt-1" icon={faTriangleExclamation} size="1x" />
-                  <div className="grow" />
-                  <p className="font-semibold text-white"><span className="italic text-lg">BREAKING NEWS!!!!!!</span></p>
-                  <div className="grow" />
-                  <FontAwesomeIcon className="mr-2 mt-1" icon={faTriangleExclamation} size="1x" />
-                </div>
-                <div className="w-full h-full p-4 text-center text-base uppercase">
-                  <p>
-                    THE NEXT PASSPORT CEREMONY IS <br/>
-                    <span className="font-semibold text-3xl"> ✨ Friday {upcomingHackNight.date.getMonth() + 1}/{upcomingHackNight.date.getDate()} ✨</span> <br/> AT <br/>
-                    <span className="font-bold text-2xl text-yellow-300"> {upcomingHackNight.location}</span> <br/> AND ITS COLOR IS <br/>
-                    <span className="font-bold text-4xl text-fuchsia-500"> FUCHSIA.</span>
-                  </p>
-                  <div
-                    className="w-full h-full
-                      flex jusitfy-center items-center"
-                  >
-                    <div className="grow" />
-                    <button
-                      onClick={() => {
-                        setSpray(true)
-                      }}
-                      className="uppercase dark-action-btn mt-2 mb-1 text-black bg-white shadow-yellow-400"
-                    >
-                      click to sign up <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
-                    </button>
-                    <div className="grow" />
-                  </div>
-                </div>
-              </div>
-            </Draggable>
-          }
         </div>
       </div>
     </div>
