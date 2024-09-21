@@ -29,20 +29,26 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
     const [sparkColor, setSparkColor] = useState('#FFFFFF')
 
     //let countDownDate = new Date(2024, 8, 20, 20, 0, 0).getTime()
-    let countDownDate = hackNightDate.getTime()
 
     useEffect(() => {
         const timer = setInterval(() => {
             /* Countdown */
 
-            // Get difference between current date and date we're counting to
+            // Get difference between current date and upcoming date
             const currentTime = new Date()
-            let timeDiff = countDownDate - currentTime.getTime()
+            let timeDiff = hackNightDate.getTime() - currentTime.getTime()
 
-            // Create date object from time diff to pass to lightning time
-            let timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
-            //console.log('current time: ' + currentTime)
-            //console.log('time diff date: ' + timeDiffDate)
+            // Check for invalid upcoming date
+            if (timeDiff <= 0) {
+                // Default to next Friday 8pm
+                hackNightDate.setDate(hackNightDate.getDate() + (5 + 7 - hackNightDate.getDay()) % 7);
+                hackNightDate.setHours(20)
+                hackNightDate.setMinutes(0)
+                hackNightDate.setMilliseconds(0)
+                
+                // Update time diff
+                timeDiff = hackNightDate.getTime() - currentTime.getTime()
+            }
 
             // Calculate and update days, hours, minutes and seconds
             setDays(Math.floor(timeDiff / (1000 * 60 * 60 * 24)).toString())
@@ -56,6 +62,9 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
                 staticZapColors: [250, 0],
                 staticSparkColors: [250, 0]
             })
+
+            // Create date object from time diff to pass to lightning time
+            let timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
 
             // Convert countdown time to lightning time
             const convertedTime = lt.convertToLightning(timeDiffDate)
@@ -90,9 +99,8 @@ const Countdown = ({hackNightDate} : {hackNightDate: Date}) => {
                         {display}.exe {' '}
                         <FontAwesomeIcon icon={faRepeat} size="1x" 
                             onClick={() => (display == 'lightning') ? setDisplay('countdown') : setDisplay('lightning')}/> {' '}
-                        <Link href={'https://blog.purduehackers.com/posts/lightning-time'} target='_blank'>
-                            <FontAwesomeIcon icon={faMagicWandSparkles} size="1x" className="text-sky-400" />
-                        </Link>  {' '}
+                        <FontAwesomeIcon icon={faMagicWandSparkles} size="1x" className="text-sky-400" 
+                            onClick={() => alert('This button should turn back time.')}/> {' '}
                         {(display == 'lightning') &&
                             <Link href={'https://blog.purduehackers.com/posts/lightning-time'} target='_blank'>
                                 <FontAwesomeIcon icon={faBolt} size="1x" className="text-yellow-400" />
