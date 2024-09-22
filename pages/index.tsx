@@ -99,7 +99,7 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
           fetchedWorkshops={fetchedWorkshops}
           randomBarCode={randomBarCode}
         />
-        <HackNight 
+        <HackNight
           fetchedHackNights={fetchedHackNights}
           upcomingHackNight={upcomingHackNight}
         />
@@ -111,44 +111,50 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fetchedEvents: IEvent[] = await fetchEvents()
+  const fetchedEvents: IEvent[] = await fetchEvents();
 
   // sort for workshops and hack nights
-  let numWorkshops = 3
-  let numHackNights = 5
-  let fetchedWorkshops: IEvent[] = []
-  let fetchedHackNights: IEvent[] = []
-  let upcomingHackNight: IEvent = { 
+  let numWorkshops = 3;
+  let numHackNights = 5;
+  let fetchedWorkshops: IEvent[] = [];
+  let fetchedHackNights: IEvent[] = [];
+  let upcomingHackNight: IEvent = {
     name: '',
     //date: new Date(2024, 8, 20, 20, 0, 0), // temp manually entered date
     date: new Date(),
     description: '',
     rsvp: '',
     img: '',
-    location: 'The Bechtel Center' 
-  }
+    location: 'The Bechtel Center'
+  };
 
-  let today = new Date()
+  let today = new Date();
 
   for (let i = 0; i < fetchedEvents.length; i++) {
-    if (fetchedEvents[i].date >= today
-          && fetchedEvents[i].name.includes('Hack Night')) {
-      upcomingHackNight = fetchedEvents[i]
-    } else if (fetchedHackNights.length < numHackNights 
-                && fetchedEvents[i].img
-                && fetchedEvents[i].date < today
-                && fetchedEvents[i].name.includes('Hack Night')) {
-      fetchedHackNights.push(fetchedEvents[i])
-    } else if (fetchedWorkshops.length < numWorkshops 
-                && fetchedEvents[i].img
-                && fetchedEvents[i].date < today
-                && fetchedEvents[i].name.includes('Workshop')) {
-      fetchedWorkshops.push(fetchedEvents[i])
+    if (
+      fetchedEvents[i].date >= today &&
+      fetchedEvents[i].name.includes('Hack Night')
+    ) {
+      upcomingHackNight = fetchedEvents[i];
+    } else if (
+      fetchedHackNights.length < numHackNights &&
+      fetchedEvents[i].img &&
+      fetchedEvents[i].date < today &&
+      fetchedEvents[i].name.includes('Hack Night')
+    ) {
+      fetchedHackNights.push(fetchedEvents[i]);
+    } else if (
+      fetchedWorkshops.length < numWorkshops &&
+      fetchedEvents[i].img &&
+      fetchedEvents[i].date < today &&
+      fetchedEvents[i].name.includes('Workshop')
+    ) {
+      fetchedWorkshops.push(fetchedEvents[i]);
     }
   }
 
   // generate barcode
-  let randomBarCode = ''
+  let randomBarCode = '';
   for (let i = 0; i < 5; i++) {
     randomBarCode += Math.floor(Math.random() * 10);
     randomBarCode += '    ';

@@ -1,10 +1,10 @@
-import Draggable from 'react-draggable'
-import { useContext, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Draggable from 'react-draggable';
+import { useContext, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { DraggableContext } from '../context/DraggableContext'
-import { IEvent } from '../utils/interfaces/SanityEvent'
+import { DraggableContext } from '../context/DraggableContext';
+import { IEvent } from '../utils/interfaces/SanityEvent';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,26 +13,26 @@ import {
   faEllipsis,
   faMoon,
   faTriangleExclamation
-} from '@fortawesome/free-solid-svg-icons'
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
+import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 import SprayCanvas from './spray-canvas';
 import Point2D from '../utils/Point2D';
 
-import HackNightCard from './hack-night-card'
-import Countdown from './countdown'
+import HackNightCard from './hack-night-card';
+import Countdown from './countdown';
 
 const HackNight = ({
   fetchedHackNights,
   upcomingHackNight
 }: {
-  fetchedHackNights: IEvent[],
-  upcomingHackNight: IEvent
+  fetchedHackNights: IEvent[];
+  upcomingHackNight: IEvent;
 }) => {
-  upcomingHackNight.date = new Date(upcomingHackNight.date)
+  upcomingHackNight.date = new Date(upcomingHackNight.date);
 
-  const { draggable } = useContext(DraggableContext)
-  const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 })
+  const { draggable } = useContext(DraggableContext);
+  const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 });
 
   const [spray, setSpray] = useState(false);
 
@@ -115,27 +115,63 @@ const HackNight = ({
                 className="handle bg-cyan-400 animate-bg-flash w-full flex border-b-2 border-white
                   cursor-pointer hover:bg-purple-400 hover:text-white"
               >
-                <FontAwesomeIcon className="ml-2 mt-1" icon={faTriangleExclamation} size="1x" />
+                <FontAwesomeIcon
+                  className="ml-2 mt-1"
+                  icon={faTriangleExclamation}
+                  size="1x"
+                />
                 <div className="grow" />
-                <p className="font-semibold text-white"><span className="italic text-lg">BREAKING NEWS!!!!!!</span></p>
+                <p className="font-semibold text-white">
+                  <span className="italic text-lg">BREAKING NEWS!!!!!!</span>
+                </p>
                 <div className="grow" />
-                <FontAwesomeIcon className="mr-2 mt-1" icon={faTriangleExclamation} size="1x" />
+                <FontAwesomeIcon
+                  className="mr-2 mt-1"
+                  icon={faTriangleExclamation}
+                  size="1x"
+                />
               </div>
               <div className="w-full h-full p-4 text-center text-base uppercase">
                 <p>
-                  <a href='https://blog.purduehackers.com/posts/papers-please' target='_blank' className='font-semibold text-yellow-300 hover:underline'>PASSPORT CEREMONIES</a><br/>
-                  <span className="font-semibold text-4xl"> ✨ NOW LIVE ✨</span> <br/> get inducted into <br/>
-                  <span className="font-bold text-3xl text-yellow-300">The Republic of Hackerland</span> <br/>There is <br/>
-                  <span className="font-bold text-3xl text-purple-500"> No escape.</span>
+                  <a
+                    href="https://blog.purduehackers.com/posts/papers-please"
+                    target="_blank"
+                    className="font-semibold text-yellow-300 hover:underline"
+                  >
+                    PASSPORT CEREMONIES
+                  </a>
+                  <br />
+                  <span className="font-semibold text-4xl">
+                    {' '}
+                    ✨ NOW LIVE ✨
+                  </span>{' '}
+                  <br /> get inducted into <br />
+                  <span className="font-bold text-3xl text-yellow-300">
+                    The Republic of Hackerland
+                  </span>{' '}
+                  <br />
+                  There is <br />
+                  <span className="font-bold text-3xl text-purple-500">
+                    {' '}
+                    No escape.
+                  </span>
                 </p>
                 <div
                   className="w-full h-full
                     flex jusitfy-center items-center"
                 >
                   <div className="grow" />
-                  <Link href={'https://passport-data-pages.vercel.app/'} target='_blank'>
+                  <Link
+                    href={'https://passport-data-pages.vercel.app/'}
+                    target="_blank"
+                  >
                     <button className="uppercase dark-action-btn mt-2 mb-1 text-black bg-white shadow-yellow-400">
-                      Become a Citizen <FontAwesomeIcon className="ml-1 mt-1" icon={faMoon} size="1x" />
+                      Become a Citizen{' '}
+                      <FontAwesomeIcon
+                        className="ml-1 mt-1"
+                        icon={faMoon}
+                        size="1x"
+                      />
                     </button>
                   </Link>
                   <div className="grow" />
@@ -311,20 +347,23 @@ const HackNight = ({
               </div>
             </Draggable>
             <div className="absolute top-[-40px]">
-              {fetchedHackNights.slice(0).reverse().map((hackNight, i) => {
-                return (
-                  <HackNightCard
-                    name={hackNight.name}
-                    dateProp={hackNight.date}
-                    description={hackNight.description}
-                    rsvp={hackNight.rsvp}
-                    img={hackNight.img}
-                    location={hackNight.location}
-                    index={i}
-                    key={i}
-                  />
-                )
-              })}
+              {fetchedHackNights
+                .slice(0)
+                .reverse()
+                .map((hackNight, i) => {
+                  return (
+                    <HackNightCard
+                      name={hackNight.name}
+                      dateProp={hackNight.date}
+                      description={hackNight.description}
+                      rsvp={hackNight.rsvp}
+                      img={hackNight.img}
+                      location={hackNight.location}
+                      index={i}
+                      key={i}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

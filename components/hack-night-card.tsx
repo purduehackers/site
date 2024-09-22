@@ -1,52 +1,57 @@
-import Draggable from 'react-draggable'
-import { useContext, useState } from 'react'
-import { DraggableContext } from '../context/DraggableContext'
+import Draggable from 'react-draggable';
+import { useContext, useState } from 'react';
+import { DraggableContext } from '../context/DraggableContext';
 
-import Image from 'next/image'
-import { Remarkable } from 'remarkable'
-import { IEvent } from '../utils/interfaces/SanityEvent'
-import { GithubSlugger } from 'github-slugger-typescript'
+import Image from 'next/image';
+import { Remarkable } from 'remarkable';
+import { IEvent } from '../utils/interfaces/SanityEvent';
+import { GithubSlugger } from 'github-slugger-typescript';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLeftLong,
   faRightLong,
   faEllipsis
-} from '@fortawesome/free-solid-svg-icons'
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
+import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 const HackNightCard = ({
-    name,
-    dateProp,
-    description,
-    rsvp,
-    img,
-    location,
-    index
-  }: { name: string, 
-    dateProp: Date, 
-    description: string, 
-    rsvp: string, 
-    img: string, 
-    location: string,
-    index: number
-  }) => {
-  const { draggable } = useContext(DraggableContext)
+  name,
+  dateProp,
+  description,
+  rsvp,
+  img,
+  location,
+  index
+}: {
+  name: string;
+  dateProp: Date;
+  description: string;
+  rsvp: string;
+  img: string;
+  location: string;
+  index: number;
+}) => {
+  const { draggable } = useContext(DraggableContext);
 
-  const md = new Remarkable()
-  const parsedDescription = md.render(description)
-  const date = new Date(dateProp)
-  const slugger = new GithubSlugger()
-  const eventUrl =
-    'https://events.purduehackers.com/' + slugger.slug(name)
+  const md = new Remarkable();
+  const parsedDescription = md.render(description);
+  const date = new Date(dateProp);
+  const slugger = new GithubSlugger();
+  const eventUrl = 'https://events.purduehackers.com/' + slugger.slug(name);
 
   return (
-    <Draggable 
-        disabled={!draggable}
-        defaultPosition={{ x: (index != 4) ? 40 * index : 53, y: (index != 4) ? 10 + 12 * index + 2 * Math.pow(3, index) : 185 }}>
+    <Draggable
+      defaultPosition={{
+        x: index != 4 ? 40 * index : 53,
+        y: index != 4 ? 10 + 12 * index + 2 * Math.pow(3, index) : 185
+      }}
+      handle=".handle"
+    >
       <div
-          className={`w-96 min-w-fit max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 
-            border-slate-800 flex flex-col absolute`}>
+        className={`w-96 min-w-fit max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 
+            border-slate-800 flex flex-col absolute`}
+      >
         <div
           className="handle w-full bg-gray-300 px-2 text-black font-mono font-bold
             border-black border-solid border-b-2 flex justify-between items-center cursor-pointer"
@@ -91,7 +96,7 @@ const HackNightCard = ({
         </div>
       </div>
     </Draggable>
-  )
-}
+  );
+};
 
-export default HackNightCard
+export default HackNightCard;

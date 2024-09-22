@@ -82,7 +82,7 @@ const Workshops = ({
                 </p>
               </div>
               <div className="grid lg:grid-cols-3 gap-3 sm:gap-0 justify-items-center sm:grid-cols-1 mb-12 sm:mb-0">
-                {fetchedWorkshops.map((workshop) => {
+                {fetchedWorkshops.map(workshop => {
                   return (
                     <WorkshopCard
                       name={workshop.name}
