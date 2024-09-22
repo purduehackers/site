@@ -161,11 +161,11 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
           ) : (
             <div className="text-[70px] font-digital">
               <span className="text-yellow-400">{days}</span>
-              <span className="text-[18px] font-digitalMono"></span>:
+              <span className="text-[18px] font-digitalMono">DAYS</span>:
               <span style={{ color: zapColor }}>{hours}</span>
-              <span className="text-[18px] font-digitalMono"></span>:
+              <span className="text-[18px] font-digitalMono">HR</span>:
               <span style={{ color: sparkColor }}>{minutes}</span>
-              <span className="text-[18px] font-digitalMono"></span>
+              <span className="text-[18px] font-digitalMono">MIN</span>
               <span className="text-[30px] font-digitalMono">:{seconds}</span>
             </div>
           )}
