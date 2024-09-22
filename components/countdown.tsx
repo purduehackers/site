@@ -104,11 +104,16 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
         className="bg-black border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
                 shadow-email shadow-gray-900/30 h-fit absolute top-8 left-20 sm:left-32 cursor-pointer"
       >
-        <div className="handle rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
-          <div className="text-white font-bold font-mono">
+        <div
+          className="rounded-t-lg px-2 py-1 border-b-2 border-black 
+            flex flex-row items-end justify-between bg-black"
+        >
+          <div className="handle grow text-white font-bold font-mono">
             <FontAwesomeIcon icon={faWindows} size="1x" /> {display}.exe{' '}
+          </div>
+          <div>
             <button
-              className="cursor-pointer px-1"
+              className="cursor-pointer px-1 text-white"
               onClick={() =>
                 display == 'lightning'
                   ? setDisplay('countdown')
@@ -144,7 +149,7 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
             )}
           </div>
         </div>
-        <div className="rounded-b-lg text-white px-4 py-0 flex flex-col justify-center items-center">
+        <div className="handle rounded-b-lg text-white px-4 py-0 flex flex-col justify-center items-center">
           {display == 'lightning' ? (
             <div className="text-[70px] font-digital">
               <span className="text-yellow-400">{days}</span>:
