@@ -101,10 +101,10 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
   return (
     <Draggable handle=".handle">
       <div
-        className="handle bg-black border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
+        className="bg-black border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
                 shadow-email shadow-gray-900/30 h-fit absolute top-8 left-20 sm:left-32 cursor-pointer"
       >
-        <div className="rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
+        <div className="handle rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
           <div className="text-white font-bold font-mono">
             <FontAwesomeIcon icon={faWindows} size="1x" /> {display}.exe{' '}
             <button
