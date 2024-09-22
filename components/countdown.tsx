@@ -107,25 +107,33 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
         <div className="rounded-t-lg px-2 border-b-2 border-black flex flex-row bg-black">
           <div className="text-white font-bold font-mono">
             <FontAwesomeIcon icon={faWindows} size="1x" /> {display}.exe{' '}
-            <FontAwesomeIcon
-              icon={faRepeat}
-              size="1x"
+            <button
+              className="cursor-pointer px-1"
               onClick={() =>
                 display == 'lightning'
                   ? setDisplay('countdown')
                   : setDisplay('lightning')
               }
-            />{' '}
-            <FontAwesomeIcon
-              icon={faMagicWandSparkles}
-              size="1x"
-              className="text-sky-400"
-              onClick={() => alert('This button should turn back time.')}
-            />{' '}
+            >
+              <FontAwesomeIcon icon={faRepeat} size="1x" />
+            </button>
+            <button
+              onClick={() =>
+                alert('You have gained the ability to turn back time.')
+              }
+              className="cursor-pointer px-1"
+            >
+              <FontAwesomeIcon
+                icon={faMagicWandSparkles}
+                size="1x"
+                className="text-sky-400"
+              />
+            </button>
             {display == 'lightning' && (
               <Link
                 href={'https://blog.purduehackers.com/posts/lightning-time'}
                 target="_blank"
+                className="cursor-pointer px-1"
               >
                 <FontAwesomeIcon
                   icon={faBolt}
