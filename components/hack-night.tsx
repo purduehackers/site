@@ -162,7 +162,7 @@ const HackNight = ({
                 >
                   <div className="grow" />
                   <Link
-                    href={'https://passport-data-pages.vercel.app/'}
+                    href={'https://passports.purduehackers.com'}
                     target="_blank"
                   >
                     <button className="uppercase dark-action-btn mt-2 mb-1 text-black bg-white shadow-yellow-400">
