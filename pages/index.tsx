@@ -19,12 +19,16 @@ import { fetchEvents } from '../utils/fetchEvents';
 import Footer from '../components/footer';
 
 interface HomeFetchedEventsProps {
-  fetchedEvents: IEvent[];
+  fetchedWorkshops: IEvent[];
+  fetchedHackNights: IEvent[];
+  upcomingHackNight: IEvent;
   randomBarCode: string;
 }
 
 const Home: NextPage<HomeFetchedEventsProps> = ({
-  fetchedEvents,
+  fetchedWorkshops,
+  fetchedHackNights,
+  upcomingHackNight,
   randomBarCode
 }) => {
   // Disable draggable feature on small screen
@@ -92,10 +96,13 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
         <hr className="border-2 border-black border-dashed" />
         <Community />
         <Workshops
-          fetchedEvents={fetchedEvents}
+          fetchedWorkshops={fetchedWorkshops}
           randomBarCode={randomBarCode}
         />
-        <HackNight />
+        <HackNight
+          fetchedHackNights={fetchedHackNights}
+          upcomingHackNight={upcomingHackNight}
+        />
         <JoinUs />
         <Footer />
       </div>
@@ -105,14 +112,59 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const fetchedEvents: IEvent[] = await fetchEvents();
+
+  // sort for workshops and hack nights
+  let numWorkshops = 3;
+  let numHackNights = 5;
+  let fetchedWorkshops: IEvent[] = [];
+  let fetchedHackNights: IEvent[] = [];
+  let upcomingHackNight: IEvent = {
+    name: '',
+    //date: new Date(2024, 8, 20, 20, 0, 0), // temp manually entered date
+    date: new Date(),
+    description: '',
+    rsvp: '',
+    img: '',
+    location: 'The Bechtel Center'
+  };
+
+  let today = new Date();
+
+  for (let i = 0; i < fetchedEvents.length; i++) {
+    if (
+      fetchedEvents[i].date >= today &&
+      fetchedEvents[i].name.includes('Hack Night')
+    ) {
+      upcomingHackNight = fetchedEvents[i];
+    } else if (
+      fetchedHackNights.length < numHackNights &&
+      fetchedEvents[i].img &&
+      fetchedEvents[i].date < today &&
+      fetchedEvents[i].name.includes('Hack Night')
+    ) {
+      fetchedHackNights.push(fetchedEvents[i]);
+    } else if (
+      fetchedWorkshops.length < numWorkshops &&
+      fetchedEvents[i].img &&
+      fetchedEvents[i].date < today &&
+      fetchedEvents[i].name.includes('Workshop')
+    ) {
+      fetchedWorkshops.push(fetchedEvents[i]);
+    }
+  }
+
+  // generate barcode
   let randomBarCode = '';
   for (let i = 0; i < 5; i++) {
     randomBarCode += Math.floor(Math.random() * 10);
     randomBarCode += '    ';
   }
+
   return {
     props: {
-      fetchedEvents: JSON.parse(JSON.stringify(fetchedEvents)),
+      fetchedWorkshops: JSON.parse(JSON.stringify(fetchedWorkshops)),
+      fetchedHackNights: JSON.parse(JSON.stringify(fetchedHackNights)),
+      upcomingHackNight: JSON.parse(JSON.stringify(upcomingHackNight)),
       randomBarCode
     },
     revalidate: 60

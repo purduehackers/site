@@ -4,7 +4,7 @@ export async function fetchEvents(): Promise<IEvent[]> {
   return new Promise((resolve, reject) => {
     const events: IEvent[] = []
 
-    const groqFilter = `*[_type == "event" %26%26 (!unlisted || !defined(unlisted)) %26%26 length(recapImages) > 0 %26%26 name match "Workshop" %26%26 (stat1.label match "people" || stat2.label match "people" || stat3.label match "people")] | order(end desc) [0...3]`
+    const groqFilter = `*[_type == "event" %26%26 (!unlisted || !defined(unlisted))] | order(end desc)`
     fetch(
       `https://api.purduehackers.com/events?groq=${groqFilter} {
         ...,
@@ -19,18 +19,19 @@ export async function fetchEvents(): Promise<IEvent[]> {
         for (const event of records) {
           const eventDateStr = event.start
           const eventDate = new Date(eventDateStr)
-          const recapImg = event.recapImages[0] ?? []
+          const recapImg = event.recapImages ? event.recapImages[0] : {url: ''}
           let participantCount = ''
 
           for (let statNum = 1; statNum <= 3; statNum++) {
-            if (event.stat1.label === 'people') {
+            if (event.stat1 && event.stat1.label === 'people') {
               participantCount = event.stat1.data
-            } else if (event.stat2.label === 'people') {
+            } else if (event.stat2 && event.stat2.label === 'people') {
               participantCount = event.stat2.data
-            } else if (event.stat3.label === 'people') {
+            } else if (event.stat3 && event.stat3.label === 'people') {
               participantCount = event.stat3.data
             }
           }
+
           events.push({
             name: event.name,
             date: eventDate,

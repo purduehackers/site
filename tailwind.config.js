@@ -22,7 +22,10 @@ module.exports = {
       mono: ['var(--font-space-mono)'],
       serif: ['var(--font-ibm-plex-serif)'],
       pixel: ['var(--font-press-start)'],
-      alegre: ['var(--font-alegreya)']
+      alegre: ['var(--font-alegreya)'],
+
+      digital: '"Digital"',
+      digitalMono: '"Digital Mono"'
     },
     extend: {
       colors: {
@@ -60,7 +63,8 @@ module.exports = {
         'blocks-md': '6px 6px',
         email: '6px 6px',
         'footer-btn': '0px 6px',
-        'email-btn': '2px 3px'
+        'email-btn': '2px 3px',
+        'dark-action-btn': '6px 6px'
       },
       screens: {
         xs: '375px'
