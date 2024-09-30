@@ -2,16 +2,18 @@ export function Tier({
   title,
   description,
   price,
+  prefix,
   recommended
 }: {
   title: string;
   description: string;
   price?: number;
+  prefix?: string;
   recommended?: boolean;
 }): JSX.Element {
   return (
     <div
-      className={`font-main ${
+      className={`font-main h-full ${
         recommended
           ? 'bg-gradient-to-br from-amber-400 to-amber-400 via-amber-200 relative'
           : 'bg-amber-300'
@@ -25,7 +27,9 @@ export function Tier({
       <div className="flex flex-col">
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-gray-700 font-mono text-lg">
-          {price ? `$${price.toLocaleString('en-US')}` : 'Contact us'}
+          {price
+            ? `${prefix || ''}$${price.toLocaleString('en-US')}`
+            : 'Contact us'}
         </p>
       </div>
       <p className="text-base print:text-sm">{description}</p>
