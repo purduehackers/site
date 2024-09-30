@@ -11,7 +11,7 @@ export function Tier({
 }): JSX.Element {
   return (
     <div
-      className={`font-main ${
+      className={`font-main h-full ${
         recommended
           ? 'bg-gradient-to-br from-amber-400 to-amber-400 via-amber-200 relative'
           : 'bg-amber-300'
