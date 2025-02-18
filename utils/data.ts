@@ -84,15 +84,13 @@ export const discordMessages = [
   {
     channel: '#ship',
     username: 'Cartic',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/247090061034782721/b033d6798e326464a51351d76ed25232.webp?size=160',
+    pfpImageSrc: '/img/pfp_cartic.png',
     content: `🦀 🦀 🦀  i made a web api to store my reviews of movies. I call it review-api`
   },
   {
     channel: '#ship',
     username: 'Neil',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/221731072822607872/cf31ac5c2be5ee7e596a2face41bb0ac.webp?size=160',
+    pfpImageSrc: '/img/pfp_cygnusx.png',
     content: `made a silly link extender, which puts a ton of loremipsum text as the new link to a webpage`,
     imageSrc: '/img/linkextender.webp',
     imageAlt: `An image of a Discord message showing a really long url. A bunch of lorem ipsum text makes up the long url`
@@ -100,15 +98,13 @@ export const discordMessages = [
   {
     channel: '#hack-night',
     username: 'Ayden B',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/559045506039414784/3fa265211f9a56d23b99c52eab6468ee.webp?size=160',
+    pfpImageSrc: '/img/pfp_stopwatchtt.png',
     content: 'If the stars align I might be able to join'
   },
   {
     channel: '#lounge',
     username: 'matthew!!!',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/89849998585376768/c6842dbd33dfdcfa2fa107d272b6553d.webp?size=160',
+    pfpImageSrc: '/img/pfp_hewillyeah.jpeg',
     content: `Rainbow today`,
     imageSrc: '/img/rainbow.webp',
     imageAlt: `A picture of a double rainbow outside on Purdue's campus`
@@ -116,14 +112,13 @@ export const discordMessages = [
   {
     channel: '#ship',
     username: 'Rachel S.',
-    pfpImageSrc: '/img/rachel_pfp.gif',
+    pfpImageSrc: '/img/pfp_rachel.gif',
     content: `a small victory but i made my first discord bot with python :,) right now it serves as my own personal quotebook but i want it to be my own journal i can scream / rant at`
   },
   {
     channel: '#awestruck',
     username: 'JACK-Complete',
-    pfpImageSrc:
-      'https://cdn.discordapp.com/avatars/262055523896131584/48c99c56d406b16f4c577c382cf1a662.webp?size=160',
+    pfpImageSrc: '/img/pfp_imthesquid.png',
     content: ``,
     imageSrc: '/img/awestruck.jpg',
     imageAlt: `Node.js Device`
