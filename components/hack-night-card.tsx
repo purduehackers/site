@@ -36,6 +36,7 @@ const HackNightCard = ({
 
   const md = new Remarkable();
   const parsedDescription = md.render(description);
+  console.log(description);
   const date = new Date(dateProp);
   const slugger = new GithubSlugger();
   const eventUrl = 'https://events.purduehackers.com/' + slugger.slug(name);
@@ -69,7 +70,7 @@ const HackNightCard = ({
             {name}
           </a>
           <p className="text-slate-500">{date.toDateString()}</p>
-          <div className="mt-2 h-[168px] overflow-scroll text-base text-gray-700">
+          <div className="mt-2 h-fit max-h-[168px] overflow-scroll text-base text-gray-700">
             <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
           </div>
         </div>
