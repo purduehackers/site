@@ -40,9 +40,15 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
       // Get difference between current date and upcoming date
       const currentTime = new Date();
       let timeDiff = hackNightDate.getTime() - currentTime.getTime();
+      //timeDiff = -1;
+
+      console.log('og hacknight', hackNightDate);
+      console.log('og time diff', timeDiff);
 
       // Check for invalid upcoming date
       if (timeDiff <= 0) {
+        console.log('invalid time diff');
+
         // Default to next Friday 8pm
         hackNightDate.setDate(
           hackNightDate.getDate() + ((5 + 7 - hackNightDate.getDay()) % 7)
@@ -53,6 +59,9 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
 
         // Update time diff
         timeDiff = hackNightDate.getTime() - currentTime.getTime();
+
+        console.log('updated hacknight', hackNightDate);
+        console.log('updated time diff', timeDiff);
       }
 
       // Calculate and update days, hours, minutes and seconds
