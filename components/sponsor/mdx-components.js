@@ -9,6 +9,9 @@ export const MDXComponents = {
   h2: props => (
     <h2 {...props} className="font-main text-2xl font-bold text-amber-500" />
   ),
+  h3: props => (
+    <h3 {...props} className="font-main text-xl font-bold text-amber-500" />
+  ),
   a: props => (
     <a
       target="_blank"

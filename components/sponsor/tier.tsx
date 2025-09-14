@@ -11,9 +11,16 @@ export function Tier({
   prefix?: string;
   recommended?: boolean;
 }): JSX.Element {
+  const handleTierClick = () => {
+    window.open(
+      'https://hcb.hackclub.com/donations/start/phack-fall-2025',
+      '_blank'
+    );
+  };
   return (
     <div
-      className={`font-main h-full ${
+      onClick={handleTierClick}
+      className={`font-main h-full cursor-pointer transition-transform duration-200 ease-in-out hover:scale-95 ${
         recommended
           ? 'bg-gradient-to-br from-amber-400 to-amber-400 via-amber-200 relative'
           : 'bg-amber-300'
