@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { LightningTime } from '@purduehackers/time';
 
@@ -15,6 +15,7 @@ import Link from 'next/link';
 const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
   // Display state
   const [display, setDisplay] = useState('lightning');
+  const rootRef = useRef<HTMLDivElement>(null);
 
   // Regular time countdown
   const [days, setDays] = useState('0');
@@ -112,8 +113,9 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
   }, []);
 
   return (
-    <Draggable handle=".handle">
+    <Draggable handle=".handle" nodeRef={rootRef}>
       <div
+        ref={rootRef}
         className="bg-black border-4 border-yellow-400 rounded-lg w-60 min-w-fit mx-auto z-20
                 shadow-email shadow-gray-900/30 h-fit absolute top-8 left-20 sm:left-32 cursor-pointer"
       >

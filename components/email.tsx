@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable';
-import { useState, useContext, useEffect, MouseEvent } from 'react';
+import { useState, useContext, useEffect, MouseEvent, useRef } from 'react';
 
 import { DraggableContext } from '../context/DraggableContext';
 
@@ -28,6 +28,10 @@ function supersecret(input: string) {
 
 const Email = () => {
   const { draggable } = useContext(DraggableContext);
+  const pwRef = useRef<HTMLDivElement>(null);
+  const sendRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+  const firstEmailRef = useRef<HTMLDivElement>(null);
 
   // email windows state
   const [open, setOpen] = useState([true, false, false, false, false, false]);
@@ -173,8 +177,9 @@ const Email = () => {
           </div>
         </div>
         {showPWFrame && (
-          <Draggable disabled={!draggable} handle=".handle">
+          <Draggable disabled={!draggable} handle=".handle" nodeRef={pwRef}>
             <div
+              ref={pwRef}
               className="border-2 border-black w-9/12 sm:w-96 sm:min-w-fit mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-8 left-20 sm:left-32"
             >
@@ -203,8 +208,9 @@ const Email = () => {
           </Draggable>
         )}
         {showSendFrame && (
-          <Draggable handle=".handle">
+          <Draggable handle=".handle" nodeRef={sendRef}>
             <div
+              ref={sendRef}
               className="border-2 border-black w-11/12 sm:w-[32rem] sm:min-w-[25rem] mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-16 left-20 sm:left-40"
             >
@@ -301,8 +307,9 @@ const Email = () => {
           </Draggable>
         )}
         {errorMessage && (
-          <Draggable handle=".handle">
+          <Draggable handle=".handle" nodeRef={errorRef}>
             <div
+              ref={errorRef}
               className="border-2 border-black w-64 sm:min-w-fit mx-auto
                 shadow-email shadow-gray-900/30 h-fit absolute z-[100] top-36 left-48 sm:left-64"
             >
@@ -399,8 +406,9 @@ const Email = () => {
             })}
           </div>
           {open[0] && (
-            <Draggable handle=".handle">
+            <Draggable handle=".handle" nodeRef={firstEmailRef}>
               <div
+                ref={firstEmailRef}
                 className="border-2 border-black w-11/12 sm:w-[36rem] sm:min-w-[30rem] mr-12 
                   shadow-email shadow-gray-900/30 h-fit z-0 top-5 left-4 relative"
               >

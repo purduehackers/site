@@ -1,7 +1,8 @@
 import Draggable from 'react-draggable';
-import { useContext, useState } from 'react';
+import { useContext, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { DraggableContext } from '../context/DraggableContext';
 import { IEvent } from '../utils/interfaces/SanityEvent';
@@ -20,7 +21,7 @@ import SprayCanvas from './spray-canvas';
 import Point2D from '../utils/Point2D';
 
 import HackNightCard from './hack-night-card';
-import Countdown from './countdown';
+const Countdown = dynamic(() => import('./countdown'), { ssr: false });
 
 const HackNight = ({
   fetchedHackNights,
@@ -35,6 +36,14 @@ const HackNight = ({
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 });
 
   const [spray, setSpray] = useState(false);
+  const windowRef = useRef<HTMLDivElement>(null);
+  const breakingRef = useRef<HTMLDivElement>(null);
+  const terminalRef = useRef<HTMLDivElement>(null);
+  const ascendRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const blobRef = useRef<HTMLDivElement>(null);
+  const keyboardRef = useRef<HTMLDivElement>(null);
+  const mysteryRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="bg-gray-dark min-h-screen">
@@ -50,8 +59,9 @@ const HackNight = ({
         </h1>
         <div className="relative flex flex-col items-center mt-8">
           <Countdown hackNightDate={upcomingHackNight.date} />
-          <Draggable disabled={!draggable} handle=".handle">
+          <Draggable disabled={!draggable} handle=".handle" nodeRef={windowRef}>
             <div
+              ref={windowRef}
               className="border-solid border-black border-2 z-10 shadow-email shadow-gray-900/30
                 w-full md:w-2/3 lg:w-1/2 rounded-xl bg-white relative right sm:top-12 sm:left-44"
             >
@@ -106,8 +116,9 @@ const HackNight = ({
               </div>
             </div>
           </Draggable>
-          <Draggable handle=".handle">
+          <Draggable handle=".handle" nodeRef={breakingRef}>
             <div
+              ref={breakingRef}
               className="absolute top-[-100px] left-[850px] w-96 sm:w-[300px] border-2 border-white flex flex-col justify-between items-center bg-gray-800 text-white
                 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-orange-300/70"
             >
@@ -179,8 +190,13 @@ const HackNight = ({
               </div>
             </div>
           </Draggable>
-          <Draggable disabled={!draggable} handle=".handle">
+          <Draggable
+            disabled={!draggable}
+            handle=".handle"
+            nodeRef={terminalRef}
+          >
             <div
+              ref={terminalRef}
               className="border-solid border-gray-300 border-2 shadow-email shadow-gray-900/30
                 w-full sm:w-3/5 md:w-3/5 lg:w-2/5 h-64 rounded-xl font-bold font-mono bg-black z-5 mt-6 sm:mt-0 sm:bottom-20 sm:right-72 relative"
             >
@@ -209,8 +225,9 @@ const HackNight = ({
             </div>
           </Draggable>
           <div className="flex flex-col sm:flex-row relative">
-            <Draggable handle=".handle">
+            <Draggable handle=".handle" nodeRef={ascendRef}>
               <div
+                ref={ascendRef}
                 className="border-white font-bold font-mono border-2 flex flex-col justify-between items-center 
                   bg-black w-36 h-68 m-0 shadow-email shadow-blue-400/70 relative top-24 left-36"
               >
@@ -258,8 +275,13 @@ const HackNight = ({
                 </div>
               </div>
             </Draggable>
-            <Draggable disabled={!draggable} handle=".handle">
+            <Draggable
+              disabled={!draggable}
+              handle=".handle"
+              nodeRef={imageRef}
+            >
               <div
+                ref={imageRef}
                 className="border-solid border-gray-300 border-2 w-fit h-fit rounded-xl shadow-email shadow-gray-900/30
                 font-bold font-mono bg-black mt-6 sm:mt-0 sm:left-48 sm:bottom-40 relative"
               >
@@ -284,8 +306,9 @@ const HackNight = ({
             </Draggable>
           </div>
           <div className="flex flex-col sm:flex-row sm:mt-0 relative -top-48">
-            <Draggable handle=".handle">
+            <Draggable handle=".handle" nodeRef={blobRef}>
               <div
+                ref={blobRef}
                 className="w-fit h-fit border-solid border-gray-300 border-4 shadow-email shadow-gray-900/30
                 rounded-xl font-mono font-bold mt-6 sm:mt-0 relative -left-12 sm:left-0 -top-[17rem]"
               >
@@ -304,8 +327,11 @@ const HackNight = ({
                 />
               </div>
             </Draggable>
-            <Draggable>
-              <div className="cursor-pointer relative top-20 left-48">
+            <Draggable nodeRef={keyboardRef}>
+              <div
+                ref={keyboardRef}
+                className="cursor-pointer relative top-20 left-48"
+              >
                 <Image
                   src="/img/keyboard4.png"
                   alt="Keyboard"
@@ -315,8 +341,9 @@ const HackNight = ({
                 />
               </div>
             </Draggable>
-            <Draggable handle=".handle">
+            <Draggable handle=".handle" nodeRef={mysteryRef}>
               <div
+                ref={mysteryRef}
                 className="w-[180px] border-2 border-black flex flex-col justify-between items-center bg-white
                   h-48 mt-8 sm:mt-0 mb-4 sm:mb-8 shadow-email shadow-pink-400/70"
               >

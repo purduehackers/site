@@ -1,5 +1,5 @@
 import Draggable from 'react-draggable';
-import { useContext, useState } from 'react';
+import { useContext, useState, useRef } from 'react';
 import { DraggableContext } from '../context/DraggableContext';
 
 import Image from 'next/image';
@@ -33,15 +33,20 @@ const HackNightCard = ({
   index: number;
 }) => {
   const { draggable } = useContext(DraggableContext);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const md = new Remarkable();
   const parsedDescription = md.render(description);
   const date = new Date(dateProp);
+  const dateET = new Date(
+    date.toLocaleString('en-US', { timeZone: 'America/New_York' })
+  );
   const slugger = new GithubSlugger();
   const eventUrl = 'https://events.purduehackers.com/' + slugger.slug(name);
 
   return (
     <Draggable
+      nodeRef={cardRef}
       defaultPosition={{
         x: index != 4 ? 40 * index : 53,
         y: index != 4 ? 10 + 12 * index + 2 * Math.pow(3, index) : 185
@@ -49,6 +54,7 @@ const HackNightCard = ({
       handle=".handle"
     >
       <div
+        ref={cardRef}
         className={`w-96 min-w-fit max-w-sm mx-4 mt-2 overflow-hidden bg-white rounded shadow-email shadow-gray-800/30 border-2 
             border-slate-800 flex flex-col absolute`}
       >
@@ -68,7 +74,15 @@ const HackNightCard = ({
           >
             {name}
           </a>
-          <p className="text-slate-500">{date.toDateString()}</p>
+          <p className="text-slate-500">
+            {new Intl.DateTimeFormat('en-US', {
+              timeZone: 'America/New_York',
+              weekday: 'short',
+              year: 'numeric',
+              month: 'short',
+              day: '2-digit'
+            }).format(date)}
+          </p>
           <div className="mt-2 h-fit max-h-[168px] overflow-scroll text-base text-gray-700">
             <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
           </div>
