@@ -30,7 +30,7 @@ const HackNight = ({
   fetchedHackNights: IEvent[];
   upcomingHackNight: IEvent;
 }) => {
-  upcomingHackNight.date = new Date(upcomingHackNight.date);
+  const upcomingDate = new Date(upcomingHackNight.date);
 
   const { draggable } = useContext(DraggableContext);
   const [cursorPosition, setCursorPosition] = useState<Point2D>({ x: 0, y: 0 });
@@ -58,7 +58,7 @@ const HackNight = ({
           Hack Night
         </h1>
         <div className="relative flex flex-col items-center mt-8">
-          <Countdown hackNightDate={upcomingHackNight.date} />
+          <Countdown hackNightDate={upcomingDate} />
           <Draggable disabled={!draggable} handle=".handle" nodeRef={windowRef}>
             <div
               ref={windowRef}

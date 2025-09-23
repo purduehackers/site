@@ -127,7 +127,11 @@ export const getStaticProps: GetStaticProps = async () => {
     location: 'The Bechtel Center'
   };
 
-  let today = new Date();
+  // Normalize to Eastern Time for event
+  const now = new Date();
+  const today = new Date(
+    now.toLocaleString('en-US', { timeZone: 'America/New_York' })
+  );
 
   for (let i = 0; i < fetchedEvents.length; i++) {
     if (
@@ -152,10 +156,14 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
-  // generate barcode
+  // generate barcode deterministically from date to avoid SSR/CSR mismatch
   let randomBarCode = '';
+  const seed =
+    today.getFullYear() * 1000 + (today.getMonth() + 1) * 50 + today.getDate();
+  let x = seed % 2147483647;
   for (let i = 0; i < 5; i++) {
-    randomBarCode += Math.floor(Math.random() * 10);
+    x = (x * 48271) % 2147483647;
+    randomBarCode += (x % 10).toString();
     randomBarCode += '    ';
   }
 

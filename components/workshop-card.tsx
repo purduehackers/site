@@ -21,7 +21,15 @@ const WorkshopCard = (props: IEvent) => {
         >
           {props.name}
         </a>
-        <p className="text-slate-500">{date.toDateString()}</p>
+        <p className="text-slate-500">
+          {new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/New_York',
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit'
+          }).format(date)}
+        </p>
         <div className="mt-2 h-[168px] overflow-scroll text-base text-gray-700">
           <div dangerouslySetInnerHTML={{ __html: parsedDescription }}></div>
         </div>
