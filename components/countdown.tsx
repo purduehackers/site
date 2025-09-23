@@ -84,7 +84,11 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
       });
 
       // Create date object from time diff to pass to lightning time
-      const timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
+      // Adjust by local timezone offset
+      const offsetMs = new Date().getTimezoneOffset() * 60 * 1000;
+      const timeDiffDate = new Date(timeDiff + offsetMs);
+
+      //const timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
 
       // Convert countdown time to lightning time
       const convertedTime = lt.convertToLightning(timeDiffDate);
