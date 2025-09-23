@@ -33,26 +33,36 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
   const [sparkColor, setSparkColor] = useState('#FFFFFF');
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      /* Countdown */
+    const computeNextFridayEightET = () => {
+      const now = new Date();
+      const nowET = new Date(
+        now.toLocaleString('en-US', { timeZone: 'America/New_York' })
+      );
 
-      // Get difference between current date and upcoming date
-      const currentTime = new Date();
-      let timeDiff = hackNightDate.getTime() - currentTime.getTime();
-
-      // Check for invalid upcoming date
-      if (timeDiff <= 0) {
-        // Default to next Friday 8pm
-        hackNightDate.setDate(
-          hackNightDate.getDate() + ((5 + 7 - hackNightDate.getDay()) % 7)
-        );
-        hackNightDate.setHours(20);
-        hackNightDate.setMinutes(0);
-        hackNightDate.setMilliseconds(0);
-
-        // Update time diff
-        timeDiff = hackNightDate.getTime() - currentTime.getTime();
+      const dow = nowET.getDay(); // 0=Sun ... 5=Fri
+      let daysToFriday = (5 - dow + 7) % 7;
+      if (daysToFriday === 0) {
+        // It's Friday: if past or at 20:00, roll to next Friday
+        if (nowET.getHours() >= 20) {
+          daysToFriday = 7;
+        }
       }
+
+      const targetET = new Date(nowET);
+      targetET.setDate(nowET.getDate() + daysToFriday);
+      targetET.setHours(20, 0, 0, 0); // 20:00 ET
+
+      // Convert the ET wall-clock to an absolute UTC timestamp
+      const offsetNowMs = nowET.getTime() - now.getTime();
+      const targetUtcMs = targetET.getTime() - offsetNowMs;
+      return targetUtcMs;
+    };
+
+    const timer = setInterval(() => {
+      /* Countdown to next Friday 20:00 ET */
+      const nowMs = Date.now();
+      const targetMs = computeNextFridayEightET();
+      const timeDiff = Math.max(0, targetMs - nowMs);
 
       // Calculate and update days, hours, minutes and seconds
       setDays(Math.floor(timeDiff / (1000 * 60 * 60 * 24)).toString());
@@ -74,7 +84,7 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
       });
 
       // Create date object from time diff to pass to lightning time
-      let timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
+      const timeDiffDate = new Date(timeDiff + 5 * 60 * 60 * 1000); // have to add 5 hours (I'm not sure why)
 
       // Convert countdown time to lightning time
       const convertedTime = lt.convertToLightning(timeDiffDate);
@@ -95,7 +105,7 @@ const Countdown = ({ hackNightDate }: { hackNightDate: Date }) => {
     return () => {
       clearInterval(timer);
     };
-  });
+  }, []);
 
   return (
     <Draggable handle=".handle">

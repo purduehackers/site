@@ -36,7 +36,6 @@ const HackNightCard = ({
 
   const md = new Remarkable();
   const parsedDescription = md.render(description);
-  console.log(description);
   const date = new Date(dateProp);
   const slugger = new GithubSlugger();
   const eventUrl = 'https://events.purduehackers.com/' + slugger.slug(name);
