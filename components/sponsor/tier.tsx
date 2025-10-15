@@ -12,14 +12,11 @@ export function Tier({
   recommended?: boolean;
 }): JSX.Element {
   const handleTierClick = () => {
-    window.open(
-      'https://hcb.hackclub.com/donations/start/phack-fall-2025',
-      '_blank'
-    );
+    // TODO: Add donation link
   };
   return (
     <div
-      onClick={handleTierClick}
+      // onClick={handleTierClick}
       className={`font-main h-full cursor-pointer transition-transform duration-200 ease-in-out hover:scale-95 ${
         recommended
           ? 'bg-gradient-to-br from-amber-400 to-amber-400 via-amber-200 relative'
