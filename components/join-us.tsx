@@ -75,8 +75,8 @@ function JoinUs() {
             <div className="relative -top-4 animate-fade-in">
               <Image
                 className="active:scale-95 transition-transform"
-                src="/img/sadPlantB2.svg"
-                alt="Sad Plant (watered)!"
+                src="/img/happyPlant.svg"
+                alt="Happy Plant!"
                 width={200}
                 height={200}
               />
