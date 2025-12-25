@@ -84,11 +84,21 @@ module.exports = {
         'bg-flash': {
           '0%': { backgroundColor: '59, 235, 135' },
           '100%': { backgroundColor: 'rgb(3, 111, 252)' }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' }
         }
       },
       animation: {
         'fade-in': 'fade-in .5s ease-in-out',
-        'bg-flash': 'bg-flash 1s linear 0s infinite alternate'
+        'bg-flash': 'bg-flash 1s linear 0s infinite alternate',
+        marquee: 'marquee 15s linear infinite',
+        'marquee-reverse': 'marquee-reverse 15s linear infinite'
       }
     }
   },
