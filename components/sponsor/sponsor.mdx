@@ -1,12 +1,7 @@
+import { Tier } from './tier';
 import { Grid } from './grid';
 
-University recruiting is broken. Career fairs are supposed to build real connections, but the flood of students makes meaningful filtering nearly impossible. At the same time, students who _are_ pushing the boundaries often lack the time, space, and resources to build the ambitious technical projects that set them apart.
-
-That’s where Purdue Hackers steps in.
-
-Founded in 2013, Purdue Hackers is a community of engineers, designers, and tinkerers at Purdue University who build things together. We’ve grown into the largest computer science organization on campus – in one of the nation’s top CS programs – united by a simple belief: the best technical work happens when talented people are free to build what they love, surrounded by a community that amplifies their ambition.
-
-Every Friday night, 80+ students gather for Hack Night. There are no prompts, no prizes, no hackathon noise. Just time, space, and a concentrated atmosphere of people working on projects that matter to them. Some spend the night debugging custom PCBs. Others write compilers, experiment with iOS exploits, or design new computing systems from scratch. At midnight, we host open demos – five minutes to show what one made, get feedback, and celebrate their work. It’s the cultural heartbeat of our community. Hack Night starts at 8 PM and often ends at dawn – not because anyone’s required to be there, but because they’d rather be nowhere else.
+University recruiting is broken. Career fairs are supposed to build the edien demos – five minutes to show what one made, get feedback, and celebrate their work. It’s the cultural heartbeat of our community. Hack Night starts at 8 PM and often ends at dawn – not because anyone’s required to be there, but because they’d rather be nowhere else.
 
 <Grid>
 
@@ -30,17 +25,34 @@ Your support directly funds the heartbeat of this community: microgrants for amb
 
 ## Ways to Support
 
-Most of our supporters contribute between $500 and $5,000 per year. We keep partnerships flexible – no rigid tiers required – but we’ve outlined common levels to make things easy [NOTE(@ray): idk if we should do this. sriram has a point that it helps make clearer for people but everything i think of is shallow af].
+Most of our supporters contribute between $500 and $5,000 per year. We keep partnerships flexible – no rigid tiers required – but we’ve outlined happy paths below to make things easy.
 
-[TODO(@ray): add support levels? idk]
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <Tier
+        title="Partners"
+        price={500}
+        description="One focused Social Boost: Instagram post, Discord announcement, and campus flyers for your recruiting form or program. A fast, lightweight way to get in front of builders."
+    />
+    <Tier
+        title="Small-Group Session"
+        price={1000}
+        description="Host a 60–90 minute private session with 8–12 handpicked builders (resume review, roundtable, or office hours). Includes goal alignment and curated follow-up with warm intros."
+    />
+    <Tier
+        title="Semester Partner"
+        price={2500}
+        recommended
+        description="Two small-group sessions + one Social Boost + a month-long product spotlight woven into Hack Nights. High-signal engagement with Purdue’s most ambitious builders."
+    />
+</div>
 
-Everything here is fully customizable – most of our best partnerships don’t fit neatly into boxes. By supporting Purdue Hackers, you’re not just writing a check – you’re embedding your company directly into the most ambitious technical community on campus. Our partners are in the room where great projects are born, meeting builders long before they hit career fairs and standing shoulder to shoulder with the work that defines our culture.
+Most of our best partnerships don’t fit neatly into boxes, so please contact us! We'd love to chat about unique ways to work with you. By supporting Purdue Hackers, you’re not just writing a check – you’re embedding your company directly into the most ambitious technical community on campus. Our partners are in the room where great projects are born, meeting builders long before they hit career fairs and standing shoulder to shoulder with the work that defines our culture.
 
 Every dollar goes directly to students. $1,000 funds two or three microgrants – covering hardware, materials, or cloud credits for ambitious builds. $5,000 powers an entire month of Hack Nights, giving dozens of students the time and space to create. Larger contributions let us invest in infrastructure that raises the ceiling for everyone.
 
 Donors are added to our VIP Newsletter and receive quarterly updates on the impact of their support and what cool things Purdue Hackers is building :) We also invite you to join us at our events, where you can meet the students and see the projects firsthand.
 
-### For Recruiter Friends 👋
+### For Recruiter Friends
 
 If your goal is to meet and hire exceptional builders, we make it easy. Before you arrive, we’ll align on your goals and the kinds of students you want to meet. When you’re here – at Hack Night, a tech talk, or a private meet and greet – you’re in the space where the work is happening, talking directly to the people building it. Within a week, you’ll receive a curated list of opt-in students and warm intros to the best matches for your team. It’s fast, personal, and far better signal than a cold career fair.
 
@@ -54,9 +66,9 @@ If your goal is to meet and hire exceptional builders, we make it easy. Before y
 
 </Grid>
 
-Every semester ends with _The Show_, the largest creative-technical demo day in the Midwest. It’s where our members unveil the projects they’ve spent months building: time sculptures, kinetic installations, generative art, custom hardware, and other work that blends engineering with creativity. Hundreds of students, faculty, and industry guests pack the space to see what’s possible when talented people are given time and freedom to build.
+Every semester ends with _The Show_, the largest creative-technical demo day in the Midwest. It’s where our members unveil the projects they’ve spent months building: time sculptures, kinetic installations, computational art, custom hardware, and other work that blends engineering with creativity. Hundreds of students, faculty, and industry guests pack the space to see what’s possible when talented people are given time and freedom to build.
 
-For sponsors, The Show is a front-row seat to that energy: your team stands alongside the work itself, your brand woven into the story. This year’s Show, [spill ≋](https://spill.purduehackers.com/), is happening on December 6th in a coffee shop on a winter evening.
+For sponsors, The Show is a front-row seat to that energy: your team stands alongside the work itself, your brand woven into the story. Last year’s Show, [spill ≋](https://spill.purduehackers.com/), happened on December 6th in a coffee shop on a winter evening with over 300 people attending. It got featured in [the school newspaper](https://www.purdueexponent.org/campus/purdue-hackers-hosts-spill-to-showcase-projects/article_dbbc20f8-f51a-48cc-a475-12eb52394f1d.html), recieved praise from various campus leaders and external partners, and had guests flying in from all over the country. We're currently planning the next Show!
 
 # Get in Contact
 

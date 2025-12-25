@@ -111,7 +111,8 @@ const Home: NextPage<HomeFetchedEventsProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fetchedEvents: IEvent[] = await fetchEvents();
+  // const fetchedEvents: IEvent[] = await fetchEvents();
+  const fetchedEvents = [];
 
   // sort for workshops and hack nights
   let numWorkshops = 3;
